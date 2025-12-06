@@ -15,7 +15,6 @@ const Header = () => {
         </Item>
       </List>
     </Navigation>
-    <Input />
     </Wrapper>
   );
 };
