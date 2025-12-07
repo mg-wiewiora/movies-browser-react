@@ -2,41 +2,54 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const Wrapper = styled.header`
-    background-color: ${({ theme }) => theme.color.black};
-    padding: 10px;
-    color: ${({ theme }) => theme.color.white};
+  background-color: ${({ theme }) => theme.color.black};
+  color: ${({ theme }) => theme.color.white};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  width: 100%;
+  min-width: 320px;
+  height: 94px;
 `;
 
 export const Title = styled.h1`
-    padding: 10px;
-    font-size: 24px;
+  padding: 10px;
+  font-size: 24px;
 `;
 
 export const Navigation = styled.nav`
-    padding: 10px;
+  padding: 10px;
 `;
 
 export const StyledNavLink = styled(NavLink)`
-    text-decoration: none;
+  text-decoration: none;
+  padding: 10px;
+  color: ${({ theme }) => theme.color.white};
 
-    &:hover {
-         font-weight: bold;
-    }
-    &.active {
-        border: 1px solid ${({ theme }) => theme.color.white};
-        border-radius: 24px;
-    }
-
+  &:hover {
+    font-weight: bold;
+    
+  }
+  &.active {
+    border: 1px solid ${({ theme }) => theme.color.white};
+    border-radius: 24px;
+  }
 `;
 
 export const List = styled.ul`
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
 `;
 
 export const Item = styled.li`
-    margin: 20px;
+  color: ${({ theme }) => theme.color.white};
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+  padding: 12px 24px;
 `;

@@ -11,8 +11,8 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: "Poppins", sans-serif;
-    background-color: ${({ theme }) => theme.colors.whisper};
-    color: ${({ theme }) => theme.colors.black};
+    background-color: ${({ theme }) => theme.color.whisper};
+    color: ${({ theme }) => theme.color.black};
     margin: 0 auto;
     line-height: 1.6;
   }
