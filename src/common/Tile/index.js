@@ -8,14 +8,13 @@ import {
       TileTag,
       TileContent
 } from "./styled";
-import poster from "../../images/image.jpg"
 
-const Tile = ({ title, content, tag1, tag2 }) => (
+const Tile = ({ image, title, year, tag1, tag2, content, }) => (
   <TileWrapper>
-    <TileImage src={poster} />
+    <TileImage src={image} />
     <TileContainer>
       <TileTitle>{title}</TileTitle>
-      <TileYear>2009</TileYear>
+      <TileYear>{year}</TileYear>
       <TileTags>
         <TileTag>{tag1}</TileTag>
         <TileTag>{tag2}</TileTag>

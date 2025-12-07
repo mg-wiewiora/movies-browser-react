@@ -6,7 +6,7 @@ const MoviePage = () => {
   return (
     <Container>
       <Section title="Title" content="Content" />
-      <Tile title="Title" content="Content" tag1="Horror" tag2="Thriller"/>
+      <Tile title="Title" content="Content" year="2009" tag1="Horror" tag2="Thriller"/>
     </Container>
   );
 };
