@@ -2,7 +2,7 @@
   "name": "to-do-list-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mg-wiewiora.github.io/to-do-list-react/",
+  "homepage": "https://mg-wiewiora.github.io/movies-browser-react/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.0",
     "@testing-library/dom": "^10.4.1",
