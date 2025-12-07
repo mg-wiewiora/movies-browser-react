@@ -5,7 +5,7 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "My-virtual-CV",
+		"liveServer.settings.multiRootWorkspaceName": "movie-browser-react",
 		"liveServer.settings.port": 5501
 	}
 }
