@@ -1,9 +1,8 @@
-# Movies Browser
+# Movies Browser - Work in progress ⚒️ 🧐
 
 Fully interactive version → React, Redux Toolkit, React Router & Styled Components
 
-> Work in progress
->
+
 > This project was created as part of mastering Front-end fundamentals.
 >
 > **language of the page: English**
