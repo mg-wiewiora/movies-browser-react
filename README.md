@@ -8,9 +8,10 @@ Fully interactive version → React, Redux Toolkit, React Router & Styled Compon
 >
 > **language of the page: English**
 
-<img width="200" alt="Movies Browser icon" src="https://github.com/user-attachments/assets/38e84269-ad80-4595-ae84-aafea5a0d238" />
+<img width="200" alt="Movies Browser icon" src="https://github.com/user-attachments/assets/645ae2ea-e8fe-4a1a-8066-4b40296373c7" />
 
 ---
+
 
 ## Demo
 
