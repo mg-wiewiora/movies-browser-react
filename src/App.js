@@ -1,7 +1,7 @@
 import Movies from "./features/movies/MoviesPage";
 import Movie from "./features/movies/MoviePage";
 import People from "./features/people/PeoplePage";
-import Person from "./features/people/PeoplePage";
+import Person from "./features/people/PersonPage";
 
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import { toMovies, toMovie, toPerson, toPeople } from "./routes";
