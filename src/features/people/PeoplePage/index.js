@@ -4,7 +4,7 @@ import { Container } from "../../../common/Container/styled";
 const PeoplePage = () => {
   return (
     <Container>
-     <Section title="Tytuł" content="Content" />
+      <Section title="Title" content="Content" />
     </Container>
   );
 };

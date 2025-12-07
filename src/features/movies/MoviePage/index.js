@@ -4,7 +4,7 @@ import { Container } from "../../../common/Container/styled";
 const MoviePage = () => {
   return (
     <Container>
-     <Section title="Tytuł" content="Content" />
+      <Section title="Title" content="Content" />
     </Container>
   );
 };
