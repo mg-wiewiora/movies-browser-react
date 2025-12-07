@@ -1,12 +1,13 @@
 import Section from "../../../common/Section";
-import Tile from "../../../common/Tile";
 import { Container } from "../../../common/Container/styled";
+import Tile from "../../../common/Tile";
+import poster from "../../../images/image.jpg"
 
 const MoviePage = () => {
   return (
     <Container>
       <Section title="Title" content="Content" />
-      <Tile title="Title" content="Content" year="2009" tag1="Horror" tag2="Thriller"/>
+      <Tile image={poster} title="Saw VI" year="2009" tag1="Horror" tag2="Thriller" content="Content"/>
     </Container>
   );
 };
