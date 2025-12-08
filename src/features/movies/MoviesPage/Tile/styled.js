@@ -1,7 +1,12 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ReactComponent as StarIcon } from "../../../../assets/star.svg";
+import { NavLink } from "react-router-dom";
 
-export const TileWrapper = styled.div`
+const activeClassName = "active";
+
+export const TileWrapper = styled(NavLink).attrs(() => ({
+    activeClassName,
+}))`
   width: 324px;
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px ${({ theme }) => theme.color.shadow};
