@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  movies: [],      // lista filmów
-  loading: false,  // czy trwa pobieranie
-  error: null,     // błąd 
+  movies: [],
+  loading: false,
+  error: null,
 };
 
 const moviesSlice = createSlice({
@@ -25,5 +25,6 @@ const moviesSlice = createSlice({
   },
 });
 
-export const { fetchMoviesStart, fetchMoviesSuccess, fetchMoviesFailure } = moviesSlice.actions;
+export const { fetchMoviesStart, fetchMoviesSuccess, fetchMoviesFailure } =
+  moviesSlice.actions;
 export default moviesSlice.reducer;

@@ -3,18 +3,16 @@ import axios from "axios";
 import {
   fetchMoviesStart,
   fetchMoviesSuccess,
-  fetchMoviesFailure
+  fetchMoviesFailure,
 } from "./moviesSlice";
 
 const API_KEY = "e0da2a33c4def495d0c4977083b2de8b";
 const BASE_URL = "https://api.themoviedb.org/3";
 
-// fetch popular movies
 function fetchPopularMoviesApi() {
   return axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
 }
 
-// fetch genres
 function fetchGenresApi() {
   return axios.get(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`);
 }
@@ -23,7 +21,7 @@ function* fetchMoviesSaga() {
   try {
     const [moviesResponse, genresResponse] = yield all([
       call(fetchPopularMoviesApi),
-      call(fetchGenresApi)
+      call(fetchGenresApi),
     ]);
 
     const genresMap = {};
@@ -33,7 +31,7 @@ function* fetchMoviesSaga() {
 
     const moviesWithGenres = moviesResponse.data.results.map((movie) => ({
       ...movie,
-      genre_names: movie.genre_ids.map((id) => genresMap[id] || "Unknown")
+      genre_names: movie.genre_ids.map((id) => genresMap[id] || "Unknown"),
     }));
 
     yield put(fetchMoviesSuccess(moviesWithGenres));
