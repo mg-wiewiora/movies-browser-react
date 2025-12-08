@@ -4,6 +4,8 @@ import {
   TileContainer,
   TileTitle,
   TileYear,
+  TileDetails,
+  TileDetailsTitle,
   TileTags,
   TileTag,
   TileRatingWrapper,
@@ -13,14 +15,21 @@ import {
   TileRating
 } from "./styled";
 import { getReleaseYear, getPosterUrl } from "../../moviesData.js";
+import noPoster from "../../../../assets/no-poster.svg";
 
-const Tile = ({ image, content, movie }) => (
+const Tile = ({ content, movie, }) => {
 
+  const releaseYear = getReleaseYear(movie.release_date);
+  const posterUrl = getPosterUrl(movie.poster_path);
+  
+  return(
   <TileWrapper>
-    <TileImage src={image} />
+    <TileImage src={posterUrl} $noPosterUrl={noPoster} />
     <TileContainer>
       <TileTitle>{movie.title}</TileTitle>
-      <TileYear>{movie.year}</TileYear>
+      <TileYear>{releaseYear}</TileYear>
+      <TileDetails><TileDetailsTitle>Production: </TileDetailsTitle>{movie.original_language}</TileDetails>
+      <TileDetails><TileDetailsTitle>Release date: </TileDetailsTitle>{movie.release_date}</TileDetails>
       <TileTags>
         {movie.genre_names?.map((g) => (
           <TileTag key={g}>{g}</TileTag>
@@ -31,9 +40,9 @@ const Tile = ({ image, content, movie }) => (
         <TileRating>{movie.vote_average.toFixed(1)}</TileRating>
         <TileVotes>{movie.vote_count} votes</TileVotes>
       </TileRatingWrapper>
-      <TileContent>{content}</TileContent>
+      <TileContent>{movie.overview}</TileContent>
     </TileContainer>
   </TileWrapper>
-);
+)};
 
 export default Tile;

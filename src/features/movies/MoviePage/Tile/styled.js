@@ -44,6 +44,17 @@ export const TileYear = styled.div`
     font-size: 22px;
 `
 
+export const TileDetails = styled.div`
+    font-size: 18px;
+    display: flex;
+    gap: 8px;
+`
+
+export const TileDetailsTitle = styled.div`
+    font-size: 18px;
+    color: ${({ theme }) => theme.color.grey};
+`
+
 export const TileTag = styled.li`
     background-color: ${({ theme }) => theme.color.mystic};
     padding: 8px 16px;

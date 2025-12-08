@@ -21,7 +21,7 @@ const Tile = ({ movie }) => {
   const posterUrl = getPosterUrl(movie.poster_path);
 
   return (
-    <TileWrapper to={toMovie()}>
+    <TileWrapper to={`/movie/${movie.id}`}>
       <TileImage $posterUrl={posterUrl} $noPosterUrl={noPoster} />
       <TileContainer>
         <TileTitle>{movie.title}</TileTitle>

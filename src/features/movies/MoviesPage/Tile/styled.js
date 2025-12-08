@@ -65,6 +65,8 @@ export const TileTitle = styled.h3`
   margin: 0 0 8px 0;
   font-size: 22px;
   font-weight: 500;
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.black};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 16px;

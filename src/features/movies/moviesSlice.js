@@ -27,4 +27,12 @@ const moviesSlice = createSlice({
 
 export const { fetchMoviesStart, fetchMoviesSuccess, fetchMoviesFailure } =
   moviesSlice.actions;
+
+const selectMoviesState = state => state.movies;
+
+const selectMovies = state => selectMoviesState(state).movies;
+
+export const getMovieById = (state, movieId) =>
+  selectMovies(state).find(({ id }) => id === movieId)
+
 export default moviesSlice.reducer;
