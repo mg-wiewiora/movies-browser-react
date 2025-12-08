@@ -2,11 +2,6 @@ import styled from "styled-components";
 
 export const SectionWrapper = styled.section`
   margin: 10px 0;
-  padding: 0 20px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    grid-template-columns: 1fr;
-  }
 `;
 
 export const Title = styled.h2`
@@ -16,9 +11,9 @@ export const Title = styled.h2`
   line-height: 43px;
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin: 0 0 16px 0;
 `;
 
 export const Content = styled.div`
-  padding: 20px 0;
+  padding: 0;
 `;

@@ -24,7 +24,7 @@ const Tile = ({ movie }) => {
 
   return (
     <TileWrapper>
-      <TileImage posterUrl={posterUrl} noPosterUrl={noPoster} />
+      <TileImage $posterUrl={posterUrl} $noPosterUrl={noPoster} />
       <TileContainer>
         <TileTitle>{movie.title}</TileTitle>
         <TileYear>{releaseYear}</TileYear>
@@ -35,7 +35,7 @@ const Tile = ({ movie }) => {
         </TileTags>
         <TileRatingWrapper>
           <TileIcon />
-          <TileRating>{movie.vote_average}</TileRating>
+          <TileRating>{movie.vote_average.toFixed(1)}</TileRating>
           <TileVotes>{movie.vote_count} votes</TileVotes>
         </TileRatingWrapper>
       </TileContainer>

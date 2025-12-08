@@ -4,6 +4,7 @@ export const MoviesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  justify-content: center;
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);

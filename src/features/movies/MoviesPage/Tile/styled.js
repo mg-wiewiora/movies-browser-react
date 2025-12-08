@@ -2,25 +2,24 @@ import styled from "styled-components";
 import { ReactComponent as StarIcon } from "../../../../assets/star.svg";
 
 export const TileWrapper = styled.div`
+  width: 324px;
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px ${({ theme }) => theme.color.shadow};
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  width: 324px;
-  height: 650px;
   padding: 16px;
   transition: transform 0.2s;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     transform: translateY(-7px);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    flex-direction: row;
     width: 288px;
-    height: 201px;
+    flex-direction: row;
     padding: 8px;
   }
 `;
@@ -28,14 +27,15 @@ export const TileWrapper = styled.div`
 export const TileImage = styled.div`
   width: 100%;
   max-width: 292px;
-  aspect-ratio: 2 / 3; 
+  aspect-ratio: 2 / 3;
   border-radius: 5px;
   background-size: cover;
   background-position: center;
   background-color: transparent;
-  margin: 16px auto 16px auto;
-  background-image: ${({ posterUrl, noPosterUrl }) =>
-    `url(${posterUrl || noPosterUrl})`};
+  margin: auto;
+  margin-bottom: 16px;
+  background-image: ${({ $posterUrl, $noPosterUrl }) =>
+    `url(${$posterUrl || $noPosterUrl})`};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     width: 114px;
@@ -49,8 +49,8 @@ export const TileContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
-  text-align: left;
   line-height: 1.3;
+  gap: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     margin-left: 16px;
@@ -81,8 +81,10 @@ export const TileTags = styled.ul`
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 8px;
   flex-wrap: wrap;
+  gap: 8px;
+  flex-direction: row;
+  align-items: center;
   margin: 0 0 8px;
 `;
 
