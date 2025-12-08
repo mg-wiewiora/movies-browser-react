@@ -7,10 +7,10 @@ import {
   TileTags,
   TileTag,
   TileRatingWrapper,
+  TileIcon,
   TileRating,
   TileVotes,
 } from "./styled";
-import { ReactComponent as StarIcon } from "../../../../assets/star.svg";
 
 const Tile = ({ movie }) => {
   const releaseYear = movie.release_date
