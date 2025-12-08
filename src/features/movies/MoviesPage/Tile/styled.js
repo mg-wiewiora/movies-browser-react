@@ -26,20 +26,18 @@ export const TileWrapper = styled.div`
 
 export const TileImage = styled.div`
   width: 100%;
-  max-width: 292px;
   aspect-ratio: 2 / 3;
   border-radius: 5px;
   background-size: cover;
   background-position: center;
   background-color: transparent;
-  margin: auto;
-  margin-bottom: 16px;
+  margin: 0 auto 16px auto;
   background-image: ${({ $posterUrl, $noPosterUrl }) =>
     `url(${$posterUrl || $noPosterUrl})`};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     width: 114px;
-    aspect-ratio: 114 / 169;
+    aspect-ratio: 2 / 3;
     margin: 0;
   }
 `;
@@ -54,13 +52,12 @@ export const TileContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     margin-left: 16px;
-    justify-content: flex-start;
     height: auto;
   }
 `;
 
 export const TileTitle = styled.h3`
-  margin: 0 0 8px;
+  margin: 0 0 8px 0;
   font-size: 22px;
   font-weight: 500;
 
@@ -70,7 +67,7 @@ export const TileTitle = styled.h3`
 `;
 
 export const TileYear = styled.p`
-  margin: 0 0 8px;
+  margin: 0 0 8px 0;
   font-size: 16px;
   font-weight: 400;
   color: ${({ theme }) => theme.color.grey};
@@ -83,9 +80,7 @@ export const TileTags = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  flex-direction: row;
-  align-items: center;
-  margin: 0 0 8px;
+  margin: 0 0 8px 0;
 `;
 
 export const TileTag = styled.li`
@@ -112,16 +107,12 @@ export const TileIcon = styled(StarIcon)`
 `;
 
 export const TileRating = styled.span`
-  display: flex;
-  align-items: center;
   font-weight: 600;
   font-size: 16px;
   color: ${({ theme }) => theme.color.black};
 `;
 
 export const TileVotes = styled.span`
-  display: flex;
-  align-items: center;
   font-weight: 400;
   font-size: 16px;
   color: ${({ theme }) => theme.color.grey};
