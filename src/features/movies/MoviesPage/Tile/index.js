@@ -14,8 +14,6 @@ import {
 import noPoster from "../../../../assets/no-poster.svg";
 import { getReleaseYear, getPosterUrl } from "../../moviesData.js";
 
-import {toMovie} from "../../../../routes.js"
-
 const Tile = ({ movie }) => {
   const releaseYear = getReleaseYear(movie.release_date);
   const posterUrl = getPosterUrl(movie.poster_path);
