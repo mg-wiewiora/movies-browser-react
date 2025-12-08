@@ -5,10 +5,12 @@ import {
   TileTitle,
   TileYear,
   TileTags,
+  TileTag,
   TileRatingWrapper,
   TileRating,
   TileVotes,
 } from "./styled";
+import { ReactComponent as StarIcon } from "../../../../assets/star.svg";
 
 const Tile = ({ movie }) => {
   const releaseYear = movie.release_date
@@ -26,17 +28,18 @@ const Tile = ({ movie }) => {
         alt={movie.title}
       />
       <TileContainer>
-      <TileTitle>{movie.title}</TileTitle>
-      <TileYear>{releaseYear}</TileYear>
-      <TileTags>
-        {movie.genre_names?.map((g) => (
-          <span key={g}>{g}</span>
-        ))}
-      </TileTags>
-      <TileRatingWrapper>
-        <TileRating>{movie.vote_average}</TileRating>
-        <TileVotes>{movie.vote_count} votes</TileVotes>
-      </TileRatingWrapper>
+        <TileTitle>{movie.title}</TileTitle>
+        <TileYear>{releaseYear}</TileYear>
+        <TileTags>
+          {movie.genre_names?.map((g) => (
+            <TileTag key={g}>{g}</TileTag>
+          ))}
+        </TileTags>
+        <TileRatingWrapper>
+          <TileIcon/>
+          <TileRating>{movie.vote_average}</TileRating>
+          <TileVotes>{movie.vote_count} votes</TileVotes>
+        </TileRatingWrapper>
       </TileContainer>
     </TileWrapper>
   );

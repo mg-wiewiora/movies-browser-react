@@ -35,18 +35,22 @@ export const TileYear = styled.p`
   color: ${({ theme }) => theme.color.grey};
 `;
 
-export const TileTags = styled.div`
-  margin: 5px 0;
-  font-size: 12px;
-  color: ${({ theme }) => theme.color.black};
+export const TileTags = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+`;
 
-  span {
-    background-color: ${({ theme }) => theme.color.mystic};
-    border-radius: 5px;
-    padding: 2px 5px;
-    margin: 0 3px;
-    display: inline-block;
-  }
+export const TileTag = styled.li`
+  background-color: ${({ theme }) => theme.color.mystic};
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.color.woodsmoke};
 `;
 
 export const TileRatingWrapper = styled.div`
@@ -55,6 +59,13 @@ export const TileRatingWrapper = styled.div`
   align-items: center;
   gap: 8px;
   margin-top: 5px;
+`;
+
+export const TileIcon = styled(StarIcon)`
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  flex-shrink: 0;
 `;
 
 export const TileRating = styled.span`
@@ -67,7 +78,7 @@ export const TileRating = styled.span`
 `;
 
 export const TileVotes = styled.span`
- display: flex;
+  display: flex;
   align-items: center;
   font-style: normal;
   font-weight: 400;
