@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as StarIcon } from "../../../../assets/star.svg";
 
 export const TileWrapper = styled.section`
   background-color: ${({ theme }) => theme.color.white};
@@ -51,6 +52,14 @@ export const TileTag = styled.li`
     margin-left: 0;
 `
 
+export const TileRatingWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  justify-content: flex-start;
+`;
+
 export const TileContent = styled.div`
   font-size: 20px;
     margin: 24px 0px;
@@ -65,3 +74,20 @@ export const TileTags = styled.ul`
     margin: 24px 0px;
 `
 
+export const TileIcon = styled(StarIcon)`
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+`;
+
+export const TileRating = styled.span`
+  font-weight: 600;
+  font-size: 16px;
+  color: ${({ theme }) => theme.color.black};
+`;
+
+export const TileVotes = styled.span`
+  font-weight: 400;
+  font-size: 16px;
+  color: ${({ theme }) => theme.color.grey};
+`;
