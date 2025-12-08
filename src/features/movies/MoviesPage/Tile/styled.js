@@ -16,26 +16,26 @@ export const TileWrapper = styled.div`
   }
 `;
 
-export const Poster = styled.img`
+export const TileImage = styled.img`
   width: 100%;
   height: auto;
   border-radius: 5px;
 `;
 
-export const Title = styled.h3`
+export const TileTitle = styled.h3`
   margin: 10px 0 5px;
   font-size: 18px;
   font-weight: 600;
   color: ${({ theme }) => theme.color.black};
 `;
 
-export const Info = styled.p`
+export const TileYear = styled.p`
   margin: 0;
   font-size: 14px;
   color: ${({ theme }) => theme.color.grey};
 `;
 
-export const Genres = styled.div`
+export const TileTags = styled.div`
   margin: 5px 0;
   font-size: 12px;
   color: ${({ theme }) => theme.color.black};
@@ -49,7 +49,7 @@ export const Genres = styled.div`
   }
 `;
 
-export const RatingWrapper = styled.div`
+export const TileRatingWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,7 +57,7 @@ export const RatingWrapper = styled.div`
   margin-top: 5px;
 `;
 
-export const RatingValue = styled.span`
+export const TileRating = styled.span`
   display: flex;
   align-items: center;
   font-style: normal;
@@ -66,7 +66,7 @@ export const RatingValue = styled.span`
   color: ${({ theme }) => theme.color.black};
 `;
 
-export const Votes = styled.span`
+export const TileVotes = styled.span`
  display: flex;
   align-items: center;
   font-style: normal;

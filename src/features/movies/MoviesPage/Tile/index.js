@@ -1,12 +1,13 @@
 import {
   TileWrapper,
-  Poster,
-  Title,
-  Info,
-  Genres,
-  RatingWrapper,
-  RatingValue,
-  Votes,
+  TileImage,
+  TileContainer,
+  TileTitle,
+  TileYear,
+  TileTags,
+  TileRatingWrapper,
+  TileRating,
+  TileVotes,
 } from "./styled";
 
 const Tile = ({ movie }) => {
@@ -16,7 +17,7 @@ const Tile = ({ movie }) => {
 
   return (
     <TileWrapper>
-      <Poster
+      <TileImage
         src={
           movie.poster_path
             ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
@@ -24,17 +25,19 @@ const Tile = ({ movie }) => {
         }
         alt={movie.title}
       />
-      <Title>{movie.title}</Title>
-      <Info>{releaseYear}</Info>
-      <Genres>
+      <TileContainer>
+      <TileTitle>{movie.title}</TileTitle>
+      <TileYear>{releaseYear}</TileYear>
+      <TileTags>
         {movie.genre_names?.map((g) => (
           <span key={g}>{g}</span>
         ))}
-      </Genres>
-      <RatingWrapper>
-        <RatingValue>{movie.vote_average}</RatingValue>
-        <Votes>{movie.vote_count} votes</Votes>
-      </RatingWrapper>
+      </TileTags>
+      <TileRatingWrapper>
+        <TileRating>{movie.vote_average}</TileRating>
+        <TileVotes>{movie.vote_count} votes</TileVotes>
+      </TileRatingWrapper>
+      </TileContainer>
     </TileWrapper>
   );
 };
