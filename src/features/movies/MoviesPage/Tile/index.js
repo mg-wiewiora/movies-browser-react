@@ -12,15 +12,11 @@ import {
   TileVotes,
 } from "./styled";
 import noPoster from "../../../../assets/no-poster.svg";
+import { getReleaseYear, getPosterUrl } from "../moviesData";
 
 const Tile = ({ movie }) => {
-  const releaseYear = movie.release_date
-    ? movie.release_date.split("-")[0]
-    : "N/A";
-
-  const posterUrl = movie.poster_path
-    ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
-    : null;
+  const releaseYear = getReleaseYear(movie.release_date);
+  const posterUrl = getPosterUrl(movie.poster_path);
 
   return (
     <TileWrapper>
