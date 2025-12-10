@@ -1,21 +1,30 @@
 import { toMovies, toPeople } from "../routes";
-import { Wrapper, Navigation, Title, List, Item, StyledNavLink } from "./styled";
+import {
+  HeaderWrapper,
+  HeaderNavigation,
+  HeaderTitle,
+  HeaderList,
+  HeaderItem,
+  HeaderStyledNavLink,
+  HeaderLogo,
+} from "./styled";
 
 const Header = () => {
   return (
-    <Wrapper>
-      <Title>Movies Browser</Title>
-    <Navigation>
-      <List>
-        <Item>
-          <StyledNavLink to={toMovies()}>Movies</StyledNavLink>
-        </Item>
-        <Item>
-          <StyledNavLink to={toPeople()}>People</StyledNavLink>
-        </Item>
-      </List>
-    </Navigation>
-    </Wrapper>
+    <HeaderWrapper>
+      <HeaderLogo />
+      <HeaderTitle>Movies Browser</HeaderTitle>
+      <HeaderNavigation>
+        <HeaderList>
+          <HeaderItem>
+            <HeaderStyledNavLink to={toMovies()}>Movies</HeaderStyledNavLink>
+          </HeaderItem>
+          <HeaderItem>
+            <HeaderStyledNavLink to={toPeople()}>People</HeaderStyledNavLink>
+          </HeaderItem>
+        </HeaderList>
+      </HeaderNavigation>
+    </HeaderWrapper>
   );
 };
 export default Header;

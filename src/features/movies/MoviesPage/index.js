@@ -20,7 +20,7 @@ const MoviesPage = () => {
       {error && <p>Error: {error}</p>}
       {movies.length > 0 && (
         <Section
-          title="Popular Movies"
+          title="Popular movies"
           content={
             <MoviesGrid>
               {movies.map((movie) => (

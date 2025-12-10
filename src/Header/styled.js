@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { ReactComponent as Logo } from "../assets/logo.svg"
 
-export const Wrapper = styled.header`
+export const HeaderWrapper = styled.header`
   background-color: ${({ theme }) => theme.color.black};
   color: ${({ theme }) => theme.color.white};
   display: flex;
@@ -12,22 +13,35 @@ export const Wrapper = styled.header`
   height: 94px;
 `;
 
-export const Title = styled.h1`
+export const HeaderLogo = styled(Logo)`
+  width: 40px;
+  flex-shrink: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    width: 17px;
+  }
+`;
+
+export const HeaderTitle = styled.h1`
   font-weight: 500;
   padding: 10px;
   font-size: 24px;
   letter-spacing: -1.5px;
 `;
 
-export const Navigation = styled.nav`
+export const HeaderNavigation = styled.nav`
   display: flex;
   align-items: center;
   padding: 10px;
 `;
 
-export const StyledNavLink = styled(NavLink)`
+export const HeaderStyledNavLink = styled(NavLink)`
   text-decoration: none;
-  padding: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 13.5px 24px;
+  line-height: 1;
+  text-transform: uppercase;
   color: ${({ theme }) => theme.color.white};
 
   &:hover {
@@ -37,9 +51,14 @@ export const StyledNavLink = styled(NavLink)`
     border: 1px solid ${({ theme }) => theme.color.white};
     border-radius: 24px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
 `;
 
-export const List = styled.ul`
+export const HeaderList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
@@ -47,12 +66,4 @@ export const List = styled.ul`
   gap: 10px;
 `;
 
-export const Item = styled.li`
-  color: ${({ theme }) => theme.color.white};
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  text-transform: uppercase;
-  padding: 13.5px 24px;
-`;
+export const HeaderItem = styled.li``;

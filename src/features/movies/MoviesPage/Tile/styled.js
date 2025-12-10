@@ -21,7 +21,7 @@ export const TileWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     flex-direction: row;
-    max-width: 450px;
+    max-width: 430px;
   }
 `;
 
@@ -38,7 +38,7 @@ export const TileImage = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     width: 114px;
     flex-shrink: 0;
-    margin: 0 16px 0 0;
+    margin: 0;
   }
 `;
 
@@ -79,6 +79,7 @@ export const TileYear = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 13px;
+    margin: 0;
   }
 `;
 
@@ -95,12 +96,13 @@ export const TileTags = styled.ul`
     grid-template-columns: repeat(2, 1fr);
     gap: 4px 8px;
     max-width: 100%;
+    margin: 0;
   }
 `;
 
 export const TileTag = styled.li`
   background-color: ${({ theme }) => theme.color.mystic};
-  padding: 8px 12px;
+  padding: 8px 16px;
   border-radius: 5px;
   font-size: 14px;
   font-weight: 400;
@@ -114,6 +116,7 @@ export const TileTag = styled.li`
     font-size: 10px;
     line-height: 1.1;
     white-space: normal;
+    padding: 4px 8px;
   }
 `;
 
