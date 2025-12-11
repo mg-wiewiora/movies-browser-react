@@ -9,7 +9,7 @@ export const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0 40px;
+  padding: 0 80px;
   min-width: 320px;
   height: 94px;
 
@@ -18,7 +18,7 @@ export const HeaderWrapper = styled.header`
     justify-content: center;
     align-items: center;
     min-height: 142px;
-    padding: 16px 20px;
+    padding: 16px 16px;
     gap: 12px;
   }
 `;
@@ -83,7 +83,7 @@ export const HeaderList = styled.ul`
 
 export const HeaderItem = styled.li``;
 
-export const HeaderStyledNavLink = styled(NavLink)`
+export const HeaderNavLink = styled(NavLink)`
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
@@ -120,9 +120,9 @@ export const HeaderInputWrapper = styled.div`
   }
 `;
 
-export const HeaderStyledInput = styled.input`
+export const HeaderInput = styled.input`
   width: 100%;
-  height: 100%;
+  height: 48px;
   padding: 12px 20% 12px 64px;
   border: 1px solid ${({ theme }) => theme.color.mystic};
   border-radius: 33px;
@@ -142,6 +142,7 @@ export const HeaderStyledInput = styled.input`
     font-size: 13px;
     padding: 14px 122px 14px 40px;
     line-height: 1.3;
+    height: 44px;
   }
 `;
 

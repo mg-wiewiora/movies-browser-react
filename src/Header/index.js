@@ -5,10 +5,10 @@ import {
   HeaderTitle,
   HeaderList,
   HeaderItem,
-  HeaderStyledNavLink,
+  HeaderNavLink,
   HeaderLogo,
   HeaderIcon,
-  HeaderStyledInput,
+  HeaderInput,
   HeaderInputWrapper,
   HeaderNavigation,
 } from "./styled";
@@ -22,10 +22,10 @@ const Header = () => {
         <HeaderNavigation>
           <HeaderList>
             <HeaderItem>
-              <HeaderStyledNavLink to={toMovies()}>Movies</HeaderStyledNavLink>
+              <HeaderNavLink to={toMovies()}>Movies</HeaderNavLink>
             </HeaderItem>
             <HeaderItem>
-              <HeaderStyledNavLink to={toPeople()}>People</HeaderStyledNavLink>
+              <HeaderNavLink to={toPeople()}>People</HeaderNavLink>
             </HeaderItem>
           </HeaderList>
         </HeaderNavigation>
@@ -33,7 +33,7 @@ const Header = () => {
 
       <HeaderInputWrapper>
         <HeaderIcon />
-        <HeaderStyledInput placeholder="Search for movies..." />
+        <HeaderInput placeholder="Search for movies..." />
       </HeaderInputWrapper>
     </HeaderWrapper>
   );
