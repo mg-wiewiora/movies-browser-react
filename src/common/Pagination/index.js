@@ -19,43 +19,29 @@ export const Pagination = ({
 
   return (
     <PaginationWrapper>
-      <PaginationButton
-        disabled={isFirst}
-        onClick={onFirst}
-        aria-label="Go to first page"
-      >
+      <PaginationButton disabled={isFirst} onClick={onFirst}>
         <PaginationLeft />
         First
       </PaginationButton>
-      <PaginationButton
-        disabled={isFirst}
-        onClick={onPrev}
-        aria-label="Go to previous page"
-      >
+
+      <PaginationButton disabled={isFirst} onClick={onPrev}>
         <PaginationLeft />
         Previous
       </PaginationButton>
+
       <PaginationInfo>
         Page <strong>{page}</strong> of <strong>{totalPages}</strong>
       </PaginationInfo>
-      <PaginationButton
-        disabled={isLast}
-        onClick={onNext}
-        aria-label="Go to next page"
-      >
+
+      <PaginationButton disabled={isLast} onClick={onNext}>
         Next
         <PaginationRight />
       </PaginationButton>
-      <PaginationButton
-        disabled={isLast}
-        onClick={onLast}
-        aria-label="Go to last page"
-      >
+
+      <PaginationButton disabled={isLast} onClick={onLast}>
         Last
         <PaginationRight />
       </PaginationButton>
     </PaginationWrapper>
   );
 };
-
-export default Pagination;
