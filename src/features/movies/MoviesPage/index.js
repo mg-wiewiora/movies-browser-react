@@ -5,6 +5,7 @@ import Section from "../../../common/Section";
 import { fetchMoviesStart } from "../moviesSlice";
 import Tile from "./Tile";
 import { MoviesGrid } from "./styled";
+import Pagination from "../../../common/Pagination";
 
 const MoviesPage = () => {
   const dispatch = useDispatch();
@@ -19,16 +20,19 @@ const MoviesPage = () => {
       {loading && <p>Loading movies...</p>}
       {error && <p>Error: {error}</p>}
       {movies.length > 0 && (
-        <Section
-          title="Popular movies"
-          content={
-            <MoviesGrid>
-              {movies.map((movie) => (
-                <Tile key={movie.id} movie={movie} />
-              ))}
-            </MoviesGrid>
-          }
-        />
+        <>
+          <Section
+            title="Popular movies"
+            content={
+              <MoviesGrid>
+                {movies.map((movie) => (
+                  <Tile key={movie.id} movie={movie} />
+                ))}
+              </MoviesGrid>
+            }
+          />
+          <Pagination />
+        </>
       )}
     </Container>
   );
