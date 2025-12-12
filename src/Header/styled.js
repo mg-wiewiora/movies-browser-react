@@ -73,11 +73,12 @@ export const HeaderList = styled.ul`
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 10px;
+  gap: 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 12px;
   }
 `;
 

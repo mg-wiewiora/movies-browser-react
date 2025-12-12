@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MoviesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 24px;
   justify-content: center;
 
   @media (max-width: 1200px) {
@@ -16,5 +16,6 @@ export const MoviesGrid = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 `;
