@@ -36,8 +36,24 @@ export const PaginationButton = styled.button`
     cursor: not-allowed;
   }
 
+  .desktop-text {
+    display: inline;
+  }
+  .mobile-icons {
+    display: none;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     padding: 8px 12px;
+    font-size: 0;
+
+    .desktop-text {
+      display: none;
+    }
+    .mobile-icons {
+      display: flex;
+      gap: 2px;
+    }
   }
 `;
 
@@ -50,6 +66,7 @@ export const PaginationInfo = styled.span`
   strong {
     color: ${({ theme }) => theme.color.black};
   }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 10px;
   }
@@ -57,8 +74,16 @@ export const PaginationInfo = styled.span`
 
 export const PaginationLeft = styled(LeftIcon)`
   width: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    margin-right: 2px;
+  }
 `;
 
 export const PaginationRight = styled(RightIcon)`
   width: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    margin-left: 2px;
+  }
 `;
