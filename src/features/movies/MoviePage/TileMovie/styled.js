@@ -3,30 +3,18 @@ import { ReactComponent as StarIcon } from "../../../../assets/star.svg";
 
 export const TileWrapper = styled.section`
   background-color: ${({ theme }) => theme.color.white};
-  margin: 10px 0;
   box-shadow: 0 0 5px ${({ theme }) => theme.color.grey};
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: 40px;
   padding: 40px;
-  margin: 15px 0;
+  margin: 40px 0;
   font-size: 25px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     grid-template-columns: 1fr;
   }
 `;
-
-export const TileBackdrop = styled.div`
-    width: 100%;
-    max-width: 100%;
-    height: 770px;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    background-image: ${({ $posterUrl, $noPosterUrl }) =>
-    `url(${$posterUrl || $noPosterUrl})`};
-`
 
 export const TileImage = styled.div`
     width: 312px;

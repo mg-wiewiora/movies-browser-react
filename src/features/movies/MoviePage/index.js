@@ -20,9 +20,7 @@ const MoviePage = () => {
 
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { movies, loading, error } = useSelector((state) => state.movies);
-
-  const movie = useSelector(state => getMovieById(state, id))
+  const { movie, loading, error } = useSelector((state) => state.movie);
 
   useEffect(() => {
     dispatch(fetchMovieStart());
@@ -69,7 +67,7 @@ const MoviePage = () => {
       .catch(err => console.error(err));
   }, []);
 
-  const backdropUrl = getPosterUrl(movieData.backdrop_path);
+  const backdropUrl = getPosterUrl(`https://image.tmdb.org/t/p/original/${movieData.backdrop_path}`);
 
   return (
     <Container>

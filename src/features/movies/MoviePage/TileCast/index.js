@@ -5,7 +5,7 @@ import {
     TileCharacter,
     TileActor,
 } from "./styled";
-import noPoster from "../../../../assets/no-poster.svg";
+import noPoster from "../../../../assets/Picture.svg";
 import { getPosterUrl } from "../../moviesData.js";
 
 const TileCast = ({ actor }) => {

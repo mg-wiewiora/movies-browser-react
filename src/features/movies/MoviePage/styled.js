@@ -6,7 +6,7 @@ export const BackdropContainer = styled.div`
     height: 770px;
     display: flex;
     justify-content: center;
-    margin: -78px -1205px -15px;
+    margin: -78px -1205px 0px;
     background-size: cover;
     background-color: ${({ theme }) => theme.color.black};
 `
