@@ -6,6 +6,7 @@ import { ReactComponent as RightDisabledIcon } from "../../assets/arrowRightDisa
 
 export const PaginationWrapper = styled.footer`
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
   padding: 0px;
@@ -76,6 +77,7 @@ export const PaginationInfo = styled.span`
   font-weight: 400;
   line-height: 1.5;
   color: ${({ theme }) => theme.color.grey};
+  white-space: nowrap;
 
   strong {
     color: ${({ theme }) => theme.color.black};
