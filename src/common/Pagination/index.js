@@ -1,38 +1,75 @@
-import { PaginationWrapper, PaginationInfo, PaginationButton, PaginationLeft, PaginationRight } from "./styled";
+import { PaginationWrapper, PaginationInfo } from "./styled";
+import { PaginationButtonItem } from "./PaginationButtonItem";
 
-export const Pagination = ({ page, totalPages, onFirst, onPrev, onNext, onLast }) => {
+export const Pagination = ({
+  page,
+  totalPages,
+  onFirst,
+  onPrev,
+  onNext,
+  onLast,
+}) => {
   const isFirst = page === 1;
   const isLast = page === totalPages;
 
-  const renderIcons = (IconComponent, count) => {
-    return Array.from({ length: count }).map((_, i) => <IconComponent key={i} />);
-  };
+  const buttons = [
+    {
+      text: "First",
+      direction: "left",
+      mobileIconsCount: 2,
+      onClick: onFirst,
+      disabled: isFirst,
+    },
+    {
+      text: "Previous",
+      direction: "left",
+      mobileIconsCount: 1,
+      onClick: onPrev,
+      disabled: isFirst,
+    },
+    {
+      text: "Next",
+      direction: "right",
+      mobileIconsCount: 1,
+      onClick: onNext,
+      disabled: isLast,
+    },
+    {
+      text: "Last",
+      direction: "right",
+      mobileIconsCount: 2,
+      onClick: onLast,
+      disabled: isLast,
+    },
+  ];
 
   return (
     <PaginationWrapper>
-      <PaginationButton disabled={isFirst} onClick={onFirst}>
-        <span className="desktop-text">First</span>
-        <span className="mobile-icons">{renderIcons(PaginationLeft, 2)}</span>
-      </PaginationButton>
-
-      <PaginationButton disabled={isFirst} onClick={onPrev}>
-        <span className="desktop-text">Previous</span>
-        <span className="mobile-icons">{renderIcons(PaginationLeft, 1)}</span>
-      </PaginationButton>
+      {buttons.slice(0, 2).map((btn, index) => (
+        <PaginationButtonItem
+          key={index}
+          text={btn.text}
+          direction={btn.direction}
+          mobileIconsCount={btn.mobileIconsCount}
+          onClick={btn.onClick}
+          disabled={btn.disabled}
+        />
+      ))}
 
       <PaginationInfo>
         Page <strong>{page}</strong> of <strong>{totalPages}</strong>
       </PaginationInfo>
 
-      <PaginationButton disabled={isLast} onClick={onNext}>
-        <span className="desktop-text">Next</span>
-        <span className="mobile-icons">{renderIcons(PaginationRight, 1)}</span>
-      </PaginationButton>
-
-      <PaginationButton disabled={isLast} onClick={onLast}>
-        <span className="desktop-text">Last</span>
-        <span className="mobile-icons">{renderIcons(PaginationRight, 2)}</span>
-      </PaginationButton>
+      {buttons.slice(2).map((btn, index) => (
+        <PaginationButtonItem
+          key={index + 2}
+          text={btn.text}
+          direction={btn.direction}
+          mobileIconsCount={btn.mobileIconsCount}
+          onClick={btn.onClick}
+          disabled={btn.disabled}
+        />
+      ))}
     </PaginationWrapper>
   );
 };

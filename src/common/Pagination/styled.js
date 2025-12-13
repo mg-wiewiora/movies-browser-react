@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import { ReactComponent as LeftIcon } from "../../assets/left.svg";
-import { ReactComponent as RightIcon } from "../../assets/right.svg";
+import { ReactComponent as LeftActiveIcon } from "../../assets/arrowLeftActive.svg";
+import { ReactComponent as LeftDisabledIcon } from "../../assets/arrowLeftDisabled.svg";
+import { ReactComponent as RightActiveIcon } from "../../assets/arrowRightActive.svg";
+import { ReactComponent as RightDisabledIcon } from "../../assets/arrowRightDisabled.svg";
 
 export const PaginationWrapper = styled.footer`
   display: flex;
@@ -36,9 +38,15 @@ export const PaginationButton = styled.button`
     cursor: not-allowed;
   }
 
+  .desktop-icon {
+    display: flex;
+    align-items: center;
+  }
+
   .desktop-text {
     display: inline;
   }
+
   .mobile-icons {
     display: none;
   }
@@ -47,12 +55,18 @@ export const PaginationButton = styled.button`
     padding: 8px 12px;
     font-size: 0;
 
+    .desktop-icon {
+      display: none;
+    }
+
     .desktop-text {
       display: none;
     }
+
     .mobile-icons {
       display: flex;
       gap: 2px;
+      align-items: center;
     }
   }
 `;
@@ -72,7 +86,7 @@ export const PaginationInfo = styled.span`
   }
 `;
 
-export const PaginationLeft = styled(LeftIcon)`
+export const PaginationLeftActive = styled(LeftActiveIcon)`
   width: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
@@ -80,7 +94,23 @@ export const PaginationLeft = styled(LeftIcon)`
   }
 `;
 
-export const PaginationRight = styled(RightIcon)`
+export const PaginationLeftDisabled = styled(LeftDisabledIcon)`
+  width: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    margin-right: 2px;
+  }
+`;
+
+export const PaginationRightActive = styled(RightActiveIcon)`
+  width: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    margin-left: 2px;
+  }
+`;
+
+export const PaginationRightDisabled = styled(RightDisabledIcon)`
   width: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
