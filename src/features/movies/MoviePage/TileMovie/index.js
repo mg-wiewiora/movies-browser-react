@@ -1,5 +1,6 @@
 import {
   TileWrapper,
+  TileBackdrop,
   TileImage,
   TileContainer,
   TileTitle,
@@ -13,14 +14,15 @@ import {
   TileVotes,
   TileIcon,
   TileRating
-} from "./styled";
+} from "./styled.js";
 import { getReleaseYear, getPosterUrl } from "../../moviesData.js";
 import noPoster from "../../../../assets/no-poster.svg";
 
-const Tile = ({ content, movie, }) => {
+const Tile = ({ movie }) => {
 
   const releaseYear = getReleaseYear(movie.release_date);
   const posterUrl = getPosterUrl(movie.poster_path);
+  const backdropUrl = getPosterUrl(movie.backdrop_path);
   
   return(
   <TileWrapper>
@@ -37,7 +39,7 @@ const Tile = ({ content, movie, }) => {
       </TileTags>
       <TileRatingWrapper>
         <TileIcon />
-        <TileRating>{movie.vote_average.toFixed(1)}</TileRating>
+        <TileRating>{movie.vote_average}</TileRating>
         <TileVotes>{movie.vote_count} votes</TileVotes>
       </TileRatingWrapper>
       <TileContent>{movie.overview}</TileContent>

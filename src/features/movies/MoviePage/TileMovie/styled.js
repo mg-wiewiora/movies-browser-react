@@ -17,6 +17,15 @@ export const TileWrapper = styled.section`
   }
 `;
 
+export const TileBackdrop = styled.img`
+    width: 100%;
+    max-width: 100%;
+    height: 770px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+`
+
 export const TileImage = styled.img`
     width: 288px;
     height: 384px;

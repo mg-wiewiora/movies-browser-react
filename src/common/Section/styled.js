@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const SectionWrapper = styled.section`
   margin: 10px 0;
+  max-width: 1440px;
 `;
 
 export const Title = styled.h2`
