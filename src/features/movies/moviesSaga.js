@@ -10,7 +10,7 @@ import {
   fetchMovieSuccess,
   fetchMovieFailure,
 } from "./movieSlice";
-import { getMovie } from "./getMovie.js"
+import { useMovie } from "./useMovie.js"
 
 const API_KEY = "e0da2a33c4def495d0c4977083b2de8b";
 const BASE_URL = "https://api.themoviedb.org/3";
@@ -48,8 +48,8 @@ function* fetchMoviesSaga() {
 
 function* fetchMovieHandler() {
   try {
-    yield delay(1000);
-    const movieDetails = yield call(getMovie);
+    yield delay(300);
+    const movieDetails = yield call(useMovie);
     yield put(fetchMovieSuccess(movieDetails));
   } catch (error) {
     yield put(fetchMovieFailure(error.message));
@@ -58,5 +58,9 @@ function* fetchMovieHandler() {
 }
 
 export function* moviesSaga() {
-  yield takeLatest(fetchMoviesStart.type, fetchMoviesSaga, fetchMovieStart.type, fetchMovieHandler);
+  yield takeLatest(fetchMoviesStart.type, fetchMoviesSaga);
+}
+
+export function* movieSaga() {
+  yield takeLatest(fetchMovieStart.type, fetchMovieHandler);
 }

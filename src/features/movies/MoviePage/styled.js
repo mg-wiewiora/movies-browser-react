@@ -1,15 +1,27 @@
 import styled from "styled-components";
 
+export const BackdropContainer = styled.div`
+    width: 272%;
+    max-width: cover;
+    height: 770px;
+    display: flex;
+    justify-content: center;
+    margin: -78px -1205px -15px;
+    background-size: cover;
+    background-color: ${({ theme }) => theme.color.black};
+`
+
 export const Backdrop = styled.div`
-    width: 1920px;
+    width: 1398px;
     max-width: 100%;
     height: 770px;
     display: flex;
     justify-content: center;
-    margin: -80px 0px -20px;
+    margin: 0px 0px 0px 0px;
     background-image: ${({ $posterUrl, $noPosterUrl }) =>
     `url(${$posterUrl || $noPosterUrl})`};
     background-size: cover;
+    box-shadow: inset 0px 0px 50px 50px ${({ theme }) => theme.color.black};
 `
 
 export const MoviesGrid = styled.div`

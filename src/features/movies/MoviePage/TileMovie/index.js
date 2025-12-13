@@ -1,6 +1,5 @@
 import {
   TileWrapper,
-  TileBackdrop,
   TileImage,
   TileContainer,
   TileTitle,
@@ -22,7 +21,6 @@ const Tile = ({ movie }) => {
 
   const releaseYear = getReleaseYear(movie.release_date);
   const posterUrl = getPosterUrl(movie.poster_path);
-  const backdropUrl = getPosterUrl(movie.backdrop_path);
   
   return(
   <TileWrapper>

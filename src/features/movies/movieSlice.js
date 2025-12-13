@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useMovie } from "./useMovie";
 
 const initialState = {
-  movie: [],
+  movie: [useMovie],
   loading: false,
   error: null,
 };
