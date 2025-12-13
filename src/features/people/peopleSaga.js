@@ -13,28 +13,11 @@ function fetchPopularPeopleApi() {
   return axios.get(`${BASE_URL}/person/popular?api_key=${API_KEY}&language=en-US&page=1`);
 }
 
-function fetchGenresApi() {
-  return axios.get(`${BASE_URL}/genre/person/list?api_key=${API_KEY}&language=en-US`);
-}
-
 function* fetchPeopleSaga() {
   try {
-    const [peopleResponse, genresResponse] = yield all([
-      call(fetchPopularPeopleApi),
-      call(fetchGenresApi),
-    ]);
-
-    const genresMap = {};
-    genresResponse.data.genres.forEach((g) => {
-      genresMap[g.id] = g.name;
-    });
-
-    const peopleWithGenres =peopleResponse.data.results.map((people) => ({
-      ...people,
-      genre_names:people.genre_ids.map((id) => genresMap[id] || "Unknown"),
-    }));
-
-    yield put(fetchPeopleSuccess(peopleWithGenres));
+    const response = yield call(fetchPopularPeopleApi);
+      
+   yield put(fetchPeopleSuccess(response.data.results));
   } catch (error) {
     yield put(fetchPeopleFailure(error.message));
   }
