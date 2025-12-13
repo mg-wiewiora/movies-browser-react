@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as StarIcon } from "../../../../assets/star.svg";
 
 export const TileWrapper = styled.section`
   background-color: ${({ theme }) => theme.color.white};
@@ -16,12 +17,26 @@ export const TileWrapper = styled.section`
   }
 `;
 
-export const TileImage = styled.img`
-    width: 288px;
-    height: 384px;
+export const TileBackdrop = styled.div`
+    width: 100%;
+    max-width: 100%;
+    height: 770px;
     display: flex;
     justify-content: center;
     margin: auto;
+    background-image: ${({ $posterUrl, $noPosterUrl }) =>
+    `url(${$posterUrl || $noPosterUrl})`};
+`
+
+export const TileImage = styled.div`
+    width: 312px;
+    height: 464px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-image: ${({ $posterUrl, $noPosterUrl }) =>
+    `url(${$posterUrl || $noPosterUrl})`};
+    background-size: cover;
    
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 80%;
@@ -43,6 +58,17 @@ export const TileYear = styled.div`
     font-size: 22px;
 `
 
+export const TileDetails = styled.div`
+    font-size: 18px;
+    display: flex;
+    gap: 8px;
+`
+
+export const TileDetailsTitle = styled.div`
+    font-size: 18px;
+    color: ${({ theme }) => theme.color.grey};
+`
+
 export const TileTag = styled.li`
     background-color: ${({ theme }) => theme.color.mystic};
     padding: 8px 16px;
@@ -50,6 +76,14 @@ export const TileTag = styled.li`
     margin: 8px;
     margin-left: 0;
 `
+
+export const TileRatingWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  justify-content: flex-start;
+`;
 
 export const TileContent = styled.div`
   font-size: 20px;
@@ -65,3 +99,20 @@ export const TileTags = styled.ul`
     margin: 24px 0px;
 `
 
+export const TileIcon = styled(StarIcon)`
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+`;
+
+export const TileRating = styled.span`
+  font-weight: 600;
+  font-size: 16px;
+  color: ${({ theme }) => theme.color.black};
+`;
+
+export const TileVotes = styled.span`
+  font-weight: 400;
+  font-size: 16px;
+  color: ${({ theme }) => theme.color.grey};
+`;

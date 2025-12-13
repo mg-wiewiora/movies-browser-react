@@ -14,6 +14,8 @@ const MoviesPage = () => {
     dispatch(fetchMoviesStart());
   }, [dispatch]);
 
+  console.log({movies})
+
   return (
     <Container>
       {loading && <p>Loading movies...</p>}
@@ -22,7 +24,7 @@ const MoviesPage = () => {
         <Section
           title="Popular Movies"
           content={
-            <MoviesGrid>
+            <MoviesGrid >
               {movies.map((movie) => (
                 <Tile key={movie.id} movie={movie} />
               ))}
