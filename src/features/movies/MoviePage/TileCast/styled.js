@@ -6,6 +6,7 @@ export const TileWrapper = styled.section`
   box-shadow: 0 0 5px ${({ theme }) => theme.color.grey};
   display: grid;
   grid-template-columns: auto;
+  justify-content: space-bet;
   grid-gap: 12px;
   width: 208px;
   height: 400px;

@@ -6,7 +6,7 @@ export const Backdrop = styled.div`
     height: 770px;
     display: flex;
     justify-content: center;
-    margin: -20px 0px -20px;
+    margin: -80px 0px -20px;
     background-image: ${({ $posterUrl, $noPosterUrl }) =>
     `url(${$posterUrl || $noPosterUrl})`};
     background-size: cover;

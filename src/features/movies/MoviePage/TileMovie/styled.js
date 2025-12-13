@@ -17,21 +17,26 @@ export const TileWrapper = styled.section`
   }
 `;
 
-export const TileBackdrop = styled.img`
+export const TileBackdrop = styled.div`
     width: 100%;
     max-width: 100%;
     height: 770px;
     display: flex;
     justify-content: center;
     margin: auto;
+    background-image: ${({ $posterUrl, $noPosterUrl }) =>
+    `url(${$posterUrl || $noPosterUrl})`};
 `
 
-export const TileImage = styled.img`
-    width: 288px;
-    height: 384px;
+export const TileImage = styled.div`
+    width: 312px;
+    height: 464px;
     display: flex;
     justify-content: center;
     margin: auto;
+    background-image: ${({ $posterUrl, $noPosterUrl }) =>
+    `url(${$posterUrl || $noPosterUrl})`};
+    background-size: cover;
    
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 80%;

@@ -26,7 +26,7 @@ const Tile = ({ movie }) => {
   
   return(
   <TileWrapper>
-    <TileImage src={posterUrl} $noPosterUrl={noPoster} />
+    <TileImage $posterUrl={posterUrl} $noPosterUrl={noPoster} />
     <TileContainer>
       <TileTitle>{movie.title}</TileTitle>
       <TileYear>{releaseYear}</TileYear>

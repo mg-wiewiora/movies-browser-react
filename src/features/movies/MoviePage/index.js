@@ -47,7 +47,7 @@ const MoviePage = () => {
   }, []);
 
   const [creditsData, setCreditsData] = useState([]);
-  const [crewData, setCrewData] = useState([])
+  
 
   useEffect(() => {
     const optionsCredits = {
@@ -65,6 +65,8 @@ const MoviePage = () => {
       .then(res => setCreditsData(res.data.cast))
       .catch(err => console.error(err));
   }, []);
+
+  const [crewData, setCrewData] = useState([])
 
   useEffect(() => {
     const optionsCrew = {
