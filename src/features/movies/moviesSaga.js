@@ -9,18 +9,30 @@ import {
 const API_KEY = "e0da2a33c4def495d0c4977083b2de8b";
 const BASE_URL = "https://api.themoviedb.org/3";
 
-function fetchPopularMoviesApi() {
-  return axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
+function fetchPopularMoviesApi(page) {
+  return axios.get(`${BASE_URL}/movie/popular`, {
+    params: {
+      api_key: API_KEY,
+      language: "en-US",
+      page,
+    },
+  });
 }
 
 function fetchGenresApi() {
-  return axios.get(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`);
+  return axios.get(`${BASE_URL}/genre/movie/list`, {
+    params: {
+      api_key: API_KEY,
+      language: "en-US",
+    },
+  });
 }
 
-function* fetchMoviesSaga() {
+function* fetchMoviesSaga(action) {
   try {
+    const page = action.payload.page;
     const [moviesResponse, genresResponse] = yield all([
-      call(fetchPopularMoviesApi),
+      call(fetchPopularMoviesApi, page),
       call(fetchGenresApi),
     ]);
 

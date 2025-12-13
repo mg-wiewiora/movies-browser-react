@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-export const usePagination = (totalItems, itemsPerPage) => {
+export const usePagination = (totalItems, itemsPerPage, totalPagesFixed) => {
   const [page, setPage] = useState(1);
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const totalPages = totalPagesFixed ?? Math.ceil(totalItems / itemsPerPage);
 
   const goToFirst = () => setPage(1);
   const goToPrev = () => setPage((prev) => Math.max(prev - 1, 1));
