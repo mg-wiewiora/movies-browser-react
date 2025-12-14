@@ -27,15 +27,7 @@ function* fetchCreditsSaga(action) {
 
         const creditsData = creditsResponse.data;
 
-        const creditsCastAndCrew = {
-            ...creditsData,
-            credits: {
-                cast: creditsData.cast,
-                crew: creditsData.crew,
-            },
-        };
-
-        yield put(fetchCreditsSuccess(creditsCastAndCrew));
+        yield put(fetchCreditsSuccess(creditsData));
 
     } catch (error) {
         yield put(fetchCreditsFailure(error.message));

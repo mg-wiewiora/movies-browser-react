@@ -6,8 +6,6 @@ import { Container } from "../../../common/Container/styled";
 import Tile from "./TileMovie/index.js";
 import TileCast from "./TileCast";
 import TileCrew from "./TileCrew";
-import { getMovieById } from "../moviesSlice";
-import { movieDetails } from "./api.js"
 import { fetchMovieStart } from "../movieSlice";
 import { fetchCreditsStart } from "../creditsSlice";
 import axios from "axios";
@@ -76,12 +74,11 @@ const MoviePage = () => {
   }, []);
 
   const backdropUrl = getPosterUrl(`https://image.tmdb.org/t/p/original/${movieData.backdrop_path}`);
-
+  const castList = credits?.cast || [];
+  const crewList = credits?.crew || [];
   return (
     <Container>
-      <Section title={console.log({ movie })} />
       <Section title={console.log({ creditsData })} />
-      <Section title={console.log({ crewData })} />
       <BackdropContainer>
         <Backdrop $posterUrl={backdropUrl} $noPosterUrl={noPoster} />
       </BackdropContainer>
@@ -89,13 +86,13 @@ const MoviePage = () => {
         movie={movie} />
       <Section title="Cast" />
       <MoviesGrid >
-        {creditsData.map((actor) => (
+        {castList.map((actor) => (
           <TileCast key={actor.id} actor={actor} />
         ))}
       </MoviesGrid>
       <Section title="Crew" />
       <MoviesGrid >
-        {crewData.map((actor) => (
+        {crewList.map((actor) => (
           <TileCrew key={actor.id} actor={actor} />
         ))}
       </MoviesGrid>
