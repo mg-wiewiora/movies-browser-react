@@ -3,6 +3,5 @@ import { moviesSaga } from "./features/movies/moviesSaga";
 import { movieSaga } from "./features/movies/movieSaga";
 
 export default function* rootSaga() {
-  yield all([moviesSaga()]);
-  yield all([movieSaga()]);
+  yield all([moviesSaga(), movieSaga()]);
 }

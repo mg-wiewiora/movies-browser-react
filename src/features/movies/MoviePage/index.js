@@ -9,7 +9,6 @@ import TileCrew from "./TileCrew";
 import { getMovieById } from "../moviesSlice";
 import { movieDetails } from "./api.js"
 import { fetchMovieStart } from "../movieSlice";
-import { fetchMoviesStart } from "../moviesSlice";
 import axios from "axios";
 import { getPosterUrl } from "../moviesData.js";
 import { BackdropContainer, Backdrop, MoviesGrid } from "./styled.js";
@@ -20,14 +19,13 @@ const MoviePage = () => {
 
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { movie, loading, error } = useSelector((state) => state.movie);
+  const { movie, loadings, errors } = useSelector((state) => state.movie);
 
   useEffect(() => {
     dispatch(fetchMovieStart());
   }, [dispatch]);
 
   const movieData = useMovie();
-  console.log({ movieData })
 
   const [creditsData, setCreditsData] = useState([]);
 
