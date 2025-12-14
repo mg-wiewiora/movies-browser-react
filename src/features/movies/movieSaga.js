@@ -9,35 +9,52 @@ import {
 const API_KEY = "e0da2a33c4def495d0c4977083b2de8b";
 const BASE_URL = "https://api.themoviedb.org/3";
 
-function fetchMovieApi() {
-    return axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
+function fetchMovieApi(movieId) {
+    return axios.get(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
+}
+
+function fetchCreditsApi(movieId) {
+    return axios.get(`${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`);
 }
 
 function fetchGenreApi() {
     return axios.get(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`);
 }
 
-function* fetchMovieSaga() {
-  try {
-    const [movieResponse, genreResponse] = yield all([
-      call(fetchMovieApi),
-      call(fetchGenreApi),
-    ]);
+function* fetchMovieSaga(action) {
+    const movieId = action.payload;
 
-    const genreMap = {};
-    genreResponse.data.genres.forEach((g) => {
-      genreMap[g.id] = g.name;
-    });
+    if (!movieId) {
+        console.error("Missing movie ID in action payload.");
+        yield put(fetchMovieFailure("Brak ID filmu."));
+        return;
+    }
 
-    const movieWithGenres = movieResponse.data.results.map((movie) => ({
-      ...movie,
-      genre_names: movie.genre_ids.map((id) => genreMap[id] || "Unknown"),
-    }));
+    try {
+        const [movieResponse, genreResponse] = yield all([
+            call(fetchMovieApi, movieId),
+            call(fetchGenreApi),
+        ]);
 
-    yield put(fetchMovieSuccess(movieWithGenres));
-  } catch (error) {
-    yield put(fetchMovieFailure(error.message));
-  }
+        const genreMap = {};
+        genreResponse.data.genres.forEach((g) => {
+            genreMap[g.id] = g.name;
+        });
+
+        const movieData = movieResponse.data;
+
+        const movieWithGenres = {
+            ...movieData,
+            genre_names: movieData.genres
+                ? movieData.genres.map((g) => g.name)
+                : (movieData.genre_ids ? movieData.genre_ids.map((id) => genreMap[id] || "Unknown") : []),
+        };
+
+        yield put(fetchMovieSuccess(movieWithGenres));
+
+    } catch (error) {
+        yield put(fetchMovieFailure(error.message));
+    }
 }
 
 export function* movieSaga() {

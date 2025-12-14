@@ -10,9 +10,9 @@ const movieSlice = createSlice({
   name: "movie",
   initialState,
   reducers: {
-    fetchMovieStart(state) {
+    fetchMovieStart(state, action) {
       state.loading = true;
-      state.error = null;
+      state.movie = action.payload;
     },
     fetchMovieSuccess(state, action) {
       state.loading = false;
