@@ -32,10 +32,4 @@ export const {
 } =
   moviesSlice.actions;
 
-const selectMoviesState = state => state.movies;
-
-const selectMovies = state => selectMoviesState(state).movies;
-
-
-
 export default moviesSlice.reducer;

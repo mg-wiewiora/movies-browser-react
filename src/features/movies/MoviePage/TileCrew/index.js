@@ -8,16 +8,16 @@ import {
 import noPoster from "../../../../assets/Picture.svg";
 import { getPosterUrl } from "../../moviesData.js";
 
-const TileCrew = ({ actor }) => {
+const TileCrew = ({ crew }) => {
 
-    const posterUrl = getPosterUrl(actor.profile_path);
+    const posterUrl = getPosterUrl(crew.profile_path);
 
     return (
         <TileWrapper>
             <TileContainer>
                 <TileImage $posterUrl={posterUrl} $noPosterUrl={noPoster} />
-                <TileCrewName>{actor.name}</TileCrewName>
-                <TileCrewJob>{actor.job}</TileCrewJob>
+                <TileCrewName>{crew.name}</TileCrewName>
+                <TileCrewJob>{crew.job}</TileCrewJob>
             </TileContainer>
         </TileWrapper>
     )

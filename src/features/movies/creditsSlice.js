@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   credits: [],
-  loading: false,
-  error: null,
+  creditsLoading: false,
+  creditsError: null,
 };
 
 const creditsSlice = createSlice({
@@ -11,16 +11,16 @@ const creditsSlice = createSlice({
   initialState,
   reducers: {
     fetchCreditsStart(state, action) {
-      state.loading = true;
+      state.creditsLoading = true;
       state.credits = action.payload;
     },
     fetchCreditsSuccess(state, action) {
-      state.loading = false;
+      state.creditsLoading = false;
       state.credits = action.payload;
     },
     fetchCreditsFailure(state, action) {
-      state.loading = false;
-      state.error = action.payload;
+      state.creditsLoading = false;
+      state.creditsError = action.payload;
     },
   },
 });

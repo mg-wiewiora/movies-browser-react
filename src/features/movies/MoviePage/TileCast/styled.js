@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ReactComponent as StarIcon } from "../../../../assets/star.svg";
 
 export const TileWrapper = styled.section`
   background-color: ${({ theme }) => theme.color.white};
