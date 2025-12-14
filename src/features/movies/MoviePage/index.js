@@ -6,16 +6,20 @@ import { Container } from "../../../common/Container/styled";
 import Tile from "./TileMovie/index.js";
 import TileCast from "./TileCast";
 import TileCrew from "./TileCrew";
+import { getMovieById } from "../moviesSlice";
+import { movieDetails } from "./api.js"
 import { fetchMovieStart } from "../movieSlice";
+import { fetchCreditsStart } from "../creditsSlice";
 import axios from "axios";
 import { getPosterUrl } from "../moviesData.js";
 import { BackdropContainer, Backdrop, MoviesGrid } from "./styled.js";
 import noPoster from "../../../assets/no-poster.svg";
+import { useMovie } from "../useMovie.js"
 
 const MoviePage = () => {
 
   const { movie, loadings, errors } = useSelector((state) => state.movie);
-
+  const { credits, loading, error } = useSelector((state) => state.credits);
   const { id } = useParams(); 
   const dispatch = useDispatch();
 
@@ -24,6 +28,14 @@ const MoviePage = () => {
       dispatch(fetchMovieStart(id)); 
     }
   }, [dispatch, id]);
+
+  useEffect(() => {
+    if (id) {
+      dispatch(fetchCreditsStart(id)); 
+    }
+  }, [dispatch, id]);
+
+  const movieData = useMovie();
 
   const [creditsData, setCreditsData] = useState([]);
 
@@ -63,7 +75,7 @@ const MoviePage = () => {
       .catch(err => console.error(err));
   }, []);
 
-  const backdropUrl = getPosterUrl(`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`);
+  const backdropUrl = getPosterUrl(`https://image.tmdb.org/t/p/original/${movieData.backdrop_path}`);
 
   return (
     <Container>

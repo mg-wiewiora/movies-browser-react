@@ -13,10 +13,6 @@ function fetchMovieApi(movieId) {
     return axios.get(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
 }
 
-function fetchCreditsApi(movieId) {
-    return axios.get(`${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`);
-}
-
 function fetchGenreApi() {
     return axios.get(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`);
 }
