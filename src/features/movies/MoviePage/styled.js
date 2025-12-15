@@ -10,12 +10,25 @@ export const BackdropContainer = styled.div`
     background-size: cover;
     background-color: ${({ theme }) => theme.color.black};
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    grid-template-columns: 1fr;
+    @media (max-width: 1400px) {
     width: 100%;
-    height: 300px;
-    background-size: contain;
-    }`
+    height: 600px;
+  }
+
+  @media (max-width: 1000px) {
+    width: 1200px;
+    height: 400px;
+  }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    width: 100%;
+    height: 280px;
+    }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}px) {
+    width: 100%;
+    max-height: 148px;
+  }`
 
 export const Backdrop = styled.div`
     width: 1368px;
@@ -29,11 +42,15 @@ export const Backdrop = styled.div`
     background-size: cover;
     box-shadow: inset 0px 0px 50px 50px ${({ theme }) => theme.color.black};
 
+    @media (max-width: 1400px) {
+    width: 1200px;
+    height: 100%;
+  }
+
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    grid-template-columns: 1fr;
     width: 100%;
-    height: 300px;
-    background-size: contain;
+    max-height: 100%;
+    box-shadow: inset 0px 0px 30px 30px ${({ theme }) => theme.color.black};
   }
 `
 
