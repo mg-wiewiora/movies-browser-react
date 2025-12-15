@@ -16,48 +16,63 @@ const MoviePage = () => {
 
   const { movie, loading, error } = useSelector((state) => state.movie);
   const { credits, creditsLoading, creditsError } = useSelector((state) => state.credits);
-  const { id } = useParams(); 
+  const { id } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (id) {
-      dispatch(fetchMovieStart(id)); 
+      dispatch(fetchMovieStart(id));
     }
   }, [dispatch, id]);
 
   useEffect(() => {
     if (id) {
-      dispatch(fetchCreditsStart(id)); 
+      dispatch(fetchCreditsStart(id));
     }
   }, [dispatch, id]);
 
   const backdropUrl = getPosterUrl(`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`);
   const castList = credits?.cast || [];
   const crewList = credits?.crew || [];
+
   return (
     <Container>
-      <Section />
-      {loading && <p>Loading movies...</p>}
+      {loading && <p>Loading movie...</p>}
       {error && <p>Error: {error}</p>}
       <BackdropContainer>
         <Backdrop $posterUrl={backdropUrl} $noPosterUrl={noPoster} />
       </BackdropContainer>
-      <Tile
-        movie={movie} />
-      <Section title="Cast" />
-      {creditsLoading && <p>Loading movies...</p>}
+      <Section
+        content={
+          <>
+            <Tile
+              movie={movie} />
+          </>
+        } />
+      {creditsLoading && <p>Loading credits...</p>}
       {creditsError && <p>Error: {error}</p>}
-      <MoviesGrid >
-        {castList.map((actor) => (
-          <TileCast key={actor.cast_id} actor={actor} />
-        ))}
-      </MoviesGrid>
-      <Section title="Crew" />
-      <MoviesGrid >
-        {crewList.map((crew) => (
-          <TileCrew key={crew.credit_id} crew={crew} />
-        ))}
-      </MoviesGrid>
+      <Section
+        title="Cast"
+        content={
+          <>
+            <MoviesGrid >
+              {castList.map((actor) => (
+                <TileCast key={actor.cast_id} actor={actor} />
+              ))}
+            </MoviesGrid>
+          </>
+        } />
+      <Section
+        title="Crew"
+        content={
+          <>
+            <MoviesGrid >
+              {crewList.map((crew) => (
+                <TileCrew key={crew.credit_id} crew={crew} />
+              ))}
+            </MoviesGrid>
+          </>
+        } />
     </Container>
   );
 };

@@ -21,15 +21,19 @@ const Tile = ({ movie }) => {
 
   const releaseYear = getReleaseYear(movie.release_date);
   const posterUrl = getPosterUrl(movie.poster_path);
-  
+
   return(
   <TileWrapper>
     <TileImage $posterUrl={posterUrl} $noPosterUrl={noPoster} />
     <TileContainer>
       <TileTitle>{movie.title}</TileTitle>
       <TileYear>{releaseYear}</TileYear>
-      <TileDetails><TileDetailsTitle>Production: </TileDetailsTitle>{movie.original_language}</TileDetails>
+      <TileContainer>
+        {movie.production_countries?.map((product) => (
+      <TileDetails key={product.id}> <TileDetailsTitle>Production: </TileDetailsTitle>
+        {product.name} </TileDetails>))}
       <TileDetails><TileDetailsTitle>Release date: </TileDetailsTitle>{movie.release_date}</TileDetails>
+      </TileContainer>
       <TileTags>
         {movie.genre_names?.map((g) => (
           <TileTag key={g}>{g}</TileTag>
@@ -37,8 +41,8 @@ const Tile = ({ movie }) => {
       </TileTags>
       <TileRatingWrapper>
         <TileIcon />
-        <TileRating>{movie.vote_average}</TileRating>
-        <TileVotes>{movie.vote_count} votes</TileVotes>
+        <TileRating>{movie.vote_average?.toFixed(1)}</TileRating>
+        <TileVotes> / {movie.vote_count} votes</TileVotes>
       </TileRatingWrapper>
       <TileContent>{movie.overview}</TileContent>
     </TileContainer>
