@@ -42,3 +42,4 @@ function* fetchMoviesSaga(action) {
 export function* moviesSaga() {
   yield takeLatest(fetchMoviesStart.type, fetchMoviesSaga);
 }
+

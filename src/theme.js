@@ -6,7 +6,9 @@ export const theme = {
     silver: "#C4C4C4",
     grey: "#7E839A",
     shadow: "#BAC7D580",
-    black: "#18181B",
+    woodsmoke: "#18181B",
+    black: "#000000",
+    yellow: "#FCD420",
     sky: "#D6E4FF",
   },
   breakpoint: {

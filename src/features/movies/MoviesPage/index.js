@@ -9,7 +9,7 @@ import {
   TOTAL_PAGES,
   TMDB_ITEMS_PER_PAGE,
 } from "../moviesConstants";
-import { getPageData } from "./moviesData";
+import { getPageData } from "../moviesData";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMoviesStart } from "../moviesSlice";
