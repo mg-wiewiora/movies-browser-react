@@ -10,13 +10,13 @@
 
  
  const Tile = ({ people }) => {
-const posterUrl = getPosterUrl(people.poster_path);
+const posterUrl = getPosterUrl(people.profile_path);
  
    return (
      <TileWrapper>
        <TilePeople $posterUrl={posterUrl} $noPosterUrl={noPoster} />
        <TileContainer>
-         <TileTitle>{people.title}</TileTitle>
+         <TileTitle>{people.name}</TileTitle>
       </TileContainer>
      </TileWrapper>
    );
