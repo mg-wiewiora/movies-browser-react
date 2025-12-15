@@ -17,15 +17,17 @@ export const TileWrapper = styled(NavLink).attrs(() => ({
   transition: transform 0.2s;
   cursor: pointer;
   text-decoration: none;
+  position: relative;
+  width: 100%;
+  max-width: 324px;
 
   &:hover {
     transform: translateY(-7px);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    width: 288px;
     flex-direction: row;
-    padding: 8px;
+    max-width: 430px;
   }
 `;
 
@@ -35,14 +37,13 @@ export const TileImage = styled.div`
   border-radius: 5px;
   background-size: cover;
   background-position: center;
-  background-color: transparent;
-  margin: 0 auto 16px auto;
   background-image: ${({ $posterUrl, $noPosterUrl }) =>
     `url(${$posterUrl || $noPosterUrl})`};
+  margin-bottom: 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     width: 114px;
-    aspect-ratio: 2 / 3;
+    flex-shrink: 0;
     margin: 0;
   }
 `;
@@ -51,22 +52,27 @@ export const TileContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 100%;
-  line-height: 1.3;
+  flex: 1;
   gap: 8px;
+  line-height: 1.5;
+  overflow-wrap: break-word;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     margin-left: 16px;
-    height: auto;
+    justify-content: flex-start;
+    padding: 4px 0;
+    line-height: 1.3;
   }
 `;
 
 export const TileTitle = styled.h3`
-  margin: 0 0 8px 0;
+  margin: 0;
   font-size: 22px;
   font-weight: 500;
   text-decoration: none;
   color: ${({ theme }) => theme.color.woodsmoke};
+  word-break: break-word;
+  line-height: 1.3;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 16px;
@@ -78,7 +84,11 @@ export const TileYear = styled.p`
   font-size: 16px;
   font-weight: 400;
   color: ${({ theme }) => theme.color.grey};
-  line-height: 1.5;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    font-size: 13px;
+    margin: 0;
+  }
 `;
 
 export const TileTags = styled.ul`
@@ -88,15 +98,34 @@ export const TileTags = styled.ul`
   flex-wrap: wrap;
   gap: 8px;
   margin: 0 0 8px 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 8px;
+    max-width: 100%;
+    margin: 0;
+  }
 `;
 
 export const TileTag = styled.li`
   background-color: ${({ theme }) => theme.color.mystic};
-  padding: 8px 12px;
+  padding: 8px 16px;
   border-radius: 5px;
   font-size: 14px;
   font-weight: 400;
+  line-height: 1.4;
   color: ${({ theme }) => theme.color.woodsmoke};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    font-size: 10px;
+    line-height: 1.1;
+    white-space: normal;
+    padding: 4px 8px;
+  }
 `;
 
 export const TileRatingWrapper = styled.div`
@@ -105,22 +134,37 @@ export const TileRatingWrapper = styled.div`
   gap: 8px;
   margin-top: auto;
   justify-content: flex-start;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    margin-top: 0;
+  }
 `;
 
 export const TileIcon = styled(StarIcon)`
-  width: 20px;
-  height: 20px;
+  width: 24px;
   flex-shrink: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    width: 16px;
+  }
 `;
 
 export const TileRating = styled.span`
   font-weight: 600;
   font-size: 16px;
   color: ${({ theme }) => theme.color.woodsmoke};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    font-size: 13px;
+  }
 `;
 
 export const TileVotes = styled.span`
   font-weight: 400;
   font-size: 16px;
   color: ${({ theme }) => theme.color.grey};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    font-size: 13px;
+  }
 `;

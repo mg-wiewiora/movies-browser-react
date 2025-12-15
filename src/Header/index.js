@@ -1,21 +1,42 @@
 import { toMovies, toPeople } from "../routes";
-import { Wrapper, Navigation, Title, List, Item, StyledNavLink } from "./styled";
+import {
+  HeaderWrapper,
+  HeaderLeft,
+  HeaderTitle,
+  HeaderList,
+  HeaderItem,
+  HeaderNavLink,
+  HeaderLogo,
+  HeaderIcon,
+  HeaderInput,
+  HeaderInputWrapper,
+  HeaderNavigation,
+} from "./styled";
 
 const Header = () => {
   return (
-    <Wrapper>
-      <Title>Movies Browser</Title>
-    <Navigation>
-      <List>
-        <Item>
-          <StyledNavLink to={toMovies()}>Movies</StyledNavLink>
-        </Item>
-        <Item>
-          <StyledNavLink to={toPeople()}>People</StyledNavLink>
-        </Item>
-      </List>
-    </Navigation>
-    </Wrapper>
+    <HeaderWrapper>
+      <HeaderLeft>
+        <HeaderLogo />
+        <HeaderTitle>Movies Browser</HeaderTitle>
+        <HeaderNavigation>
+          <HeaderList>
+            <HeaderItem>
+              <HeaderNavLink to={toMovies()}>Movies</HeaderNavLink>
+            </HeaderItem>
+            <HeaderItem>
+              <HeaderNavLink to={toPeople()}>People</HeaderNavLink>
+            </HeaderItem>
+          </HeaderList>
+        </HeaderNavigation>
+      </HeaderLeft>
+
+      <HeaderInputWrapper>
+        <HeaderIcon />
+        <HeaderInput placeholder="Search for movies..." />
+      </HeaderInputWrapper>
+    </HeaderWrapper>
   );
 };
+
 export default Header;
