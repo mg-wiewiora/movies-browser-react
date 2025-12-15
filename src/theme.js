@@ -8,7 +8,6 @@ export const theme = {
     shadow: "#BAC7D580",
     woodsmoke: "#18181B",
     black: "#000000",
-    yellow: "#FCD420",
     sky: "#D6E4FF",
   },
   breakpoint: {

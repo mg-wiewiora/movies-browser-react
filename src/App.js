@@ -12,7 +12,7 @@ const App = () => (
     <Header />
 
     <Switch>
-      <Route path={toMovie()} >
+      <Route path={toMovie()}>
         <Movie />
       </Route>
       <Route path={toMovies()}>
