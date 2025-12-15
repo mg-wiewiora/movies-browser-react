@@ -14,8 +14,6 @@ const MoviesPage = () => {
     dispatch(fetchMoviesStart());
   }, [dispatch]);
 
-  console.log({movies})
-
   return (
     <Container>
       {loading && <p>Loading movies...</p>}
