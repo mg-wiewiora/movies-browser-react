@@ -96,7 +96,7 @@ export const TileIcon = styled(StarIcon)`
 export const TileRating = styled.span`
   font-weight: 600;
   font-size: 16px;
-  color: ${({ theme }) => theme.color.black};
+  color: ${({ theme }) => theme.color.woodsmoke};
 `;
 
 export const TileVotes = styled.span`
