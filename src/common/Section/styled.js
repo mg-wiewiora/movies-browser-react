@@ -7,7 +7,7 @@ export const SectionWrapper = styled.section`
   justify-content: center;
 
 @media (max-width: 1400px) {
-        margin: 16px;
+        
   }
 
 @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {

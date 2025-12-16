@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TileWrapper = styled.section`
+export const TileCreditsWrapper = styled.section`
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0 0 5px ${({ theme }) => theme.color.grey};
   display: grid;
@@ -22,6 +22,7 @@ export const TileWrapper = styled.section`
     justify-content: center;
     width: 165px;
     height: 335px;
+    margin: 16px;
   }
 
 @media (max-width: 540px) {
@@ -37,7 +38,7 @@ export const TileWrapper = styled.section`
   }
 `;
 
-export const TileImage = styled.div`
+export const TileCreditsImage = styled.div`
   width: 176px;
   display: block;
   aspect-ratio: 2 / 3;
@@ -66,11 +67,11 @@ export const TileImage = styled.div`
   }
 `;
 
-export const TileContainer = styled.header`
+export const TileCreditsContainer = styled.header`
     font-size: 22px;
 `
 
-export const TileCrewName = styled.h2`
+export const TileCreditsName = styled.h2`
   display: flex;
   text-align: center;
   justify-content: center;
@@ -88,7 +89,7 @@ export const TileCrewName = styled.h2`
         margin: 5px 0;
   }`;
 
-export const TileCrewJob = styled.h2`
+export const TileCreditsJob = styled.h2`
   display: flex;
   text-align: center;
   justify-content: center;

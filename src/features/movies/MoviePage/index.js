@@ -3,13 +3,13 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Section from "../../../common/Section";
 import { Container } from "../../../common/Container/styled";
-import Tile from "./TileMovie/index.js";
-import TileCast from "./TileCast";
-import TileCrew from "./TileCrew";
+import TileMovie from "./TileMovie/index.js";
+import TileCredits from "./TileCredits/index.js";
+import TileBackdrop from "./TileBackdrop";
 import { fetchMovieStart } from "../movieSlice";
 import { fetchCreditsStart } from "../creditsSlice";
 import { getPosterUrl } from "../moviesData.js";
-import { BackdropContainer, Backdrop, MoviesGrid } from "./styled.js";
+import { BackdropContainer, Backdrop, CreditsGrid } from "./styled.js";
 import noPoster from "../../../assets/no-poster.svg";
 
 const MoviePage = () => {
@@ -40,12 +40,15 @@ const MoviePage = () => {
       {loading && <p>Loading movie...</p>}
       {error && <p>Error: {error}</p>}
       <BackdropContainer>
-        <Backdrop $posterUrl={backdropUrl} $noPosterUrl={noPoster} />
+        <Backdrop $posterUrl={backdropUrl} $noPosterUrl={noPoster}>
+          <TileBackdrop
+            movie={movie} />
+        </Backdrop>
       </BackdropContainer>
       <Section
         content={
           <>
-            <Tile
+            <TileMovie
               movie={movie} />
           </>
         } />
@@ -55,22 +58,22 @@ const MoviePage = () => {
         title="Cast"
         content={
           <>
-            <MoviesGrid >
+            <CreditsGrid >
               {castList.map((actor) => (
-                <TileCast key={actor.cast_id} actor={actor} />
+                <TileCredits key={actor.cast_id} actor={actor} />
               ))}
-            </MoviesGrid>
+            </CreditsGrid>
           </>
         } />
       <Section
         title="Crew"
         content={
           <>
-            <MoviesGrid >
+            <CreditsGrid >
               {crewList.map((crew) => (
-                <TileCrew key={crew.credit_id} crew={crew} />
+                <TileCredits key={crew.credit_id} crew={crew} />
               ))}
-            </MoviesGrid>
+            </CreditsGrid>
           </>
         } />
     </Container>

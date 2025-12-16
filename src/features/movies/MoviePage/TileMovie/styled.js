@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as StarIcon } from "../../../../assets/star.svg";
 
-export const TileWrapper = styled.section`
+export const TileMovieWrapper = styled.section`
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0 0 5px ${({ theme }) => theme.color.grey};
   display: grid;
@@ -10,9 +10,10 @@ export const TileWrapper = styled.section`
   padding: 40px;
   margin: 40px 0;
   font-size: 20px;
+  max-width: 100%;
 `;
 
-export const TileImage = styled.div`
+export const TileMovieImage = styled.div`
     width: 312px;
     height: 464px;
     display: flex;
@@ -28,7 +29,7 @@ export const TileImage = styled.div`
         height: 338px;
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 640px) {
         width: 171px;
         height: 254px;
     }
@@ -44,11 +45,11 @@ export const TileImage = styled.div`
     }
 `
 
-export const TileContainer = styled.header`
+export const TileMovieContainer = styled.header`
     font-size: 22px;
 `
 
-export const TileTitle = styled.h2`
+export const TileMovieTitle = styled.h2`
   margin: 18px 0;
   font-size: 36px;
 
@@ -62,7 +63,7 @@ export const TileTitle = styled.h2`
         margin: 5px 0;
   }`;
 
-export const TileYear = styled.div`
+export const TileMovieYear = styled.div`
     font-size: 22px;
     line-height: 1.2;
     margin-bottom: 18px;
@@ -78,7 +79,7 @@ export const TileYear = styled.div`
   }`;
 
 
-export const TileDetails = styled.div`
+export const TileMovieDetails = styled.div`
     font-size: 18px;
     display: flex;
     gap: 8px;
@@ -91,7 +92,7 @@ export const TileDetails = styled.div`
         font-size: 8px;
   }`;
 
-export const TileDetailsTitle = styled.div`
+export const TileMovieDetailsTitle = styled.div`
     font-size: 18px;
     color: ${({ theme }) => theme.color.grey};
 
@@ -103,12 +104,12 @@ export const TileDetailsTitle = styled.div`
         font-size: 8px;
   }`;
 
-export const TileTag = styled.li`
-background-color: ${({ theme }) => theme.color.mystic};
-padding: 8px 16px;
-font-size: 14px;
-margin: 8px;
-margin-left: 0;
+export const TileMovieTag = styled.li`
+        background-color: ${({ theme }) => theme.color.mystic};
+        padding: 8px 16px;
+        font-size: 14px;
+        margin: 8px;
+        margin-left: 0;
 
 @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 10px;
@@ -120,7 +121,7 @@ margin-left: 0;
         margin: 5px 0;
   }`;
 
-export const TileRatingWrapper = styled.div`
+export const TileMovieRatingWrapper = styled.div`
 display: flex;
 align-items: center;
 gap: 8px;
@@ -128,7 +129,7 @@ margin-top: auto;
 justify-content: flex - start;
 `;
 
-export const TileContent = styled.div`
+export const TileMovieContent = styled.div`
 font-size: 20px;
 margin: 24px 0px;
 line-height: 1.6;
@@ -143,7 +144,7 @@ line-height: 1.6;
         margin: 5px 0;
   }`;
 
-export const TileTags = styled.ul`
+export const TileMovieTags = styled.ul`
 display: flex;
 flex-wrap: wrap;
 list-style: none;
@@ -160,13 +161,13 @@ margin: 24px 0px;
         margin: 5px 0;
   }`;
 
-export const TileIcon = styled(StarIcon)`
+export const TileMovieIcon = styled(StarIcon)`
 width: 20px;
 height: 20px;
 flex-shrink: 0;
 `;
 
-export const TileRating = styled.span`
+export const TileMovieRating = styled.span`
 font-weight: 600;
 font-size: 22px;
 color: ${({ theme }) => theme.color.woodsmoke};
@@ -182,7 +183,7 @@ line-height: 1.2;
         margin: 5px 0;
   }`;
 
-export const TileVotes = styled.span`
+export const TileMovieVotes = styled.span`
 font-weight: 400;
 font-size: 14px;
 margin-bottom: -10px;
