@@ -31,7 +31,13 @@ const Tile = ({ movie }) => {
         </TileTags>
         <TileRatingWrapper>
           <TileIcon />
-          <TileRating>{movie.vote_average.toFixed(1)}</TileRating>
+          <TileRating>
+            {movie.vote_average.toLocaleString("pl-PL", {
+              minimumFractionDigits: 1,
+              maximumFractionDigits: 1,
+            })}
+          </TileRating>
+
           <TileVotes>{movie.vote_count} votes</TileVotes>
         </TileRatingWrapper>
       </TileContainer>
