@@ -11,9 +11,10 @@ import { getPosterUrl } from "../../moviesData.js";
 const TileCredits = ({ actor, crew }) => {
 
     const castPosterUrl = getPosterUrl(actor?.profile_path || crew?.profile_path);
+    const personPath = `/person/${actor?.id || crew?.id}`
 
     return (
-        <TileCreditsWrapper>
+        <TileCreditsWrapper to={personPath}>
             <TileCreditsContainer>
                 <TileCreditsImage $posterUrl={castPosterUrl} $noPosterUrl={noPoster} />
                 <TileCreditsName>{actor?.name}{crew?.name}</TileCreditsName>

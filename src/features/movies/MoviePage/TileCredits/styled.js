@@ -1,12 +1,14 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-export const TileCreditsWrapper = styled.section`
+export const TileCreditsWrapper = styled(NavLink)`
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0 0 5px ${({ theme }) => theme.color.grey};
   display: grid;
   grid-template-columns: auto;
   transition: transform 0.2s;
   cursor: pointer;
+  text-decoration: none;
   width: 208px;
   height: 420px;
   padding: 12px;
@@ -78,6 +80,7 @@ export const TileCreditsName = styled.h2`
   font-size: 22px;
   line-height: 1.3;
   font-weight: 500;
+  color: ${({ theme }) => theme.color.woodsmoke};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 14px;
