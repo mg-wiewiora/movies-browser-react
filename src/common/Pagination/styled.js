@@ -90,32 +90,16 @@ export const PaginationInfo = styled.span`
 
 export const PaginationLeftActive = styled(LeftActiveIcon)`
   width: 5px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    margin-right: 2px;
-  }
 `;
 
 export const PaginationLeftDisabled = styled(LeftDisabledIcon)`
   width: 5px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    margin-right: 2px;
-  }
 `;
 
 export const PaginationRightActive = styled(RightActiveIcon)`
   width: 5px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    margin-left: 2px;
-  }
 `;
 
 export const PaginationRightDisabled = styled(RightDisabledIcon)`
   width: 5px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    margin-left: 2px;
-  }
 `;
