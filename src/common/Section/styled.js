@@ -6,7 +6,7 @@ export const SectionWrapper = styled.section`
   max-width: 100%;
   justify-content: center;
 
-@media (max-width: 1400px) {
+@media (max-width: ${({ theme }) => theme.breakpoint.beneathFullHD}px) {
         
   }
 

@@ -29,7 +29,7 @@ export const TileMovieImage = styled.div`
         height: 338px;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 171px;
         height: 254px;
     }
@@ -39,7 +39,7 @@ export const TileMovieImage = styled.div`
         height: 169px; 
     }
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
         width: 114px;
         height: 169px; 
     }
@@ -178,7 +178,7 @@ line-height: 1.2;
         margin: 5px 0;
   }
 
-@media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}px) {
+@media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
         font-size: 8px;
         margin: 5px 0;
   }`;
@@ -195,7 +195,7 @@ line-height: 1.2;
         margin: 5px 0;
   }
 
-@media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}px) {
+@media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
         font-size: 8px;
         margin: 5px 0;
   }`;

@@ -21,7 +21,7 @@ export const TileBackdropTitle = styled.h2`
   margin: 18px 0;
   font-size: 64px;
 
-  @media (max-width: 1000px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
         font-size: 32px;
         margin: 5px 0;
   }
@@ -31,7 +31,7 @@ export const TileBackdropTitle = styled.h2`
         margin: 5px 0;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
         font-size: 12px;
         margin: 5px 0;
   }
@@ -57,7 +57,7 @@ font-weight: 600;
 font-size: 30px;
 line-height: 1.2;
 
-@media (max-width: 1000px) {
+@media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
         font-size: 16px;
         margin: 5px 0;
   }
@@ -67,7 +67,7 @@ line-height: 1.2;
         margin: 5px 0;
   }
 
-@media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}px) {
+@media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
         font-size: 8px;
         margin: 5px 0;
   }`;
@@ -83,7 +83,7 @@ line-height: 1.2;
         margin: 5px 0;
   }
 
-@media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}px) {
+@media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
         font-size: 8px;
         margin: 5px 0;
   }`;

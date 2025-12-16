@@ -14,9 +14,8 @@ export const theme = {
     beneathFullHD: 1440,
     desktopStandard: 1280,
     tabletLandscape: 1024,
-    tabletStandard: 768,
-    smallTablet: 600,
+    mobile: 768,
+    smallTablet: 640,
     horizontalMobile: 576,
-    mobileStandard: 375,
   },
 };

@@ -30,7 +30,7 @@ export const TileCreditsWrapper = styled.section`
         height: 335px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
     grid-template-columns: 2fr;
     width: 136px;
     height: 265px;
@@ -61,7 +61,7 @@ export const TileCreditsImage = styled.div`
         background-size: cover;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
     width: 114px;
     background-size: cover;
   }
