@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMoviesStart } from "../moviesSlice";
 import { usePagination } from "../../../common/Pagination/usePagination";
 import { ITEMS_PER_PAGE, TOTAL_PAGES, TMDB_ITEMS_PER_PAGE } from "../moviesConstants";
-import { getPageData } from "./moviesData";
+import { getPageData } from "../moviesData";
 
 export const useMoviesPage = () => {
   const dispatch = useDispatch();
@@ -22,6 +22,10 @@ export const useMoviesPage = () => {
   useEffect(() => {
     dispatch(fetchMoviesStart({ page: tmdbPage }));
   }, [dispatch, tmdbPage]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [page]);
 
   return {
     moviesToShow,
