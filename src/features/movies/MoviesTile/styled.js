@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as StarIcon } from "../../../../assets/star.svg";
+import { ReactComponent as StarIcon } from "../../../assets/star.svg";
 import { NavLink } from "react-router-dom";
 
 const activeClassName = "active"; //to jest do przerobienia/usunięcia, nie powinno tu być

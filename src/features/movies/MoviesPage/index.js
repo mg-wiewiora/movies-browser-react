@@ -1,6 +1,6 @@
 import { Container } from "../../../common/Container/styled";
 import Section from "../../../common/Section";
-import Tile from "./Tile";
+import Tile from "../MoviesTile";
 import { MoviesGrid } from "./styled";
 import { Pagination } from "../../../common/Pagination";
 import { useMoviesPage } from "./useMoviesPage";

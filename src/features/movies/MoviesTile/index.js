@@ -11,8 +11,8 @@ import {
   TileRating,
   TileVotes,
 } from "./styled";
-import noPoster from "../../../../assets/no-poster.svg";
-import { getReleaseYear, getPosterUrl } from "../../moviesData.js";
+import noPoster from "../../../assets/no-poster.svg";
+import { getReleaseYear, getPosterUrl } from "../moviesData.js";
 
 const Tile = ({ movie }) => {
   const releaseYear = getReleaseYear(movie.release_date);

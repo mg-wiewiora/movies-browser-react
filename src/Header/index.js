@@ -14,9 +14,11 @@ import {
   HeaderNavigation,
 } from "./styled";
 import { usePlaceholder } from "../features/usePlaceholder";
+import { useHeaderSearch } from "./useHeaderSearch";
 
 const Header = () => {
   const placeholderText = usePlaceholder();
+  const { inputValue, setInputValue } = useHeaderSearch();
 
   return (
     <HeaderWrapper>
@@ -25,6 +27,7 @@ const Header = () => {
           <HeaderLogo />
           <HeaderTitle>Movies Browser</HeaderTitle>
         </HeaderMainLink>
+
         <HeaderNavigation>
           <HeaderList>
             <HeaderItem>
@@ -36,9 +39,15 @@ const Header = () => {
           </HeaderList>
         </HeaderNavigation>
       </HeaderLeft>
+
       <HeaderInputWrapper>
         <HeaderIcon />
-        <HeaderInput placeholder={placeholderText} aria-label="Search" />
+        <HeaderInput
+          placeholder={placeholderText}
+          aria-label="Search"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
       </HeaderInputWrapper>
     </HeaderWrapper>
   );
