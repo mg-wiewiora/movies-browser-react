@@ -1,10 +1,12 @@
 import { useLocation } from "react-router-dom";
 
 export const usePlaceholder = () => {
-  const { hash } = useLocation();
-  const hashPath = hash.split("#").pop();
+  const location = useLocation();
+  const hash = location.hash || "";
 
-  return hashPath === "/people" || hashPath.startsWith("/person")
-    ? "Search for people..."
-    : "Search for movies...";
+  if (hash === "#/people" || hash.startsWith("#/person")) {
+    return "Search for people...";
+  }
+
+  return "Search for movies...";
 };
