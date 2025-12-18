@@ -17,25 +17,34 @@ import {
 import { getReleaseYear, getPosterUrl } from "../../moviesData.js";
 import noPoster from "../../../../assets/no-poster.svg";
 
-const TileMovie = ({ movie }) => {
+const TileMovie = ({ movie, person }) => {
 
   const releaseYear = getReleaseYear(movie?.release_date);
-  const posterUrl = getPosterUrl(movie?.poster_path);
+  const posterUrl = getPosterUrl(movie?.poster_path || person?.profile_path);
 
   return (
     <TileMovieWrapper>
       <TileMovieImage $posterUrl={posterUrl} $noPosterUrl={noPoster} />
       <TileMovieContainer>
-        <TileMovieTitle>{movie.title}</TileMovieTitle>
+        <TileMovieTitle>{movie?.title}{person?.name}</TileMovieTitle>
         <TileMovieYear>{releaseYear}</TileMovieYear>
         <TileMovieContainer>
-          {movie.production_countries?.map((product) => (
-            <TileMovieDetails key={product.iso_3166_1}> <TileMovieDetailsTitle>Production: </TileMovieDetailsTitle>
-              {product.name} </TileMovieDetails>))}
-          <TileMovieDetails><TileMovieDetailsTitle>Release date: </TileMovieDetailsTitle>{movie.release_date}</TileMovieDetails>
+          {movie?.production_countries?.map((product) => (
+            <TileMovieDetails key={product.iso_3166_1}>
+              <TileMovieDetailsTitle>
+                Production:
+              </TileMovieDetailsTitle>
+              {product.name}
+            </TileMovieDetails>))}
+          <TileMovieDetails>
+            <TileMovieDetailsTitle>
+              Release date:
+            </TileMovieDetailsTitle>
+            {movie?.release_date}
+          </TileMovieDetails>
         </TileMovieContainer>
         <TileMovieTags>
-          {movie.genre_names?.map((g) => (
+          {movie?.genre_names?.map((g) => (
             <TileMovieTag key={g}>{g}</TileMovieTag>
           ))}
         </TileMovieTags>
@@ -45,10 +54,10 @@ const TileMovie = ({ movie }) => {
               <TileMovieIcon />
             </>
           )}
-          <TileMovieRating>{movie.vote_average?.toFixed(1)}</TileMovieRating>
-          <TileMovieVotes> / 10 {movie.vote_count} votes</TileMovieVotes>
+          <TileMovieRating>{movie?.vote_average?.toFixed(1)}</TileMovieRating>
+          <TileMovieVotes> / 10 {movie?.vote_count} votes</TileMovieVotes>
         </TileMovieRatingWrapper>
-        <TileMovieContent>{movie?.overview}</TileMovieContent>
+        <TileMovieContent>{movie?.overview}{person?.biography}</TileMovieContent>
       </TileMovieContainer>
     </TileMovieWrapper>
   )
