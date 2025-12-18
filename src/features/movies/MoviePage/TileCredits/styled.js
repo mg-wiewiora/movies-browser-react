@@ -4,8 +4,6 @@ import { NavLink } from "react-router-dom";
 export const TileCreditsWrapper = styled(NavLink)`
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0 0 5px ${({ theme }) => theme.color.grey};
-  display: grid;
-  grid-template-columns: auto;
   transition: transform 0.2s;
   cursor: pointer;
   text-decoration: none;
@@ -20,15 +18,8 @@ export const TileCreditsWrapper = styled(NavLink)`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    grid-template-columns: 2fr;
-    justify-content: center;
     width: 165px;
     height: 335px;
-  }
-
-@media (max-width: 540px) {
-        width: 165px;
-        height: 335px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {

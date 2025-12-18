@@ -56,13 +56,12 @@ export const Backdrop = styled.div`
 
 export const CreditsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 208px);
   grid-gap: 24px;
   justify-content: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.beneathFullHD}px) {
     grid-template-columns: repeat(5, 1fr);
-     grid-gap: 0px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.desktopStandard}px) {
