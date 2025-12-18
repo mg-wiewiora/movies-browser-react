@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const activeClassName = "active"; //to jest do przerobienia/usunięcia, nie powinno tu być
 
 export const TileWrapper = styled(NavLink).attrs(() => ({
-    activeClassName,
+  activeClassName,
 }))`
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px ${({ theme }) => theme.color.shadow};
@@ -99,10 +99,7 @@ export const TileTags = styled.ul`
   margin: 0 0 8px 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 4px 8px;
-    max-width: 100%;
     margin: 0;
   }
 `;
@@ -115,14 +112,14 @@ export const TileTag = styled.li`
   font-weight: 400;
   line-height: 1.4;
   color: ${({ theme }) => theme.color.woodsmoke};
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+  width: fit-content;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 10px;
     line-height: 1.1;
-    white-space: normal;
     padding: 4px 8px;
   }
 `;
