@@ -9,14 +9,14 @@
  import { getPosterUrl } from "../peopleData";
 
  
- const Tile = ({ people }) => {
-const posterUrl = getPosterUrl(people.profile_path);
+ const Tile = ({ person }) => {
+const posterUrl = getPosterUrl(person.profile_path);
  
    return (
      <TileWrapper>
        <TilePeople $posterUrl={posterUrl} $noPosterUrl={noPoster} />
        <TileContainer>
-         <TileTitle>{people.name}</TileTitle>
+         <TileTitle>{person.name}</TileTitle>
       </TileContainer>
      </TileWrapper>
    );

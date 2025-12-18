@@ -24,8 +24,8 @@ const PeoplePage = () => {
         title="Popular people" 
         content={
             <PeopleGrid>
-              {people.map((people) => (
-                <Tile key={people.id} people={people} />
+              {people.map((person) => (
+                <Tile key={person.id} person={person} />
               ))}
             </PeopleGrid>
           }
