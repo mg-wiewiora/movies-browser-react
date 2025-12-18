@@ -3,7 +3,7 @@ import { ReactComponent as StarIcon } from "../../../../assets/star.svg";
 
 export const TileMovieWrapper = styled.section`
   background-color: ${({ theme }) => theme.color.white};
-  box-shadow: 0 0 5px ${({ theme }) => theme.color.grey};
+  box-shadow: 0px 4px 12px ${({ theme }) => theme.color.shadow};
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: 40px;

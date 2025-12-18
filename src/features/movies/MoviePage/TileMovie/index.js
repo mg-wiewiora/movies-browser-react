@@ -30,7 +30,7 @@ const TileMovie = ({ movie }) => {
         <TileMovieYear>{releaseYear}</TileMovieYear>
         <TileMovieContainer>
           {movie.production_countries?.map((product) => (
-            <TileMovieDetails key={product.id}> <TileMovieDetailsTitle>Production: </TileMovieDetailsTitle>
+            <TileMovieDetails key={product.iso_3166_1}> <TileMovieDetailsTitle>Production: </TileMovieDetailsTitle>
               {product.name} </TileMovieDetails>))}
           <TileMovieDetails><TileMovieDetailsTitle>Release date: </TileMovieDetailsTitle>{movie.release_date}</TileMovieDetails>
         </TileMovieContainer>
@@ -48,7 +48,7 @@ const TileMovie = ({ movie }) => {
           <TileMovieRating>{movie.vote_average?.toFixed(1)}</TileMovieRating>
           <TileMovieVotes> / 10 {movie.vote_count} votes</TileMovieVotes>
         </TileMovieRatingWrapper>
-        <TileMovieContent>{movie.overview}</TileMovieContent>
+        <TileMovieContent>{movie?.overview}</TileMovieContent>
       </TileMovieContainer>
     </TileMovieWrapper>
   )

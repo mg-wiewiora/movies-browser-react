@@ -47,13 +47,13 @@ const MoviePage = () => {
           />
         </Backdrop>
       </BackdropContainer>
+      {loading && <p>Loading movie...</p>}
+      {error && <p>Error: {error}</p>}
       <Section
         content={
-          <>
             <TileMovie
               key={movie.id}
-              movie={movie} />
-          </>
+              movie={movie} /> 
         } />
       {creditsLoading && <p>Loading credits...</p>}
       {creditsError && <p>Error: {error}</p>}
