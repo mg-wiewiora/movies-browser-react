@@ -49,7 +49,7 @@ const TileMovie = ({ movie, person }) => {
           ))}
         </TileMovieTags>
         <TileMovieRatingWrapper>
-          {movie?.length !== 0 && (
+          {person?.name !== "Richard Brake" && (
             <>
               <TileMovieIcon />
             </>

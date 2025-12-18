@@ -26,7 +26,7 @@ const PersonPage = () => {
       {personLoading && <p>Loading movie...</p>}
       {personError && <p>Error: {personError}</p>}
       <Section content={<TileMovie person={person} />} />
-      <Section title="Movies Cast" content={<Tile movie={[]} />} />
+      <Section title="Movies Cast" content={<Tile movie={person} />} />
       <Section title="Movies Crew" content={<Tile movie={[]} />} />
     </Container>
   );
