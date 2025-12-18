@@ -13,8 +13,11 @@ import {
   HeaderInputWrapper,
   HeaderNavigation,
 } from "./styled";
+import { usePlaceholder } from "../features/usePlaceholder";
 
 const Header = () => {
+  const placeholderText = usePlaceholder();
+
   return (
     <HeaderWrapper>
       <HeaderLeft>
@@ -35,7 +38,7 @@ const Header = () => {
       </HeaderLeft>
       <HeaderInputWrapper>
         <HeaderIcon />
-        <HeaderInput placeholder="Search for movies..." />
+        <HeaderInput placeholder={placeholderText} aria-label="Search" />
       </HeaderInputWrapper>
     </HeaderWrapper>
   );
