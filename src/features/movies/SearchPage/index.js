@@ -1,20 +1,14 @@
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { Container } from "../../../common/Container/styled";
 import Section from "../../../common/Section";
-import Tile from "../../movies/MoviesTile";
+import MoviesTile from "../../movies/MoviesTile";
 import { Loading } from "./styled";
 import { MoviesGrid } from "../MoviesPage/styled";
 import { Pagination } from "../../../common/Pagination";
 import { useSearchMovies } from "./useSearchMovies";
-import { useQueryParameter, useReplaceQueryParameter } from "../../queryParameters";
+import { useQueryParameter } from "../../queryParameters";
 
 const SearchPage = () => {
-  const location = useLocation();
   const query = useQueryParameter("query") || "";
-  const replaceQuery = useReplaceQueryParameter();
-
-  const [searchText] = useState(query);
 
   const {
     searchResults,
@@ -26,23 +20,17 @@ const SearchPage = () => {
     goToPrev,
     goToNext,
     goToLast,
-  } = useSearchMovies(searchText, 1);
+  } = useSearchMovies(query, 1);
 
-  useEffect(() => {
-    if (searchText !== query) {
-      replaceQuery({ key: "query", value: searchText });
-    }
-  }, [searchText, query, replaceQuery]);
-
-  if (!searchText) return null;
+  if (!query) return null;
 
   return (
     <Container>
       <Section
         title={
           loading
-            ? `Search results for "${searchText}"`
-            : `Search results for "${searchText}" (${searchResults.length})`
+            ? `Search results for "${query}"`
+            : `Search results for "${query}" (${searchResults.length})`
         }
         content={
           loading ? (
@@ -53,7 +41,7 @@ const SearchPage = () => {
             <>
               <MoviesGrid>
                 {searchResults.map((movie) => (
-                  <Tile key={movie.id} movie={movie} />
+                  <MoviesTile key={movie.id} movie={movie} />
                 ))}
               </MoviesGrid>
               <Pagination

@@ -8,7 +8,7 @@ export const useQueryUpdate = (key, value) => {
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
 
-    if (!value) {
+    if (value === undefined || value === "") {
       searchParams.delete(key);
     } else {
       searchParams.set(key, value);

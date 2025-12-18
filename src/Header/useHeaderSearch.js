@@ -7,26 +7,28 @@ import {
 } from "../features/queryParameters";
 
 export const useHeaderSearch = () => {
-  const query = useQueryParameter("query") || "";
-  const replaceQuery = useReplaceQueryParameter();
   const history = useHistory();
   const location = useLocation();
+
+  const query = useQueryParameter("query") || "";
+  const replaceQuery = useReplaceQueryParameter();
 
   const [inputValue, setInputValue] = useState(query);
 
   useEffect(() => {
-    if (inputValue === query) return;
-
     const handler = setTimeout(() => {
       replaceQuery({ key: "query", value: inputValue });
 
-      if (inputValue.trim()) {
+      if (
+        inputValue.trim() !== "" &&
+        location.pathname !== toSearch()
+      ) {
         history.push(toSearch());
       }
     }, 500);
 
     return () => clearTimeout(handler);
-  }, [inputValue, query, replaceQuery, history, location.search]);
+  }, [inputValue, history, replaceQuery, location.pathname]);
 
   return { inputValue, setInputValue };
 };
