@@ -42,13 +42,16 @@ const MoviePage = () => {
       <BackdropContainer>
         <Backdrop $posterUrl={backdropUrl} $noPosterUrl={noPoster}>
           <TileBackdrop
-            movie={movie} />
+            key={movie.imdb_id}
+            movie={movie}
+          />
         </Backdrop>
       </BackdropContainer>
       <Section
         content={
           <>
             <TileMovie
+              key={movie.id}
               movie={movie} />
           </>
         } />

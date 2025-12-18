@@ -24,7 +24,6 @@ export const TileCreditsWrapper = styled(NavLink)`
     justify-content: center;
     width: 165px;
     height: 335px;
-    margin: 16px;
   }
 
 @media (max-width: 540px) {

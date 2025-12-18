@@ -19,34 +19,39 @@ import noPoster from "../../../../assets/no-poster.svg";
 
 const TileMovie = ({ movie }) => {
 
-  const releaseYear = getReleaseYear(movie.release_date);
-  const posterUrl = getPosterUrl(movie.poster_path);
+  const releaseYear = getReleaseYear(movie?.release_date);
+  const posterUrl = getPosterUrl(movie?.poster_path);
 
-  return(
-  <TileMovieWrapper>
-    <TileMovieImage $posterUrl={posterUrl} $noPosterUrl={noPoster} />
-    <TileMovieContainer>
-      <TileMovieTitle>{movie.title}</TileMovieTitle>
-      <TileMovieYear>{releaseYear}</TileMovieYear>
+  return (
+    <TileMovieWrapper>
+      <TileMovieImage $posterUrl={posterUrl} $noPosterUrl={noPoster} />
       <TileMovieContainer>
-        {movie.production_countries?.map((product) => (
-      <TileMovieDetails key={product.id}> <TileMovieDetailsTitle>Production: </TileMovieDetailsTitle>
-        {product.name} </TileMovieDetails>))}
-      <TileMovieDetails><TileMovieDetailsTitle>Release date: </TileMovieDetailsTitle>{movie.release_date}</TileMovieDetails>
+        <TileMovieTitle>{movie.title}</TileMovieTitle>
+        <TileMovieYear>{releaseYear}</TileMovieYear>
+        <TileMovieContainer>
+          {movie.production_countries?.map((product) => (
+            <TileMovieDetails key={product.id}> <TileMovieDetailsTitle>Production: </TileMovieDetailsTitle>
+              {product.name} </TileMovieDetails>))}
+          <TileMovieDetails><TileMovieDetailsTitle>Release date: </TileMovieDetailsTitle>{movie.release_date}</TileMovieDetails>
+        </TileMovieContainer>
+        <TileMovieTags>
+          {movie.genre_names?.map((g) => (
+            <TileMovieTag key={g}>{g}</TileMovieTag>
+          ))}
+        </TileMovieTags>
+        <TileMovieRatingWrapper>
+          {movie?.length !== 0 && (
+            <>
+              <TileMovieIcon />
+            </>
+          )}
+          <TileMovieRating>{movie.vote_average?.toFixed(1)}</TileMovieRating>
+          <TileMovieVotes> / 10 {movie.vote_count} votes</TileMovieVotes>
+        </TileMovieRatingWrapper>
+        <TileMovieContent>{movie.overview}</TileMovieContent>
       </TileMovieContainer>
-      <TileMovieTags>
-        {movie.genre_names?.map((g) => (
-          <TileMovieTag key={g}>{g}</TileMovieTag>
-        ))}
-      </TileMovieTags>
-      <TileMovieRatingWrapper>
-        <TileMovieIcon />
-        <TileMovieRating>{movie.vote_average?.toFixed(1)}</TileMovieRating>
-        <TileMovieVotes> / 10 {movie.vote_count} votes</TileMovieVotes>
-      </TileMovieRatingWrapper>
-      <TileMovieContent>{movie.overview}</TileMovieContent>
-    </TileMovieContainer>
-  </TileMovieWrapper>
-)};
+    </TileMovieWrapper>
+  )
+};
 
 export default TileMovie;

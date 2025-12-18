@@ -34,11 +34,6 @@ export const TileMovieImage = styled.div`
         height: 254px;
     }
 
-    @media (max-width: 540px) {
-        width: 114px;
-        height: 169px; 
-    }
-
     @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
         width: 114px;
         height: 169px; 
