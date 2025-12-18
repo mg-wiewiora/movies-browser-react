@@ -2,6 +2,7 @@ import { toMovies, toPeople } from "../routes";
 import {
   HeaderWrapper,
   HeaderLeft,
+  HeaderMainLink,
   HeaderTitle,
   HeaderList,
   HeaderItem,
@@ -17,8 +18,10 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <HeaderLeft>
-        <HeaderLogo />
-        <HeaderTitle>Movies Browser</HeaderTitle>
+        <HeaderMainLink to={toMovies()}>
+          <HeaderLogo />
+          <HeaderTitle>Movies Browser</HeaderTitle>
+        </HeaderMainLink>
         <HeaderNavigation>
           <HeaderList>
             <HeaderItem>
@@ -30,7 +33,6 @@ const Header = () => {
           </HeaderList>
         </HeaderNavigation>
       </HeaderLeft>
-
       <HeaderInputWrapper>
         <HeaderIcon />
         <HeaderInput placeholder="Search for movies..." />
