@@ -1,10 +1,11 @@
 import { useLocation } from "react-router-dom";
+import { toPeople, toPerson } from "../routes";
 
 export const usePlaceholder = () => {
   const location = useLocation();
-  const hash = location.hash || "";
+  const path = location.pathname;
 
-  if (hash === "#/people" || hash.startsWith("#/person")) {
+  if (path === toPeople() || path.startsWith(toPerson())) {
     return "Search for people...";
   }
 
