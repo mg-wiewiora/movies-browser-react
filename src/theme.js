@@ -6,10 +6,9 @@ export const theme = {
     silver: "#C4C4C4",
     grey: "#7E839A",
     shadow: "#BAC7D580",
-    black: "#18181B",
-    yellow: "#FCD420",
+    woodsmoke: "#18181B",
+    black: "#000000",
     sky: "#D6E4FF",
-    blue: "#0044CC",
   },
   breakpoint: {
     mobile: 767,
