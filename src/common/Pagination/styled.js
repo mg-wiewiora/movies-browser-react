@@ -81,6 +81,7 @@ export const PaginationInfo = styled.span`
 
   strong {
     color: ${({ theme }) => theme.color.black};
+    font-weight: 600;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
