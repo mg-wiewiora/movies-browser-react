@@ -1,40 +1,32 @@
 import { useState, useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
-import {
-  useQueryParameter,
-  useReplaceQueryParameter,
-} from "../features/queryParameters";
-import { toMovies } from "../routes";
+import { useLocation } from "react-router-dom";
+import { useQueryParameter, useReplaceQueryParameter } from "../features/queryParameters";
 
 export const useHeaderSearch = () => {
-  const history = useHistory();
   const location = useLocation();
-
   const query = useQueryParameter("query") || "";
   const replaceQuery = useReplaceQueryParameter();
 
   const [inputValue, setInputValue] = useState(query);
 
   useEffect(() => {
-    const handler = setTimeout(() => {
-      replaceQuery({ key: "query", value: inputValue });
+    setInputValue(query);
+  }, [query]);
 
-      if (inputValue.trim() !== "" && location.pathname !== toMovies()) {
-        history.push(toMovies());
+  useEffect(() => {
+    if (!location.pathname.startsWith("/movies") && inputValue !== "") {
+      setInputValue("");
+    }
+  }, [location.pathname, inputValue]);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      if (query !== inputValue) {
+        replaceQuery({ key: "query", value: inputValue });
       }
     }, 500);
-
     return () => clearTimeout(handler);
-  }, [inputValue, history, replaceQuery, location.pathname]);
+  }, [inputValue, query, replaceQuery]);
 
-  const resetSearch = () => {
-    setInputValue("");
-    replaceQuery({ key: "query", value: "" });
-  };
-
-  return {
-    inputValue,
-    setInputValue,
-    resetSearch,
-  };
+  return { inputValue, setInputValue };
 };
