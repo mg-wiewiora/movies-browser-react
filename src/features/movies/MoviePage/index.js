@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Section from "../../../common/Section";
 import { Container } from "../../../common/Container/styled";
-import TileMovie from "./TileMovie/index.js";
+import TileDetails from "../../../common/TileDetails/index.js";
 import TileCredits from "./TileCredits/index.js";
 import TileBackdrop from "./TileBackdrop";
 import { fetchMovieStart } from "../movieSlice";
@@ -51,7 +51,7 @@ const MoviePage = () => {
       {error && <p>Error: {error}</p>}
       <Section
         content={
-          <TileMovie
+          <TileDetails
             show={true}
             key={movie.id}
             movie={movie} />

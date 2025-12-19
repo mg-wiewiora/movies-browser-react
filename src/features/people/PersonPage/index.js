@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { Container } from "../../../common/Container/styled";
 import { fetchPersonStart } from "../personSlice";
-import TileMovie from "../../movies/MoviePage/TileMovie/index.js";
+import TileDetails from "../../../common/TileDetails/index.js";
 import Tile from "../../movies/MoviesPage/Tile/index.js";
 
 const PersonPage = () => {
@@ -25,7 +25,7 @@ const PersonPage = () => {
       {personError && <p>Error: {personError}</p>}
       <Section
         content={
-          <TileMovie
+          <TileDetails
             key={person.id}
             show={false}
             person={person} />
