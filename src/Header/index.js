@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <HeaderLeft>
-        <HeaderMainLink to={toMovies()}>
+        <HeaderMainLink to={toMovies()} onClick={() => setInputValue("")}>
           <HeaderLogo />
           <HeaderTitle>Movies Browser</HeaderTitle>
         </HeaderMainLink>
@@ -31,10 +31,14 @@ const Header = () => {
         <HeaderNavigation>
           <HeaderList>
             <HeaderItem>
-              <HeaderNavLink to={toMovies()}>Movies</HeaderNavLink>
+              <HeaderNavLink to={toMovies()} onClick={() => setInputValue("")}>
+                Movies
+              </HeaderNavLink>
             </HeaderItem>
             <HeaderItem>
-              <HeaderNavLink to={toPeople()}>People</HeaderNavLink>
+              <HeaderNavLink to={toPeople()} onClick={() => setInputValue("")}>
+                People
+              </HeaderNavLink>
             </HeaderItem>
           </HeaderList>
         </HeaderNavigation>
