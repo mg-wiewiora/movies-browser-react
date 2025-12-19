@@ -1,11 +1,11 @@
 import { Container } from "../../../common/Container/styled";
 import Section from "../../../common/Section";
-import Tile from "../MoviesTile";
 import { MoviesGrid } from "./styled";
 import { Pagination } from "../../../common/Pagination";
 import { useMoviesPage } from "./useMoviesPage";
 import { useQueryParameter } from "../../queryParameters";
 import MoviesSearch from "../MoviesSearch";
+import MoviesTile from "../MoviesTile";
 
 const MoviesPage = () => {
   const query = useQueryParameter("query") || "";
@@ -37,7 +37,7 @@ const MoviesPage = () => {
                 <>
                   <MoviesGrid>
                     {moviesToShow.map((movie) => (
-                      <Tile key={movie.id} movie={movie} />
+                      <MoviesTile key={movie.id} movie={movie} />
                     ))}
                   </MoviesGrid>
                   <Pagination

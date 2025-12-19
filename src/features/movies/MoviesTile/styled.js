@@ -2,11 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as StarIcon } from "../../../assets/star.svg";
 import { NavLink } from "react-router-dom";
 
-const activeClassName = "active"; //to jest do przerobienia/usunięcia, nie powinno tu być
-
-export const TileWrapper = styled(NavLink).attrs(() => ({
-  activeClassName,
-}))`
+export const MoviesTileWrapper = styled(NavLink)`
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px ${({ theme }) => theme.color.shadow};
   border-radius: 5px;
@@ -30,7 +26,7 @@ export const TileWrapper = styled(NavLink).attrs(() => ({
   }
 `;
 
-export const TileImage = styled.div`
+export const MoviesTileImage = styled.div`
   width: 100%;
   aspect-ratio: 2 / 3;
   border-radius: 5px;
@@ -47,7 +43,7 @@ export const TileImage = styled.div`
   }
 `;
 
-export const TileContainer = styled.div`
+export const MoviesTileContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -64,7 +60,7 @@ export const TileContainer = styled.div`
   }
 `;
 
-export const TileTitle = styled.h3`
+export const MoviesTileTitle = styled.h3`
   margin: 0;
   font-size: 22px;
   font-weight: 500;
@@ -78,7 +74,7 @@ export const TileTitle = styled.h3`
   }
 `;
 
-export const TileYear = styled.p`
+export const MoviesTileYear = styled.p`
   margin: 0 0 8px 0;
   font-size: 16px;
   font-weight: 400;
@@ -90,7 +86,7 @@ export const TileYear = styled.p`
   }
 `;
 
-export const TileTags = styled.ul`
+export const MoviesTileTags = styled.ul`
   list-style: none;
   padding: 0;
   display: flex;
@@ -104,7 +100,7 @@ export const TileTags = styled.ul`
   }
 `;
 
-export const TileTag = styled.li`
+export const MoviesTileTag = styled.li`
   background-color: ${({ theme }) => theme.color.mystic};
   padding: 8px 16px;
   border-radius: 5px;
@@ -124,7 +120,7 @@ export const TileTag = styled.li`
   }
 `;
 
-export const TileRatingWrapper = styled.div`
+export const MoviesTileRatingWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -136,7 +132,7 @@ export const TileRatingWrapper = styled.div`
   }
 `;
 
-export const TileIcon = styled(StarIcon)`
+export const MoviesTileIcon = styled(StarIcon)`
   width: 24px;
   flex-shrink: 0;
 
@@ -145,7 +141,7 @@ export const TileIcon = styled(StarIcon)`
   }
 `;
 
-export const TileRating = styled.span`
+export const MoviesTileRating = styled.span`
   font-weight: 600;
   font-size: 16px;
   color: ${({ theme }) => theme.color.woodsmoke};
@@ -155,7 +151,7 @@ export const TileRating = styled.span`
   }
 `;
 
-export const TileVotes = styled.span`
+export const MoviesTileVotes = styled.span`
   font-weight: 400;
   font-size: 16px;
   color: ${({ theme }) => theme.color.grey};
