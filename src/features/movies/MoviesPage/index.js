@@ -4,8 +4,20 @@ import Tile from "../MoviesTile";
 import { MoviesGrid } from "./styled";
 import { Pagination } from "../../../common/Pagination";
 import { useMoviesPage } from "./useMoviesPage";
+import { useQueryParameter } from "../../queryParameters";
+import MoviesSearch from "../MoviesSearch";
 
 const MoviesPage = () => {
+  const query = useQueryParameter("query") || "";
+
+  if (query) {
+    return (
+      <Container>
+        <MoviesSearch />
+      </Container>
+    );
+  }
+
   const {
     moviesToShow,
     loading,

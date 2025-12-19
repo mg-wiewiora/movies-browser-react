@@ -2,10 +2,9 @@ import Movies from "./features/movies/MoviesPage";
 import Movie from "./features/movies/MoviePage";
 import People from "./features/people/PeoplePage";
 import Person from "./features/people/PersonPage";
-import SearchPage from "./features/movies/SearchPage";
 
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
-import { toMovies, toMovie, toPerson, toPeople, toSearch } from "./routes";
+import { toMovies, toMovie, toPerson, toPeople } from "./routes";
 import Header from "./Header";
 
 const App = () => (
@@ -24,9 +23,6 @@ const App = () => (
       </Route>
       <Route path={toPeople()}>
         <People />
-      </Route>
-      <Route path={toSearch()}>
-        <SearchPage />
       </Route>
       <Route>
         <Redirect to={toMovies()} />
