@@ -39,7 +39,7 @@ const TileDetails = ({ show, movie, person }) => {
               </TileDetailsSpecificTitle>
               {product.name}
             </TileDetailsSpecific>))}
-          {show === false && (
+          {person?.birthday && (
           <TileDetailsSpecific>
             <TileDetailsSpecificTitle>
               Date of birth:
@@ -48,7 +48,7 @@ const TileDetails = ({ show, movie, person }) => {
           </TileDetailsSpecific>)}
           <TileDetailsSpecific>
             <TileDetailsSpecificTitle>
-              {show === true ? (<>Release date</>) : (<>Place of birth</>)}
+              {show ? "Release date" : "Place of birth"}
             </TileDetailsSpecificTitle>
             {movie?.release_date}{person?.place_of_birth}
           </TileDetailsSpecific>
@@ -59,11 +59,12 @@ const TileDetails = ({ show, movie, person }) => {
             <TileDetailsTag key={g}>{g}</TileDetailsTag>
           ))}
         </TileDetailsTags>)}
+        {show === true && (
         <TileDetailsRatingWrapper>
-          {show === true && (<TileDetailsIcon />)}
+          <TileDetailsIcon />
           <TileDetailsRating>{movie?.vote_average?.toFixed(1)}</TileDetailsRating>
-          {show === true && (<TileDetailsVotes> / 10 {movie?.vote_count} votes</TileDetailsVotes>)}
-        </TileDetailsRatingWrapper>
+          <TileDetailsVotes> / 10 {movie?.vote_count} votes</TileDetailsVotes>
+        </TileDetailsRatingWrapper>)}
         <TileDetailsContent>{movie?.overview}{person?.biography}</TileDetailsContent>
       </TileDetailsContainer>
     </TileDetailsWrapper>
