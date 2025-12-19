@@ -51,9 +51,10 @@ const MoviePage = () => {
       {error && <p>Error: {error}</p>}
       <Section
         content={
-            <TileMovie
-              key={movie.id}
-              movie={movie} /> 
+          <TileMovie
+            show={true}
+            key={movie.id}
+            movie={movie} />
         } />
       {creditsLoading && <p>Loading credits...</p>}
       {creditsError && <p>Error: {error}</p>}

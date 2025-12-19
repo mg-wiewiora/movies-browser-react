@@ -19,13 +19,17 @@ const PersonPage = () => {
     }
   }, [dispatch, id]);
 
-  console.log({ person })
-
   return (
     <Container>
       {personLoading && <p>Loading movie...</p>}
       {personError && <p>Error: {personError}</p>}
-      <Section content={<TileMovie person={person} />} />
+      <Section
+        content={
+          <TileMovie
+            key={person.id}
+            show={false}
+            person={person} />
+        } />
       <Section title="Movies Cast" content={<Tile movie={person} />} />
       <Section title="Movies Crew" content={<Tile movie={[]} />} />
     </Container>
