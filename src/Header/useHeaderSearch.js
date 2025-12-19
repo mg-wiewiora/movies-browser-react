@@ -1,7 +1,15 @@
 import { useState, useEffect } from "react";
-import { useReplaceQueryParameter, useQueryParameter } from "../features/queryParameters";
+import { useHistory, useLocation } from "react-router-dom";
+import {
+  useQueryParameter,
+  useReplaceQueryParameter,
+} from "../features/queryParameters";
+import { toMovies } from "../routes";
 
 export const useHeaderSearch = () => {
+  const history = useHistory();
+  const location = useLocation();
+
   const query = useQueryParameter("query") || "";
   const replaceQuery = useReplaceQueryParameter();
 
@@ -9,11 +17,24 @@ export const useHeaderSearch = () => {
 
   useEffect(() => {
     const handler = setTimeout(() => {
-      replaceQuery({ key: "query", value: inputValue.trim() || undefined });
+      replaceQuery({ key: "query", value: inputValue });
+
+      if (inputValue.trim() !== "" && location.pathname !== toMovies()) {
+        history.push(toMovies());
+      }
     }, 500);
 
     return () => clearTimeout(handler);
-  }, [inputValue, replaceQuery]);
+  }, [inputValue, history, replaceQuery, location.pathname]);
 
-  return { inputValue, setInputValue };
+  const resetSearch = () => {
+    setInputValue("");
+    replaceQuery({ key: "query", value: "" });
+  };
+
+  return {
+    inputValue,
+    setInputValue,
+    resetSearch,
+  };
 };

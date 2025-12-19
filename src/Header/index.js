@@ -18,12 +18,12 @@ import { useHeaderSearch } from "./useHeaderSearch";
 
 const Header = () => {
   const placeholderText = usePlaceholder();
-  const { inputValue, setInputValue } = useHeaderSearch();
+  const { inputValue, setInputValue, resetSearch } = useHeaderSearch();
 
   return (
     <HeaderWrapper>
       <HeaderLeft>
-        <HeaderMainLink to={toMovies()} onClick={() => setInputValue("")}>
+        <HeaderMainLink to={toMovies()} onClick={resetSearch}>
           <HeaderLogo />
           <HeaderTitle>Movies Browser</HeaderTitle>
         </HeaderMainLink>
@@ -31,12 +31,12 @@ const Header = () => {
         <HeaderNavigation>
           <HeaderList>
             <HeaderItem>
-              <HeaderNavLink to={toMovies()} onClick={() => setInputValue("")}>
+              <HeaderNavLink to={toMovies()} onClick={resetSearch}>
                 Movies
               </HeaderNavLink>
             </HeaderItem>
             <HeaderItem>
-              <HeaderNavLink to={toPeople()} onClick={() => setInputValue("")}>
+              <HeaderNavLink to={toPeople()} onClick={resetSearch}>
                 People
               </HeaderNavLink>
             </HeaderItem>
