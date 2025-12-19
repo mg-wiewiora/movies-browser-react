@@ -1,32 +1,27 @@
 import styled from "styled-components";
 
 export const BackdropContainer = styled.div`
-    width: 100%;
+    
     height: 770px;
-    max-width: 100%;
     display: flex;
     justify-content: center;
-    margin: -19px auto;
+    margin: -20px;
     background-size: cover;
     background-color: ${({ theme }) => theme.color.black};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.beneathFullHD}px) {
-    width: 100%;
     height: 600px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
-    width: 1200px;
     height: 400px;
   }
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    width: 100%;
     height: 280px;
     }
   
   @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
-    width: 100%;
     max-height: 148px;
   }`
 
