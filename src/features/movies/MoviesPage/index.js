@@ -25,7 +25,7 @@ const MoviesPage = () => {
   return (
     <Container>
       {query ? (
-        <MoviesSearch />
+        <MoviesSearch query={query} />
       ) : (
         <>
           {loading && <p>Loading movies...</p>}
