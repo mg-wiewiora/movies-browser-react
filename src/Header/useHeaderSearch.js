@@ -1,15 +1,7 @@
 import { useState, useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
-import { toSearch } from "../routes";
-import {
-  useQueryParameter,
-  useReplaceQueryParameter,
-} from "../features/queryParameters";
+import { useReplaceQueryParameter, useQueryParameter } from "../features/queryParameters";
 
 export const useHeaderSearch = () => {
-  const history = useHistory();
-  const location = useLocation();
-
   const query = useQueryParameter("query") || "";
   const replaceQuery = useReplaceQueryParameter();
 
@@ -17,18 +9,11 @@ export const useHeaderSearch = () => {
 
   useEffect(() => {
     const handler = setTimeout(() => {
-      replaceQuery({ key: "query", value: inputValue });
-
-      if (
-        inputValue.trim() !== "" &&
-        location.pathname !== toSearch()
-      ) {
-        history.push(toSearch());
-      }
+      replaceQuery({ key: "query", value: inputValue.trim() || undefined });
     }, 500);
 
     return () => clearTimeout(handler);
-  }, [inputValue, history, replaceQuery, location.pathname]);
+  }, [inputValue, replaceQuery]);
 
   return { inputValue, setInputValue };
 };

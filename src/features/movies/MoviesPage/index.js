@@ -10,14 +10,6 @@ import MoviesSearch from "../MoviesSearch";
 const MoviesPage = () => {
   const query = useQueryParameter("query") || "";
 
-  if (query) {
-    return (
-      <Container>
-        <MoviesSearch />
-      </Container>
-    );
-  }
-
   const {
     moviesToShow,
     loading,
@@ -32,29 +24,35 @@ const MoviesPage = () => {
 
   return (
     <Container>
-      {loading && <p>Loading movies...</p>}
-      {error && <p>Error: {error}</p>}
-      {moviesToShow.length > 0 && (
-        <Section
-          title="Popular Movies"
-          content={
-            <>
-              <MoviesGrid>
-                {moviesToShow.map((movie) => (
-                  <Tile key={movie.id} movie={movie} />
-                ))}
-              </MoviesGrid>
-              <Pagination
-                page={page}
-                totalPages={totalPages}
-                onFirst={goToFirst}
-                onPrev={goToPrev}
-                onNext={goToNext}
-                onLast={goToLast}
-              />
-            </>
-          }
-        />
+      {query ? (
+        <MoviesSearch />
+      ) : (
+        <>
+          {loading && <p>Loading movies...</p>}
+          {error && <p>Error: {error}</p>}
+          {moviesToShow.length > 0 && (
+            <Section
+              title="Popular Movies"
+              content={
+                <>
+                  <MoviesGrid>
+                    {moviesToShow.map((movie) => (
+                      <Tile key={movie.id} movie={movie} />
+                    ))}
+                  </MoviesGrid>
+                  <Pagination
+                    page={page}
+                    totalPages={totalPages}
+                    onFirst={goToFirst}
+                    onPrev={goToPrev}
+                    onNext={goToNext}
+                    onLast={goToLast}
+                  />
+                </>
+              }
+            />
+          )}
+        </>
       )}
     </Container>
   );
