@@ -30,15 +30,20 @@ const MoviesTile = ({ movie }) => {
           ))}
         </MoviesTileTags>
         <MoviesTileRatingWrapper>
-          <MoviesTileIcon />
-          <MoviesTileRating>
-            {movie.vote_average.toLocaleString("pl-PL", {
-              minimumFractionDigits: 1,
-              maximumFractionDigits: 1,
-            })}
-          </MoviesTileRating>
-
-          <MoviesTileVotes>{movie.vote_count} votes</MoviesTileVotes>
+          {movie.vote_count > 0 ? (
+            <>
+              <MoviesTileIcon />
+              <MoviesTileRating>
+                {movie.vote_average.toLocaleString("pl-PL", {
+                  minimumFractionDigits: 1,
+                  maximumFractionDigits: 1,
+                })}
+              </MoviesTileRating>
+              <MoviesTileVotes>{movie.vote_count} votes</MoviesTileVotes>
+            </>
+          ) : (
+            <MoviesTileVotes>No votes yet</MoviesTileVotes>
+          )}
         </MoviesTileRatingWrapper>
       </MoviesTileContainer>
     </MoviesTileWrapper>
