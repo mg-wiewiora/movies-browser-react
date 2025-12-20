@@ -2,11 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as StarIcon } from "../../../../assets/star.svg";
 import { NavLink } from "react-router-dom";
 
-const activeClassName = "active"; //to jest do przerobienia/usunięcia, nie powinno tu być
-
-export const TileWrapper = styled(NavLink).attrs(() => ({
-    activeClassName,
-}))`
+export const TileWrapper = styled(NavLink)`
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px ${({ theme }) => theme.color.shadow};
   border-radius: 5px;

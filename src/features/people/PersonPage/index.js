@@ -1,15 +1,15 @@
 import Section from "../../../common/Section";
 import { Container } from "../../../common/Container/styled";
-import { useParams } from "react-router-dom/cjs/react-router-dom";
-import Tile from "../PeoplePage/Tile";
+import TileMovie from "../../movies/MoviePage/TileMovie/index.js";
+import Tile from "../../movies/MoviesPage/Tile/index.js";
 
 const PersonPage = () => {
-  const params = useParams();
-  
+
   return (
     <Container>
-      <Section title="Title" content="Content" />
-      <Tile people={Image} title="Scarlett Johansson" content="Content" />
+      <Section content={<TileMovie movie={[]}/>} />
+      <Section title="Movies Cast" content={<Tile movie={[]}/>} />
+      <Section title="Movies Crew" content={<Tile movie={[]}/>} />
     </Container>
   );
 };

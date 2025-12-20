@@ -1,16 +1,13 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import axios from "axios";
+import { tmdbApi } from "./api";
 import {
     fetchCreditsStart,
     fetchCreditsSuccess,
     fetchCreditsFailure,
 } from "./creditsSlice";
 
-const API_KEY = "e0da2a33c4def495d0c4977083b2de8b";
-const BASE_URL = "https://api.themoviedb.org/3";
-
 function fetchCreditsApi(movieId) {
-    return axios.get(`${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`);
+    return tmdbApi.get(`/movie/${movieId}/credits`, { params: { language: "en-US" } });
 }
 
 function* fetchCreditsSaga(action) {
