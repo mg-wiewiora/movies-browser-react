@@ -1,23 +1,24 @@
 import { call, put, takeLatest} from "redux-saga/effects";
-import axios from "axios";
+import { tmdbApi } from "./api";
 import {
   fetchPeopleStart,
   fetchPeopleSuccess,
   fetchPeopleFailure,
 } from "./peopleSlice";
 
-const API_KEY = "e0da2a33c4def495d0c4977083b2de8b";
-const BASE_URL = "https://api.themoviedb.org/3";
-
-function fetchPopularPeopleApi() {
-  return axios.get(`${BASE_URL}/person/popular?api_key=${API_KEY}&language=en-US&page=1`);
+function fetchPopularPeopleApi(page) {
+  return tmdbApi.get("/person/popular", { params: { language: "en-US", page } });
 }
 
-function* fetchPeopleSaga() {
+function* fetchPeopleSaga(action) {
   try {
-    const response = yield call(fetchPopularPeopleApi);
+    const page = action.payload?.page || 1;
+
+    const peopleResponse = yield call
+      (fetchPopularPeopleApi, page);
+    
       
-   yield put(fetchPeopleSuccess(response.data.results));
+   yield put(fetchPeopleSuccess(peopleResponse.data.results));
   } catch (error) {
     yield put(fetchPeopleFailure(error.message));
   }
