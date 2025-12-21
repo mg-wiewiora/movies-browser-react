@@ -1,6 +1,6 @@
 import Section from "../../../common/Section";
 import MoviesTile from "../MoviesTile";
-import { Loading } from "../../../common/Loading/styled.js"
+import { Loading } from "../../../common/Loading/styled.js";
 import { MoviesGrid } from "../MoviesPage/styled";
 import { Pagination } from "../../../common/Pagination";
 import { useSearchMovies } from "./useSearchMovies";
@@ -8,6 +8,7 @@ import { useSearchMovies } from "./useSearchMovies";
 const MoviesSearch = ({ query }) => {
   const {
     searchResults,
+    totalResults,
     loading,
     error,
     page,
@@ -25,7 +26,7 @@ const MoviesSearch = ({ query }) => {
       title={
         loading
           ? `Search results for "${query}"`
-          : `Search results for "${query}" (${searchResults.length})`
+          : `Search results for "${query}" (${totalResults})`
       }
       content={
         loading ? (
