@@ -6,6 +6,7 @@ import { MoviesGrid } from "./styled";
 import { Container } from "../../../common/Container/styled";
 import { fetchPersonStart } from "../personSlice";
 import { fetchPersonMoviesStart } from "../personMoviesSlice";
+import { clearPersonMovies } from "../personMoviesSlice";
 import TileDetails from "../../../common/TileDetails/index.js";
 import Tile from "../../movies/MoviesPage/Tile/index.js";
 
@@ -26,6 +27,9 @@ const PersonPage = () => {
     if (id) {
       dispatch(fetchPersonMoviesStart(id));
     }
+    return () => {
+    dispatch(clearPersonMovies());
+  };
   }, [dispatch, id]);
 
   const castList = personMovies?.cast || [];

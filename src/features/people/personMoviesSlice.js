@@ -1,35 +1,42 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  personMovies: [],
-  personMoviesLoading: false,
-  personMoviesError: null,
+    personMovies: [],
+    personMoviesLoading: false,
+    personMoviesError: null,
 };
 
 const personMoviesSlice = createSlice({
-  name: "personMovies",
-  initialState,
-  reducers: {
-    fetchPersonMoviesStart(state, action) {
-      state.personMoviesLoading = true;
-      state.personMovies = action.payload;
-    },
-    fetchPersonMoviesSuccess(state, action) {
-      state.personMoviesLoading = false;
-      state.personMovies = action.payload;
-    },
-    fetchPersonMoviesFailure(state, action) {
-      state.personMoviesLoading = false;
-      state.personMoviesError = action.payload;
-    },
-  },
-});
+    name: "personMovies",
+    initialState,
+    reducers: {
+        fetchPersonMoviesStart(state, action) {
+            state.personMoviesLoading = true;
+            state.personMovies = action.payload;
+        },
+        fetchPersonMoviesSuccess(state, action) {
+            state.personMoviesLoading = false;
+            state.personMovies = action.payload;
+        },
+        fetchPersonMoviesFailure(state, action) {
+            state.personMoviesLoading = false;
+            state.personMoviesError = action.payload;
+        },
+        clearPersonMovies: (state) => {
+            state.personMovies = [];
+            state.personMoviesLoading = false;
+            state.personMoviesError = null;
+        },
+    }
+}
+);
 
 export const {
-  fetchPersonMoviesStart,
-  fetchPersonMoviesSuccess,
-  fetchPersonMoviesFailure,
+    fetchPersonMoviesStart,
+    fetchPersonMoviesSuccess,
+    fetchPersonMoviesFailure,
+    clearPersonMovies,
 } =
-  personMoviesSlice.actions;
+    personMoviesSlice.actions;
 
 export default personMoviesSlice.reducer;
