@@ -36,6 +36,18 @@ export const HeaderLeft = styled.div`
   }
 `;
 
+export const HeaderMainLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.white};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    gap: 8px;
+  }
+`;
+
 export const HeaderLogo = styled(Logo)`
   width: 40px;
   flex-shrink: 0;
