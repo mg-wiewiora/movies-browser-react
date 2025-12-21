@@ -4,15 +4,17 @@ const initialState = {
   people: [],
   loading: false,
   error: null,
+  currentPage: 1,
 };
 
 const peopleSlice = createSlice({
   name: "people",
   initialState,
   reducers: {
-    fetchPeopleStart(state) {
+    fetchPeopleStart(state, action)  {
       state.loading = true;
       state.error = null;
+      state.currentPage = action.payload.page;
     },
 
     fetchPeopleSuccess(state, action) {
