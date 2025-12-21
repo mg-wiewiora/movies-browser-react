@@ -1,5 +1,5 @@
 export const getReleaseYear = (releaseDate) => {
-  return releaseDate ? releaseDate.split("-")[0] : "N/A";
+  return releaseDate ? releaseDate.split("-")[0] : "";
 };
 
 export const getPosterUrl = (posterPath) => {
