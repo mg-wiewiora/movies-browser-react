@@ -1,7 +1,7 @@
 import Section from "../../../common/Section";
 import { Container } from "../../../common/Container/styled";
 import TileMovie from "../../movies/MoviePage/TileMovie/index.js";
-import MoviesTile from "../../movies/MoviesPage/MoviesTile/index.js";
+import MoviesTile from "../../movies/MoviesTile/index.js";
 
 const PersonPage = () => {
 
