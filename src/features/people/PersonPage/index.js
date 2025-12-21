@@ -34,8 +34,6 @@ const PersonPage = () => {
 
   const castList = personMovies?.cast || [];
   const crewList = personMovies?.crew || [];
-
-console.log("1. Komponent się renderuje");
   
   return (
     <Container>
@@ -53,7 +51,6 @@ console.log("1. Komponent się renderuje");
       {personMoviesError && <p>Error: {personMoviesError}</p>}
       {castList.length > 0 && (
       <Section
-        key={person.id}
         title={`Movies - Cast (${castList.length})`}
         content={
           <>
@@ -69,13 +66,12 @@ console.log("1. Komponent się renderuje");
       {personMoviesError && <p>Error: {personMoviesError}</p>}
       {crewList.length > 0 && (
       <Section
-        key={person.id}
         title={`Movies - Crew (${crewList?.length})`}
       content={
         <>
           <MoviesGrid>
             {crewList.map((movie) => (
-              <Tile key={movie.id} movie={movie} />
+              <Tile key={movie.credit_id} movie={movie} />
             ))}
           </MoviesGrid>
         </>
