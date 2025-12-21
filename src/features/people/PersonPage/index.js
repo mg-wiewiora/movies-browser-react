@@ -5,15 +5,14 @@ import { useEffect } from "react";
 import { MoviesGrid } from "./styled";
 import { Container } from "../../../common/Container/styled";
 import { fetchPersonStart } from "../personSlice";
-import { fetchMovieStart } from "../../movies/movieSlice";
+import { fetchPersonMoviesStart } from "../personMoviesSlice";
 import TileDetails from "../../../common/TileDetails/index.js";
 import Tile from "../../movies/MoviesPage/Tile/index.js";
 
 const PersonPage = () => {
 
   const { person, personLoading, personError } = useSelector((state) => state.person);
-  const { movies, loading, error } = useSelector((state) => state.movies);
-  const { credits, creditsLoading, creditsError } = useSelector((state) => state.credits);
+  const { personMovies, personMoviesLoading, personMoviesError } = useSelector((state) => state.personMovies);
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -25,18 +24,18 @@ const PersonPage = () => {
 
   useEffect(() => {
     if (id) {
-      dispatch(fetchMovieStart(id));
+      dispatch(fetchPersonMoviesStart(id));
     }
   }, [dispatch, id]);
 
-  console.log({ movies })
-  console.log({ credits })
-  const castList = credits?.cast || [];
-  const crewList = credits?.crew || [];
+  const castList = personMovies?.cast || [];
+  const crewList = personMovies?.crew || [];
 
+console.log("1. Komponent się renderuje");
+  
   return (
     <Container>
-      {personLoading && <p>Loading movie...</p>}
+      {personLoading && <p>Loading person...</p>}
       {personError && <p>Error: {personError}</p>}
       <Section
         content={
@@ -45,13 +44,38 @@ const PersonPage = () => {
             show={false}
             person={person} />
         } />
+      
+      {personMoviesLoading && <p>Loading movies...</p>}
+      {personMoviesError && <p>Error: {personMoviesError}</p>}
+      {castList.length > 0 && (
       <Section
-        title="Movies Cast"
+        key={person.id}
+        title={`Movies - Cast (${castList.length})`}
         content={
-        <>
+          <>
+            <MoviesGrid>
+              {castList.map((movie) => (
+                <Tile key={movie.id} movie={movie} />
+              ))}
+            </MoviesGrid>
           </>
-         } />
-      <Section title="Movies Crew" content={<Tile movie={[]} />} />
+          
+        } />)}
+      {personMoviesLoading && <p>Loading movies...</p>}
+      {personMoviesError && <p>Error: {personMoviesError}</p>}
+      {crewList.length > 0 && (
+      <Section
+        key={person.id}
+        title={`Movies - Crew (${crewList?.length})`}
+      content={
+        <>
+          <MoviesGrid>
+            {crewList.map((movie) => (
+              <Tile key={movie.id} movie={movie} />
+            ))}
+          </MoviesGrid>
+        </>
+      } />)}
     </Container>
   );
 };
