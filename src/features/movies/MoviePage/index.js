@@ -10,7 +10,6 @@ import { fetchMovieStart } from "../movieSlice";
 import { fetchCreditsStart } from "../creditsSlice";
 import { getPosterUrl } from "../moviesData.js";
 import { BackdropContainer, Backdrop, CreditsGrid } from "./styled.js";
-import noPoster from "../../../assets/no-poster.svg";
 
 const MoviePage = () => {
 
@@ -39,14 +38,15 @@ const MoviePage = () => {
     <Container>
       {loading && <p>Loading movie...</p>}
       {error && <p>Error: {error}</p>}
+      {movie.backdrop_path !== null && (
       <BackdropContainer>
-        <Backdrop $posterUrl={backdropUrl} $noPosterUrl={noPoster}>
+        <Backdrop $posterUrl={backdropUrl}>
           <TileBackdrop
             key={movie.imdb_id}
             movie={movie}
           />
         </Backdrop>
-      </BackdropContainer>
+      </BackdropContainer>)}
       {loading && <p>Loading movie...</p>}
       {error && <p>Error: {error}</p>}
       <Section
