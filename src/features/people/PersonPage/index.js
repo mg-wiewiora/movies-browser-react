@@ -8,7 +8,7 @@ import { fetchPersonStart } from "../personSlice";
 import { fetchPersonMoviesStart } from "../personMoviesSlice";
 import { clearPersonMovies } from "../personMoviesSlice";
 import DetailsTile from "../../../common/DetailsTile/index.js";
-import Tile from "../../movies/MoviesPage/Tile/index.js";
+import MoviesTile from "../../movies/MoviesTile/index.js";
 
 const PersonPage = () => {
 
@@ -56,7 +56,7 @@ const PersonPage = () => {
           <>
             <MoviesGrid>
               {castList.map((movie) => (
-                <Tile key={movie.id} movie={movie} />
+                <MoviesTile key={movie.id} movie={movie} />
               ))}
             </MoviesGrid>
           </>
@@ -70,7 +70,7 @@ const PersonPage = () => {
         <>
           <MoviesGrid>
             {crewList.map((movie) => (
-              <Tile key={movie.credit_id} movie={movie} />
+              <MoviesTile key={movie.credit_id} movie={movie} />
             ))}
           </MoviesGrid>
         </>
