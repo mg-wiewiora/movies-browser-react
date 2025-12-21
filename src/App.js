@@ -15,7 +15,7 @@ const App = () => (
       <Route path={toMovie()}>
         <Movie />
       </Route>
-      <Route path={toMovies()}>
+      <Route path={toMovies()} exact>
         <Movies />
       </Route>
       <Route path={toPerson()}>
