@@ -3,14 +3,13 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Section from "../../../common/Section";
 import { Container } from "../../../common/Container/styled";
-import TileMovie from "./TileMovie/index.js";
-import TileCredits from "./TileCredits/index.js";
-import TileBackdrop from "./TileBackdrop";
+import DetailsTile from "../../../common/DetailsTile/index.js";
+import CreditsTile from "./CreditsTile/index.js";
+import BackdropTile from "./BackdropTile/index.js";
 import { fetchMovieStart } from "../movieSlice";
 import { fetchCreditsStart } from "../creditsSlice";
 import { getPosterUrl } from "../moviesData.js";
 import { BackdropContainer, Backdrop, CreditsGrid } from "./styled.js";
-import noPoster from "../../../assets/no-poster.svg";
 
 const MoviePage = () => {
 
@@ -39,21 +38,23 @@ const MoviePage = () => {
     <Container>
       {loading && <p>Loading movie...</p>}
       {error && <p>Error: {error}</p>}
-      <BackdropContainer>
-        <Backdrop $posterUrl={backdropUrl} $noPosterUrl={noPoster}>
-          <TileBackdrop
-            key={movie.imdb_id}
-            movie={movie}
-          />
-        </Backdrop>
-      </BackdropContainer>
+      {movie.backdrop_path !== null && (
+        <BackdropContainer>
+          <Backdrop $posterUrl={backdropUrl}>
+            <BackdropTile
+              key={movie.imdb_id}
+              movie={movie}
+            />
+          </Backdrop>
+        </BackdropContainer>)}
       {loading && <p>Loading movie...</p>}
       {error && <p>Error: {error}</p>}
       <Section
         content={
-            <TileMovie
-              key={movie.id}
-              movie={movie} /> 
+          <DetailsTile
+            show={true}
+            key={movie.id}
+            movie={movie} />
         } />
       {creditsLoading && <p>Loading credits...</p>}
       {creditsError && <p>Error: {error}</p>}
@@ -63,7 +64,7 @@ const MoviePage = () => {
           <>
             <CreditsGrid >
               {castList.map((actor) => (
-                <TileCredits key={actor.cast_id} actor={actor} />
+                <CreditsTile key={actor.cast_id} actor={actor} />
               ))}
             </CreditsGrid>
           </>
@@ -74,7 +75,7 @@ const MoviePage = () => {
           <>
             <CreditsGrid >
               {crewList.map((crew) => (
-                <TileCredits key={crew.credit_id} crew={crew} />
+                <CreditsTile key={crew.credit_id} crew={crew} />
               ))}
             </CreditsGrid>
           </>

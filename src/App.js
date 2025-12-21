@@ -6,11 +6,12 @@ import Person from "./features/people/PersonPage";
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import { toMovies, toMovie, toPerson, toPeople } from "./routes";
 import Header from "./Header";
+import ScrollToTop from "./common/ScrollToTop";
 
 const App = () => (
   <HashRouter>
     <Header />
-
+    <ScrollToTop />
     <Switch>
       <Route path={toMovie()}>
         <Movie />

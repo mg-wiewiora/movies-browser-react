@@ -32,11 +32,4 @@ export const {
 } =
   movieSlice.actions;
 
-const selectMovieState = state => state.movie;
-
-const selectMovie = state => selectMovieState(state).movie;
-
-export const getMovieById = (state, movieId) =>
-  selectMovie(state).find(({ id }) => id === movieId)
-
 export default movieSlice.reducer;
