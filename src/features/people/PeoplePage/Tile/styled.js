@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-export const TileWrapper = styled.div`
+export const TileWrapper = styled(NavLink)`
   width: 208px;
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px ${({ theme }) => theme.color.shadow};
@@ -11,6 +12,7 @@ export const TileWrapper = styled.div`
   transition: transform 0.2s;
   cursor: pointer;
   text-decoration: none;
+  color: ${({ theme }) => theme.color.black};
 
   &:hover {
     transform: translateY(-6px);
