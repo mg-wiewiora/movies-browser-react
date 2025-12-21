@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import LoadingIcon from "../../../assets/loading.svg";
+import LoadingIcon from "../../assets/loading.svg";
 
 const rotate = keyframes`
   from { transform: rotate(0deg); }

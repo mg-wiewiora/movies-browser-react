@@ -1,6 +1,6 @@
 import Section from "../../../common/Section";
 import MoviesTile from "../MoviesTile";
-import { Loading } from "./styled";
+import { Loading } from "../../../common/Loading/styled.js"
 import { MoviesGrid } from "../MoviesPage/styled";
 import { Pagination } from "../../../common/Pagination";
 import { useSearchMovies } from "./useSearchMovies";
