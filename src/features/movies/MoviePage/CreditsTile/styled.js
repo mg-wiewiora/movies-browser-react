@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-export const TileCreditsWrapper = styled(NavLink)`
+export const CreditsTileWrapper = styled(NavLink)`
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px ${({ theme }) => theme.color.shadow};
   transition: transform 0.2s;
@@ -30,7 +30,7 @@ export const TileCreditsWrapper = styled(NavLink)`
   }
 `;
 
-export const TileCreditsImage = styled.div`
+export const CreditsTileImage = styled.div`
   width: 176px;
   display: block;
   aspect-ratio: 2 / 3;
@@ -59,11 +59,11 @@ export const TileCreditsImage = styled.div`
   }
 `;
 
-export const TileCreditsContainer = styled.header`
+export const CreditsTileContainer = styled.header`
     font-size: 22px;
 `
 
-export const TileCreditsName = styled.h2`
+export const CreditsTileName = styled.h2`
   display: flex;
   text-align: center;
   justify-content: center;
@@ -82,7 +82,7 @@ export const TileCreditsName = styled.h2`
         margin: 5px 0;
   }`;
 
-export const TileCreditsJob = styled.h2`
+export const CreditsTileJob = styled.h2`
   display: flex;
   text-align: center;
   justify-content: center;

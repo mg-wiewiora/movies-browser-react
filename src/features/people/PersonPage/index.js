@@ -7,7 +7,7 @@ import { Container } from "../../../common/Container/styled";
 import { fetchPersonStart } from "../personSlice";
 import { fetchPersonMoviesStart } from "../personMoviesSlice";
 import { clearPersonMovies } from "../personMoviesSlice";
-import TileDetails from "../../../common/TileDetails/index.js";
+import DetailsTile from "../../../common/DetailsTile/index.js";
 import Tile from "../../movies/MoviesPage/Tile/index.js";
 
 const PersonPage = () => {
@@ -41,7 +41,7 @@ const PersonPage = () => {
       {personError && <p>Error: {personError}</p>}
       <Section
         content={
-          <TileDetails
+          <DetailsTile
             key={person.id}
             show={false}
             person={person} />

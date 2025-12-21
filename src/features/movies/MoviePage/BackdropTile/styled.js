@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as StarIcon } from "../../../../assets/star.svg";
 
-export const TileBackdropWrapper = styled.section`
+export const BackdropTileWrapper = styled.section`
   color: ${({ theme }) => theme.color.white};
   display: grid;
   grid-template-columns: auto 1fr;
@@ -13,11 +13,11 @@ export const TileBackdropWrapper = styled.section`
   margin-right: auto;
 `;
 
-export const TileBackdropContainer = styled.header`
+export const BackdropTileContainer = styled.header`
     font-size: 22px;
 `
 
-export const TileBackdropTitle = styled.h2`
+export const BackdropTileTitle = styled.h2`
   margin: 18px 0;
   font-size: 64px;
 
@@ -38,13 +38,13 @@ export const TileBackdropTitle = styled.h2`
   `;
 
 
-export const TileBackdropIcon = styled(StarIcon)`
+export const BackdropTileIcon = styled(StarIcon)`
 width: 40px;
 height: 40px;
 flex-shrink: 0;
 `;
 
-export const TileBackdropRatingWrapper = styled.div`
+export const BackdropTileRatingWrapper = styled.div`
 display: flex;
 align-items: center;
 gap: 8px;
@@ -52,7 +52,7 @@ margin-top: auto;
 justify-content: flex - start;
 `;
 
-export const TileBackdropRating = styled.span`
+export const BackdropTileRating = styled.span`
 font-weight: 600;
 font-size: 30px;
 line-height: 1.2;
@@ -72,7 +72,7 @@ line-height: 1.2;
         margin: 5px 0;
   }`;
 
-export const TileBackdropVotes = styled.span`
+export const BackdropTileVotes = styled.span`
 font-weight: 400;
 font-size: 16px;
 margin-bottom: -10px;

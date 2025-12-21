@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Section from "../../../common/Section";
 import { Container } from "../../../common/Container/styled";
-import TileDetails from "../../../common/TileDetails/index.js";
-import TileCredits from "./TileCredits/index.js";
-import TileBackdrop from "./TileBackdrop";
+import DetailsTile from "../../../common/DetailsTile/index.js";
+import CreditsTile from "./CreditsTile/index.js";
+import BackdropTile from "./BackdropTile/index.js";
 import { fetchMovieStart } from "../movieSlice";
 import { fetchCreditsStart } from "../creditsSlice";
 import { getPosterUrl } from "../moviesData.js";
@@ -39,19 +39,19 @@ const MoviePage = () => {
       {loading && <p>Loading movie...</p>}
       {error && <p>Error: {error}</p>}
       {movie.backdrop_path !== null && (
-      <BackdropContainer>
-        <Backdrop $posterUrl={backdropUrl}>
-          <TileBackdrop
-            key={movie.imdb_id}
-            movie={movie}
-          />
-        </Backdrop>
-      </BackdropContainer>)}
+        <BackdropContainer>
+          <Backdrop $posterUrl={backdropUrl}>
+            <BackdropTile
+              key={movie.imdb_id}
+              movie={movie}
+            />
+          </Backdrop>
+        </BackdropContainer>)}
       {loading && <p>Loading movie...</p>}
       {error && <p>Error: {error}</p>}
       <Section
         content={
-          <TileDetails
+          <DetailsTile
             show={true}
             key={movie.id}
             movie={movie} />
@@ -64,7 +64,7 @@ const MoviePage = () => {
           <>
             <CreditsGrid >
               {castList.map((actor) => (
-                <TileCredits key={actor.cast_id} actor={actor} />
+                <CreditsTile key={actor.cast_id} actor={actor} />
               ))}
             </CreditsGrid>
           </>
@@ -75,7 +75,7 @@ const MoviePage = () => {
           <>
             <CreditsGrid >
               {crewList.map((crew) => (
-                <TileCredits key={crew.credit_id} crew={crew} />
+                <CreditsTile key={crew.credit_id} crew={crew} />
               ))}
             </CreditsGrid>
           </>
