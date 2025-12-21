@@ -63,7 +63,7 @@ const DetailsTile = ({ show, movie, person }) => {
           <DetailsTileRatingWrapper>
             <DetailsTileIcon />
             <DetailsTileRating>
-              {movie.vote_average.toLocaleString("pl-PL", {
+              {movie.vote_average?.toLocaleString("pl-PL", {
                 minimumFractionDigits: 1,
                 maximumFractionDigits: 1,
               })}</DetailsTileRating>

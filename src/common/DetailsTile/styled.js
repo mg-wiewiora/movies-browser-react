@@ -160,6 +160,10 @@ export const DetailsTileIcon = styled(StarIcon)`
 width: 20px;
 height: 20px;
 flex-shrink: 0;
+
+@media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        width: 16px;
+  }
 `;
 
 export const DetailsTileRating = styled.span`

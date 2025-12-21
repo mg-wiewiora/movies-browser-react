@@ -42,6 +42,10 @@ export const BackdropTileIcon = styled(StarIcon)`
 width: 40px;
 height: 40px;
 flex-shrink: 0;
+
+@media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    width: 16px;
+  }
 `;
 
 export const BackdropTileRatingWrapper = styled.div`
