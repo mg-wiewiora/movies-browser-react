@@ -60,7 +60,6 @@ const PersonPage = () => {
               ))}
             </MoviesGrid>
           </>
-          
         } />)}
       {personMoviesLoading && <p>Loading movies...</p>}
       {personMoviesError && <p>Error: {personMoviesError}</p>}

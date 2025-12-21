@@ -40,12 +40,12 @@ const DetailsTile = ({ show, movie, person }) => {
               {product.name}
             </DetailsTileSpecific>))}
           {person?.birthday && (
-          <DetailsTileSpecific>
-            <DetailsTileSpecificTitle>
-              Date of birth:
-            </DetailsTileSpecificTitle>
-            {person?.birthday}
-          </DetailsTileSpecific>)}
+            <DetailsTileSpecific>
+              <DetailsTileSpecificTitle>
+                Date of birth:
+              </DetailsTileSpecificTitle>
+              {person?.birthday}
+            </DetailsTileSpecific>)}
           <DetailsTileSpecific>
             <DetailsTileSpecificTitle>
               {show ? "Release date" : "Place of birth"}
@@ -54,17 +54,21 @@ const DetailsTile = ({ show, movie, person }) => {
           </DetailsTileSpecific>
         </DetailsTileContainer>
         {show === true && (
-        <DetailsTileTags>
-          {movie?.genre_names?.map((g) => (
-            <DetailsTileTag key={g}>{g}</DetailsTileTag>
-          ))}
-        </DetailsTileTags>)}
+          <DetailsTileTags>
+            {movie?.genre_names?.map((g) => (
+              <DetailsTileTag key={g}>{g}</DetailsTileTag>
+            ))}
+          </DetailsTileTags>)}
         {show === true && (
-        <DetailsTileRatingWrapper>
-          <DetailsTileIcon />
-          <DetailsTileRating>{movie?.vote_average?.toFixed(1)}</DetailsTileRating>
-          <DetailsTileVotes> / 10 {movie?.vote_count} votes</DetailsTileVotes>
-        </DetailsTileRatingWrapper>)}
+          <DetailsTileRatingWrapper>
+            <DetailsTileIcon />
+            <DetailsTileRating>
+              {movie.vote_average.toLocaleString("pl-PL", {
+                minimumFractionDigits: 1,
+                maximumFractionDigits: 1,
+              })}</DetailsTileRating>
+            <DetailsTileVotes> / 10 {movie?.vote_count} votes</DetailsTileVotes>
+          </DetailsTileRatingWrapper>)}
         <DetailsTileContent>{movie?.overview}{person?.biography}</DetailsTileContent>
       </DetailsTileContainer>
     </DetailsTileWrapper>
