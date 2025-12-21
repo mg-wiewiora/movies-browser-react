@@ -11,6 +11,11 @@ export const theme = {
     sky: "#D6E4FF",
   },
   breakpoint: {
-    mobile: 767,
+    beneathFullHD: 1440,
+    desktopStandard: 1280,
+    tabletLandscape: 1024,
+    mobile: 768,
+    smallTablet: 640,
+    horizontalMobile: 576,
   },
 };

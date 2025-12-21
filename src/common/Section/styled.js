@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
 export const SectionWrapper = styled.section`
-  margin: 10px 0;
+  margin: 0 auto;
   max-width: 1368px;
+  justify-content: center;
+
+@media (max-width: ${({ theme }) => theme.breakpoint.beneathFullHD}px) {
+        margin: 16px;  
+  }
 `;
 
 export const Title = styled.h2`

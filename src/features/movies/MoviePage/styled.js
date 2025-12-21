@@ -1,18 +1,32 @@
 import styled from "styled-components";
 
 export const BackdropContainer = styled.div`
-    width: 272%;
-    max-width: cover;
+    
     height: 770px;
     display: flex;
     justify-content: center;
-    margin: -78px -1205px 0px;
+    margin: -20px;
     background-size: cover;
     background-color: ${({ theme }) => theme.color.black};
-`
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.beneathFullHD}px) {
+    height: 600px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
+    height: 400px;
+  }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    height: 280px;
+    }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
+    max-height: 148px;
+  }`
 
 export const Backdrop = styled.div`
-    width: 1398px;
+    width: 1368px;
     max-width: 100%;
     height: 770px;
     display: flex;
@@ -21,24 +35,42 @@ export const Backdrop = styled.div`
     background-image: ${({ $posterUrl, $noPosterUrl }) =>
     `url(${$posterUrl || $noPosterUrl})`};
     background-size: cover;
-    box-shadow: inset 0px 0px 50px 50px ${({ theme }) => theme.color.black};
-`
+    box-shadow: inset 0px 0px 100px 75px ${({ theme }) => theme.color.black};
 
-export const MoviesGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
-  justify-content: center;
-
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(3, 1fr);
+    @media (max-width: ${({ theme }) => theme.breakpoint.beneathFullHD}px) {
+    width: 1200px;
+    height: 100%;
   }
 
-  @media (max-width: 900px) {
-    grid-template-columns: repeat(2, 1fr);
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    width: 100%;
+    max-height: 100%;
+    box-shadow: inset 0px 0px 50px 30px ${({ theme }) => theme.color.black};
+  }
+`
+
+export const CreditsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(6, 208px);
+  grid-gap: 24px;
+  justify-content: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.beneathFullHD}px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.desktopStandard}px) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0px;
   }
 `;
