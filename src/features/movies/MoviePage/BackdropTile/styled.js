@@ -61,11 +61,15 @@ flex-shrink: 0;
 `;
 
 export const BackdropTileRatingWrapper = styled.div`
-display: flex;
-align-items: center;
-gap: 8px;
-margin-top: auto;
-justify-content: flex - start;
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    justify-content: baseline;
+    gap: 8px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
+        display: flex;
+  }
 `;
 
 export const BackdropTileRating = styled.span`
@@ -88,14 +92,29 @@ line-height: 1.2;
         margin: 5px 0;
   }`;
 
-export const BackdropTileVotes = styled.span`
+export const BackdropTileMaxVotes = styled.span`
 font-weight: 400;
 font-size: 16px;
 margin-bottom: -10px;
+margin-top: 10px;
 line-height: 1.2;
 
-@media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        font-size: 11px;
+@media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
+        font-size: 8px;
+        margin: 5px 0;
+  }
+`;
+
+export const BackdropTileVotes = styled.span`
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: -10px;
+    margin-top: 10px;
+    line-height: 1.2;
+    grid-column: 1/3;
+
+@media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
+        font-size: 8px;
         margin: 5px 0;
   }
 

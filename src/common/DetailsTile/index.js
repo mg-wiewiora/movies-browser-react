@@ -40,7 +40,7 @@ const DetailsTile = ({ show, movie, person }) => {
                 Production:
               </DetailsTileSpecificTitle>
               <DetailsTileSpecificLongTitle>
-              {product.name}
+                {product.name}
               </DetailsTileSpecificLongTitle>
               <DetailsTileSpecificShortTitle>
                 {product.iso_3166_1}
@@ -51,7 +51,7 @@ const DetailsTile = ({ show, movie, person }) => {
               <DetailsTileSpecificTitle>
                 Date of birth:
               </DetailsTileSpecificTitle>
-              {person?.birthday}
+              {person?.birthday.replace(/-/g, ".")}
             </DetailsTileSpecific>)}
           <DetailsTileSpecific>
             <DetailsTileSpecificTitle>

@@ -15,6 +15,9 @@ export const DetailsTileWrapper = styled.section`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
         grid-template-columns: auto 1fr;
+        grid-gap: 16px;
+        margin-top: 36px;
+        padding: 16px;
     }
 `;
 
@@ -78,7 +81,7 @@ export const DetailsTileYear = styled.div`
         color: ${({ theme }) => theme.color.grey};
   }
 
-  @media (max-width: 540px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 8px;
         margin: 5px 0;
   }`;
@@ -90,12 +93,9 @@ export const DetailsTileSpecific = styled.div`
     gap: 8px;
 
 @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
-        font-size: 13px;
-  }
-
-@media (max-width: 540px) {
         font-size: 8px;
-  }`;
+  }
+`;
 
 export const DetailsTileSpecificTitle = styled.div`
     font-size: 18px;
@@ -107,7 +107,7 @@ export const DetailsTileSpecificTitle = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        display: none;
+        font-size: 8px;
   }
 `;
 
