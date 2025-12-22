@@ -75,6 +75,7 @@ export const DetailsTileYear = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
         font-size: 13px;
         margin: 5px 0;
+        color: ${({ theme }) => theme.color.grey};
   }
 
   @media (max-width: 540px) {
@@ -82,11 +83,10 @@ export const DetailsTileYear = styled.div`
         margin: 5px 0;
   }`;
 
-
 export const DetailsTileSpecific = styled.div`
     font-size: 18px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
     gap: 8px;
 
 @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
@@ -106,9 +106,41 @@ export const DetailsTileSpecificTitle = styled.div`
         font-size: 13px;
   }
 
-@media (max-width: 540px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        display: none;
+  }
+`;
+
+export const DetailsTileSpecificLongTitle = styled.div`
+    font-size: 18px;
+    margin-left: 0;
+    color: ${({ theme }) => theme.color.woodsmoke};
+    display: block;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
+        font-size: 13px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        display: none;
+  }
+`;
+
+export const DetailsTileSpecificShortTitle = styled.div`
+    font-size: 18px;
+    margin-left: 0;
+    color: ${({ theme }) => theme.color.woodsmoke};
+    display: none;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
+        font-size: 13px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        display: block;
         font-size: 8px;
-  }`;
+  }
+`;
 
 export const DetailsTileTag = styled.li`
         background-color: ${({ theme }) => theme.color.mystic};
