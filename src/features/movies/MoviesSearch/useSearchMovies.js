@@ -8,14 +8,13 @@ export const useSearchMovies = (query) => {
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [totalResults, setTotalResults] = useState(0);
   const [genresMap, setGenresMap] = useState({});
 
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-        const response = await tmdbApi.get("/genre/movie/list", {
-          params: { language: "en-US" },
-        });
+        const response = await tmdbApi.get("/genre/movie/list", { params: { language: "en-US" } });
         const map = {};
         response.data.genres.forEach((g) => {
           map[g.id] = g.name;
@@ -25,7 +24,6 @@ export const useSearchMovies = (query) => {
         console.error(err);
       }
     };
-
     fetchGenres();
   }, []);
 
@@ -36,6 +34,7 @@ export const useSearchMovies = (query) => {
   useEffect(() => {
     if (!query || Object.keys(genresMap).length === 0) {
       setSearchResults([]);
+      setTotalResults(0);
       return;
     }
 
@@ -44,10 +43,7 @@ export const useSearchMovies = (query) => {
       setError(null);
 
       try {
-        const response = await tmdbApi.get("/search/movie", {
-          params: { query, page },
-        });
-
+        const response = await tmdbApi.get("/search/movie", { params: { query, page } });
         const resultsWithGenres = response.data.results.map((movie) => ({
           ...movie,
           genre_names: movie.genre_ids?.map((id) => genresMap[id]) || [],
@@ -55,6 +51,7 @@ export const useSearchMovies = (query) => {
 
         setSearchResults(resultsWithGenres.slice(0, ITEMS_PER_PAGE));
         setTotalPages(response.data.total_pages);
+        setTotalResults(response.data.total_results);
       } catch (err) {
         setError(err.response?.data?.status_message || err.message);
       } finally {
@@ -72,6 +69,7 @@ export const useSearchMovies = (query) => {
 
   return {
     searchResults,
+    totalResults,
     loading,
     error,
     page,
