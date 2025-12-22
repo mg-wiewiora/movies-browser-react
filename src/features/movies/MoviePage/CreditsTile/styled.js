@@ -20,6 +20,7 @@ export const CreditsTileWrapper = styled(NavLink)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     width: 165px;
     height: 335px;
+    margin: 8px 0px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {

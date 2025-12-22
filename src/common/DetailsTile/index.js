@@ -6,6 +6,8 @@ import {
   DetailsTileYear,
   DetailsTileSpecific,
   DetailsTileSpecificTitle,
+  DetailsTileSpecificLongTitle,
+  DetailsTileSpecificShortTitle,
   DetailsTileTags,
   DetailsTileTag,
   DetailsTileRatingWrapper,
@@ -37,20 +39,25 @@ const DetailsTile = ({ show, movie, person }) => {
               <DetailsTileSpecificTitle>
                 Production:
               </DetailsTileSpecificTitle>
-              {product.name}
+              <DetailsTileSpecificLongTitle>
+                {product.name}
+              </DetailsTileSpecificLongTitle>
+              <DetailsTileSpecificShortTitle>
+                {product.iso_3166_1}
+              </DetailsTileSpecificShortTitle>
             </DetailsTileSpecific>))}
           {person?.birthday && (
             <DetailsTileSpecific>
               <DetailsTileSpecificTitle>
                 Date of birth:
               </DetailsTileSpecificTitle>
-              {person?.birthday}
+              {person?.birthday.replace(/-/g, ".")}
             </DetailsTileSpecific>)}
           <DetailsTileSpecific>
             <DetailsTileSpecificTitle>
-              {show ? "Release date" : "Place of birth"}
+              {show ? "Release date" : "Place of birth:"}
             </DetailsTileSpecificTitle>
-            {movie?.release_date}{person?.place_of_birth}
+            {movie?.release_date?.replace(/-/g, ".")}{person?.place_of_birth}
           </DetailsTileSpecific>
         </DetailsTileContainer>
         {show === true && (
@@ -69,8 +76,8 @@ const DetailsTile = ({ show, movie, person }) => {
               })}</DetailsTileRating>
             <DetailsTileVotes> / 10 {movie?.vote_count} votes</DetailsTileVotes>
           </DetailsTileRatingWrapper>)}
-        <DetailsTileContent>{movie?.overview}{person?.biography}</DetailsTileContent>
       </DetailsTileContainer>
+      <DetailsTileContent>{movie?.overview}{person?.biography}</DetailsTileContent>
     </DetailsTileWrapper>
   )
 };
