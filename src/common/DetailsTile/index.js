@@ -69,8 +69,8 @@ const DetailsTile = ({ show, movie, person }) => {
               })}</DetailsTileRating>
             <DetailsTileVotes> / 10 {movie?.vote_count} votes</DetailsTileVotes>
           </DetailsTileRatingWrapper>)}
-        <DetailsTileContent>{movie?.overview}{person?.biography}</DetailsTileContent>
       </DetailsTileContainer>
+      <DetailsTileContent>{movie?.overview}{person?.biography}</DetailsTileContent>
     </DetailsTileWrapper>
   )
 };
