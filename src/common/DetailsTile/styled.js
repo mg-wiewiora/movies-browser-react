@@ -85,7 +85,8 @@ export const DetailsTileYear = styled.div`
 
 export const DetailsTileSpecific = styled.div`
     font-size: 18px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 8px;
 
 @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
@@ -98,6 +99,7 @@ export const DetailsTileSpecific = styled.div`
 
 export const DetailsTileSpecificTitle = styled.div`
     font-size: 18px;
+    margin-left: 0;
     color: ${({ theme }) => theme.color.grey};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
@@ -118,11 +120,13 @@ export const DetailsTileTag = styled.li`
 @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
         font-size: 10px;
         padding: 4px 8px;
+        margin-left: 0;
   }
 
 @media (max-width: 540px) {
         font-size: 8px;
         margin: 5px;
+        margin-left: 0;
   }`;
 
 export const DetailsTileRatingWrapper = styled.div`
