@@ -42,10 +42,14 @@ export const Backdrop = styled.div`
     height: 100%;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
+    height: 400px;
+  }
+
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    width: 100%;
+    height: 300px;
     max-height: 100%;
-    box-shadow: inset 0px 0px 50px 30px ${({ theme }) => theme.color.black};
+    box-shadow: inset 0px 0px 30px 20px ${({ theme }) => theme.color.black};
   }
 `
 

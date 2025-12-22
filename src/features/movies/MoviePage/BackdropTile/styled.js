@@ -11,6 +11,16 @@ export const BackdropTileWrapper = styled.section`
   font-size: 20px;
   align-self: end;
   margin-right: auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        margin: 5px 0;
+        margin-right: auto;
+  }
+
+@media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
+        margin: 0px 0;
+        margin-right: auto;
+  }
 `;
 
 export const BackdropTileContainer = styled.header`
@@ -29,6 +39,8 @@ export const BackdropTileTitle = styled.h2`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 14px;
         margin: 5px 0;
+        grid-template-columns: 1fr;
+        align-self: end;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
