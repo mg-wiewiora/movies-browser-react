@@ -37,7 +37,10 @@ const MoviePage = () => {
 
   return (
     <Container>
-      {loading && <Loading/>}
+      {loading || creditsLoading ? (<Loading />) : (
+        <>
+        {error || creditsError ? (<p>Error: {error}</p>) : (
+          <>
       {error && <p>Error: {error}</p>}
       {movie.backdrop_path !== null && (
         <BackdropContainer>
@@ -48,7 +51,6 @@ const MoviePage = () => {
             />
           </Backdrop>
         </BackdropContainer>)}
-      {loading && <p>Loading movie...</p>}
       {error && <p>Error: {error}</p>}
       <Section
         content={
@@ -57,7 +59,6 @@ const MoviePage = () => {
             key={movie.id}
             movie={movie} />
         } />
-      {creditsLoading && <p>Loading credits...</p>}
       {creditsError && <p>Error: {error}</p>}
       <Section
         title="Cast"
@@ -81,6 +82,8 @@ const MoviePage = () => {
             </CreditsGrid>
           </>
         } />
+        </>)}
+        </>)}
     </Container>
   );
 };

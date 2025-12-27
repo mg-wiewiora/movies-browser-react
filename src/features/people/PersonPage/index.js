@@ -40,44 +40,46 @@ const PersonPage = () => {
     <Container>
       {personLoading || personMoviesLoading ? (<Loading />) : (
         <>
-          {personError && <p>Error: {personError}</p>}
-          <Section
-            content={
-              <DetailsTile
-                key={person.id}
-                show={false}
-                person={person} />
-            } />
-          {personMoviesError && <p>Error: {personMoviesError}</p>}
-          {castList.length > 0 && (
-            <Section
-              title={`Movies - Cast (${castList.length})`}
-              content={
-                <>
-                  <MoviesGrid>
-                    {castList.map((movie) => (
-                      <MoviesTile key={movie.id} movie={movie} />
-                    ))}
-                  </MoviesGrid>
-                </>
-              } />)}
-          {personMoviesError && <p>Error: {personMoviesError}</p>}
-          {crewList.length > 0 && (
-            <Section
-              title={`Movies - Crew (${crewList?.length})`}
-              content={
-                <>
-                  <MoviesGrid>
-                    {crewList.map((movie) => (
-                      <MoviesTile key={movie.credit_id} movie={movie} />
-                    ))}
-                  </MoviesGrid>
-                </>
-              } />
+          {personError || personMoviesError ? (<p>Error: {personError}</p>) : (
+            <>
+              <Section
+                content={
+                  <DetailsTile
+                    key={person.id}
+                    show={false}
+                    person={person} />
+                } />
+              {castList.length > 0 && (
+                <Section
+                  title={`Movies - Cast (${castList.length})`}
+                  content={
+                    <>
+                      <MoviesGrid>
+                        {castList.map((movie) => (
+                          <MoviesTile key={movie.id} movie={movie} />
+                        ))}
+                      </MoviesGrid>
+                    </>
+                  } />)}
+              {crewList.length > 0 && (
+                <Section
+                  title={`Movies - Crew (${crewList?.length})`}
+                  content={
+                    <>
+                      <MoviesGrid>
+                        {crewList.map((movie) => (
+                          <MoviesTile key={movie.credit_id} movie={movie} />
+                        ))}
+                      </MoviesGrid>
+                    </>
+                  } />
+              )}
+            </>
           )}
         </>
       )}
     </Container>
-  )};
+  )
+};
 
-  export default PersonPage;
+export default PersonPage;
