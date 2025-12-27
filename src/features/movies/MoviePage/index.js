@@ -13,7 +13,6 @@ import { BackdropContainer, Backdrop, CreditsGrid } from "./styled.js";
 import { Loading } from "../../../common/Loading/styled.js";
 import { useMoviesPage } from "../MoviesPage/useMoviesPage";
 import { useQueryParameter } from "../../queryParameters";
-import MoviesSearch from "../MoviesSearch";
 import { Pagination } from "../../../common/Pagination";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min.js";
 
@@ -62,7 +61,6 @@ const MoviePage = () => {
 
   return (
     <Container>
-      {query ? (<MoviesSearch query={query} />) : (<>
         {movieLoading || creditsLoading ? (<Loading />) : (
           <>
             {movieError || creditsError ? (<p>Error: {movieError}</p>) : (
@@ -115,7 +113,6 @@ const MoviePage = () => {
                   } />
               </>)}
           </>)}
-      </>)}
     </Container>
   );
 };
