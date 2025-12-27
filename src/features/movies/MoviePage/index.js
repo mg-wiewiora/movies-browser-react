@@ -10,6 +10,7 @@ import { fetchMovieStart } from "../movieSlice";
 import { fetchCreditsStart } from "../creditsSlice";
 import { getPosterUrl } from "../moviesData.js";
 import { BackdropContainer, Backdrop, CreditsGrid } from "./styled.js";
+import { Loading } from "../../../common/Loading/styled.js";
 
 const MoviePage = () => {
 
@@ -36,7 +37,7 @@ const MoviePage = () => {
 
   return (
     <Container>
-      {loading && <p>Loading movie...</p>}
+      {loading && <Loading/>}
       {error && <p>Error: {error}</p>}
       {movie.backdrop_path !== null && (
         <BackdropContainer>
