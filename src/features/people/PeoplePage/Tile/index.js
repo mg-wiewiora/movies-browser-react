@@ -5,7 +5,7 @@ import {
   TileTitle,
 
 } from "./styled";
-import noPoster from "../../../../assets/no-poster.svg";
+import noPicture from "../../../../assets/no-picture.svg";
 import { getPosterUrl } from "../peopleData";
 
 const Tile = ({ person }) => {
@@ -14,7 +14,7 @@ const Tile = ({ person }) => {
 
   return (
     <TileWrapper to={personPath}>
-      <TilePeople $posterUrl={posterUrl} $noPosterUrl={noPoster} />
+      <TilePeople $posterUrl={posterUrl} $noPosterUrl={noPicture} />
       <TileContainer>
         <TileTitle>{person.name}</TileTitle>
       </TileContainer>

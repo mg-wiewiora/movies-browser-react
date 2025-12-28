@@ -1,40 +1,30 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../../../common/Container/styled";
 import Section from "../../../common/Section";
-import { fetchPeopleStart } from "../peopleSlice";
 import Tile from "./Tile";
 import { PeopleGrid } from "./styled";
 import { Pagination } from "../../../common/Pagination";
-import { usePagination } from "../../../common/Pagination/usePagination";
-import {
-  ITEMS_PER_PAGE,
-  TOTAL_PAGES,
-  TMDB_ITEMS_PER_PAGE,
-} from "../peopleConstants";
-import { getPageData } from "./peopleData";
-
+import { usePeoplePage } from "./usePeoplePage";
+import { useQueryParameter } from "../../queryParameters";
+import PeopleSearch from "../PeopleSearch";
 
 const PeoplePage = () => {
-   const dispatch = useDispatch();
-   const { people, loading, error } = useSelector((state) => state.people);
-
-   const { page, totalPages, goToFirst, goToPrev, goToNext, goToLast } =
-    usePagination(TOTAL_PAGES, ITEMS_PER_PAGE, TOTAL_PAGES);
-
-  const { tmdbPage, startIndex, endIndex } = getPageData(
-    page,
-    ITEMS_PER_PAGE,
-    TMDB_ITEMS_PER_PAGE
-  );
-  const peopleToShow = people.slice(startIndex, endIndex);
-
-    useEffect(() => {
-       dispatch(fetchPeopleStart({ page: tmdbPage }));
-     }, [dispatch, tmdbPage]);
-
+  const query = useQueryParameter("query") || "";
+  
+    const {
+      peopleToShow,
+      loading,
+      error,
+      page,
+      totalPages,
+      goToFirst,
+      goToPrev,
+      goToNext,
+      goToLast,
+    } = usePeoplePage();
+  
   return (
     <Container>
+      {query ? (<PeopleSearch query={query} />) : (<>
       {loading && <p>Loading people...</p>}
       {error && <p>Error: {error}</p>}
       {peopleToShow.length > 0 && (
@@ -59,6 +49,7 @@ const PeoplePage = () => {
           }
         />
       )}
+      </>)}
     </Container>
   );
 };
