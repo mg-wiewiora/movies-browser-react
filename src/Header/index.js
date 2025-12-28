@@ -15,7 +15,7 @@ import {
 } from "./styled";
 import { usePlaceholder } from "../features/usePlaceholder";
 import { useHeaderSearch } from "./useHeaderSearch";
-import { useHistory, useLocation, useParams } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 const Header = () => {
@@ -23,13 +23,13 @@ const Header = () => {
   const { inputValue, setInputValue, resetSearch } = useHeaderSearch();
   const history = useHistory();
   const location = useLocation();
-  const { id } = useParams();
 
   const onInputChange = ({ target }) => {
   setInputValue(target.value);
 };
 
 useEffect(() => {
+  const isTargetPage = location.pathname === "/people" || location.pathname.startsWith("/person/");
     
     if (inputValue.trim() === "") return;
 
@@ -37,24 +37,19 @@ useEffect(() => {
       const searchParams = new URLSearchParams(location.search);
       searchParams.set("query", inputValue);
 
-      if (location.pathname === "/people" || location.pathname.startsWith("/person/"))
-
-      history.push({ 
-        pathname: "/people",
-        search: searchParams.toString(),
+      const targetPath = isTargetPage ? "/people" : "/movies";
+      
+      const newSearch = searchParams.toString();
+    if (location.search !== `?${newSearch}` || location.pathname !== targetPath) {
+      history.push({
+        pathname: targetPath,
+        search: newSearch,
       });
-
-      else
-
-      history.push({ 
-        pathname: "/movies",
-        search: searchParams.toString(),
-      });
-
-    }, 300);
+    }
+  }, 300);
 
     return () => clearTimeout(timeoutId);
-  }, [inputValue, history, location.pathname, location.search, id]);
+  }, [inputValue, history, location.pathname, location.search]);
 
     return (
       <HeaderWrapper>
