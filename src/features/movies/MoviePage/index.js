@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Section from "../../../common/Section";
 import { Container } from "../../../common/Container/styled";
-import DetailsTile from "../../../common/DetailsTile/index.js";
+import DetailsTile from "./DetailsTile/index.js";
 import CreditsTile from "./CreditsTile/index.js";
 import BackdropTile from "./BackdropTile/index.js";
 import { fetchMovieStart } from "../movieSlice";

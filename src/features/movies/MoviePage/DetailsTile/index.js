@@ -16,8 +16,8 @@ import {
   DetailsTileIcon,
   DetailsTileRating
 } from "./styled.js";
-import { getReleaseYear, getPosterUrl } from "../../features/movies/moviesData.js";
-import noPoster from "../../assets/no-poster.svg";
+import { getReleaseYear, getPosterUrl } from "../../moviesData.js";
+import noPoster from "../../../../assets/no-poster.svg";
 
 const DetailsTile = ({ show, movie, person }) => {
 

@@ -8,7 +8,7 @@ import { Loading } from "../../../common/Loading/styled.js";
 import { fetchPersonStart } from "../personSlice";
 import { fetchPersonMoviesStart } from "../personMoviesSlice";
 import { clearPersonMovies } from "../personMoviesSlice";
-import DetailsTile from "../../../common/DetailsTile/index.js";
+import DetailsTile from "../../movies/MoviePage/DetailsTile/index.js";
 import MoviesTile from "../../movies/MoviesTile/index.js";
 
 const PersonPage = () => {
