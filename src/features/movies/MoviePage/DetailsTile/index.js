@@ -55,7 +55,7 @@ const DetailsTile = ({ show, movie, person }) => {
             </DetailsTileSpecific>)}
           <DetailsTileSpecific>
             <DetailsTileSpecificTitle>
-              {show ? "Release date" : "Place of birth:"}
+              {show ? "Release date:" : "Place of birth:"}
             </DetailsTileSpecificTitle>
             {movie?.release_date?.replace(/-/g, ".")}{person?.place_of_birth}
           </DetailsTileSpecific>
