@@ -49,7 +49,6 @@ const MoviePage = () => {
   const backdropUrl = getPosterUrl(`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`);
   const castList = credits?.cast || [];
   const crewList = credits?.crew || [];
-  
   const history = useHistory();
   const { pathname } = useLocation();
 

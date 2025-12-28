@@ -15,7 +15,7 @@ import {
 } from "./styled";
 import { usePlaceholder } from "../features/usePlaceholder";
 import { useHeaderSearch } from "./useHeaderSearch";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 const Header = () => {
@@ -23,6 +23,7 @@ const Header = () => {
   const { inputValue, setInputValue, resetSearch } = useHeaderSearch();
   const history = useHistory();
   const location = useLocation();
+  const { id } = useParams();
 
   const onInputChange = ({ target }) => {
   setInputValue(target.value);
@@ -36,14 +37,24 @@ useEffect(() => {
       const searchParams = new URLSearchParams(location.search);
       searchParams.set("query", inputValue);
 
-      history.push({
+      if (location.pathname === "/people" || location.pathname.startsWith("/person/"))
+
+      history.push({ 
+        pathname: "/people",
+        search: searchParams.toString(),
+      });
+
+      else
+
+      history.push({ 
         pathname: "/movies",
         search: searchParams.toString(),
       });
+
     }, 300);
 
     return () => clearTimeout(timeoutId);
-  }, [inputValue, history, location.pathname, location.search]);
+  }, [inputValue, history, location.pathname, location.search, id]);
 
     return (
       <HeaderWrapper>
