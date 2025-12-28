@@ -92,9 +92,9 @@ export const DetailsTileYear = styled.div`
 
 export const DetailsTileSpecific = styled.div`
     font-size: 18px;
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
     gap: 8px;
+    margin-left: 0;
 
 @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
         font-size: 11px;
@@ -127,7 +127,6 @@ export const DetailsTileSpecificLongTitle = styled.div`
     font-size: 18px;
     margin-left: 0;
     color: ${({ theme }) => theme.color.woodsmoke};
-    display: block;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
         font-size: 11px;
@@ -142,6 +141,22 @@ export const DetailsTileSpecificShortTitle = styled.div`
     font-size: 18px;
     margin-left: 0;
     color: ${({ theme }) => theme.color.woodsmoke};
+    display: none;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
+        font-size: 13px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        display: block;
+        font-size: 8px;
+  }
+`;
+
+export const DetailsTileSpecificCredits = styled.div`
+    font-size: 18px;
+    margin-left: 0;
+    color: ${({ theme }) => theme.color.grey};
     display: none;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {

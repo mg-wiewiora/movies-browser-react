@@ -5,6 +5,7 @@ import {
   DetailsTileTitle,
   DetailsTileYear,
   DetailsTileSpecific,
+  DetailsTileSpecificCredits,
   DetailsTileSpecificTitle,
   DetailsTileSpecificLongTitle,
   DetailsTileSpecificShortTitle,
@@ -34,29 +35,40 @@ const DetailsTile = ({ show, movie, person }) => {
             {releaseYear}
           </DetailsTileYear>)}
         <DetailsTileContainer>
-          {movie?.production_countries?.map((product) => (
-            <DetailsTileSpecific key={product.iso_3166_1}>
-              <DetailsTileSpecificTitle>
+          <DetailsTileSpecific>
+            {show === true && (
+          <DetailsTileSpecificTitle>
                 Production:
-              </DetailsTileSpecificTitle>
+              </DetailsTileSpecificTitle>)}
+          {movie?.production_countries?.map((product, index) => (
+            <DetailsTileSpecific key={product.iso_3166_1}>
               <DetailsTileSpecificLongTitle>
                 {product.name}
+                {index < movie.production_countries.length - 1 ? "," : ""}
               </DetailsTileSpecificLongTitle>
               <DetailsTileSpecificShortTitle>
                 {product.iso_3166_1}
               </DetailsTileSpecificShortTitle>
             </DetailsTileSpecific>))}
+            </DetailsTileSpecific>
           {person?.birthday && (
             <DetailsTileSpecific>
               <DetailsTileSpecificTitle>
                 Date of birth:
               </DetailsTileSpecificTitle>
+              <DetailsTileSpecificCredits>
+                Birth:
+              </DetailsTileSpecificCredits>
               {person?.birthday.replace(/-/g, ".")}
             </DetailsTileSpecific>)}
           <DetailsTileSpecific>
             <DetailsTileSpecificTitle>
               {show ? "Release date:" : "Place of birth:"}
             </DetailsTileSpecificTitle>
+            {show === false &&
+            <DetailsTileSpecificCredits>
+              Place of birth:
+            </DetailsTileSpecificCredits>} 
             {movie?.release_date?.replace(/-/g, ".")}{person?.place_of_birth}
           </DetailsTileSpecific>
         </DetailsTileContainer>
