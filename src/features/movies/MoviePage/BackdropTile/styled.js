@@ -95,7 +95,6 @@ line-height: 1.2;
 export const BackdropTileMaxVotes = styled.span`
 font-weight: 400;
 font-size: 16px;
-margin-bottom: -10px;
 margin-top: 10px;
 line-height: 1.2;
 

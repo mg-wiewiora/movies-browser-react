@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { ReactComponent as StarIcon } from "../../assets/star.svg";
+import { ReactComponent as StarIcon } from "../../../../assets/star.svg";
 
 export const DetailsTileWrapper = styled.section`
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px ${({ theme }) => theme.color.shadow};
   display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: 1fr auto;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
   grid-gap: 40px;
   padding: 40px;
   margin: 40px 0;
@@ -37,8 +37,12 @@ export const DetailsTileImage = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
         width: 171px;
         height: 254px;
-        grid-row: 1;
+        
         margin-left: 0px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        grid-row: 1;
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
@@ -88,11 +92,15 @@ export const DetailsTileYear = styled.div`
 
 export const DetailsTileSpecific = styled.div`
     font-size: 18px;
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
     gap: 8px;
+    margin-left: 0;
 
 @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
+        font-size: 11px;
+  }
+
+@media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 8px;
   }
 `;
@@ -103,7 +111,11 @@ export const DetailsTileSpecificTitle = styled.div`
     color: ${({ theme }) => theme.color.grey};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
-        font-size: 13px;
+        font-size: 11px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        display: none;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
@@ -115,10 +127,9 @@ export const DetailsTileSpecificLongTitle = styled.div`
     font-size: 18px;
     margin-left: 0;
     color: ${({ theme }) => theme.color.woodsmoke};
-    display: block;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
-        font-size: 13px;
+        font-size: 11px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
@@ -130,6 +141,22 @@ export const DetailsTileSpecificShortTitle = styled.div`
     font-size: 18px;
     margin-left: 0;
     color: ${({ theme }) => theme.color.woodsmoke};
+    display: none;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
+        font-size: 13px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        display: block;
+        font-size: 8px;
+  }
+`;
+
+export const DetailsTileSpecificCredits = styled.div`
+    font-size: 18px;
+    margin-left: 0;
+    color: ${({ theme }) => theme.color.grey};
     display: none;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
@@ -178,8 +205,11 @@ export const DetailsTileContent = styled.div`
 @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
         font-size: 11px;
         margin: 5px 0;
-        grid-column: 1 / 3;
   }
+
+@media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        grid-column: 1 / 3;
+    }
 
 @media (max-width: 540px) {
         font-size: 8px;

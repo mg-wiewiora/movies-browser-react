@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   movie: [],
-  loading: false,
-  error: null,
+  movieLoading: false,
+  movieError: null,
 };
 
 const movieSlice = createSlice({
@@ -11,16 +11,16 @@ const movieSlice = createSlice({
   initialState,
   reducers: {
     fetchMovieStart(state, action) {
-      state.loading = true;
+      state.movieLoading = true;
       state.movie = action.payload;
     },
     fetchMovieSuccess(state, action) {
-      state.loading = false;
+      state.movieLoading = false;
       state.movie = action.payload;
     },
     fetchMovieFailure(state, action) {
-      state.loading = false;
-      state.error = action.payload;
+      state.movieLoading = false;
+      state.movieError = action.payload;
     },
   },
 });
