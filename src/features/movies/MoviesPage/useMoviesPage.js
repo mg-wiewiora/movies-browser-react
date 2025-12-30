@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMoviesStart } from "../moviesSlice";
 import { usePagination } from "../../../common/Pagination/usePagination";
-import { ITEMS_PER_PAGE, TOTAL_PAGES, TMDB_ITEMS_PER_PAGE } from "../moviesConstants";
+import { ITEMS_PER_PAGE, TOTAL_PAGES, TMDB_ITEMS_PER_PAGE } from "../../constants";
 import { getPageData } from "../moviesData";
 
 export const useMoviesPage = () => {

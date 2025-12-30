@@ -1,5 +1,5 @@
 import { call, put, takeLatest, all } from "redux-saga/effects";
-import { tmdbApi } from "./api";
+import { tmdbApi } from "../api";
 import {
   fetchMoviesStart,
   fetchMoviesSuccess,
@@ -42,4 +42,3 @@ function* fetchMoviesSaga(action) {
 export function* moviesSaga() {
   yield takeLatest(fetchMoviesStart.type, fetchMoviesSaga);
 }
-

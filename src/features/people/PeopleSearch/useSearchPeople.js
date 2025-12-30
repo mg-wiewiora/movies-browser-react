@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { tmdbApi } from "../api";
-import { ITEMS_PER_PAGE } from "../peopleConstants";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { tmdbApi } from "../../api";
+import { ITEMS_PER_PAGE } from "../../constants";
 
 export const useSearchPeople = (query) => {
   const [searchResults, setSearchResults] = useState([]);
@@ -10,14 +9,13 @@ export const useSearchPeople = (query) => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
-  const { id } = useParams();
 
   useEffect(() => {
     setPage(1);
   }, [query]);
 
   useEffect(() => {
-    if (!query || Object.keys({id}).length === 0) {
+    if (!query) {
       setSearchResults([]);
       setTotalResults(0);
       return;
@@ -28,8 +26,10 @@ export const useSearchPeople = (query) => {
       setError(null);
 
       try {
-        const response = await tmdbApi.get("/search/person", { params: { query, page } });
-        
+        const response = await tmdbApi.get("/search/person", {
+          params: { query, page },
+        });
+
         setSearchResults(response.data.results.slice(0, ITEMS_PER_PAGE));
         setTotalPages(response.data.total_pages);
         setTotalResults(response.data.total_results);
@@ -41,7 +41,7 @@ export const useSearchPeople = (query) => {
     }, 500);
 
     return () => clearTimeout(timeoutId);
-  }, [query, page, id]);
+  }, [query, page]);
 
   const goToFirst = () => setPage(1);
   const goToPrev = () => setPage((prev) => Math.max(prev - 1, 1));

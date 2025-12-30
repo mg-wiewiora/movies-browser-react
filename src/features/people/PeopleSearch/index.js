@@ -1,6 +1,8 @@
 import Section from "../../../common/Section";
-import Tile from "../PeoplePage/Tile/index.js";
-import { Loading } from "../../../common/Loading/styled.js";
+import Tile from "../PeoplePage/Tile";
+import { Loading } from "../../../common/Loading/styled";
+import { NoResults } from "../../../common/NoResults/styled";
+import Error from "../../../common/Error";
 import { PeopleGrid } from "../PeoplePage/styled";
 import { Pagination } from "../../../common/Pagination";
 import { useSearchPeople } from "./useSearchPeople";
@@ -21,18 +23,24 @@ const PeopleSearch = ({ query }) => {
 
   if (!query) return null;
 
+  const isNoResults = !loading && !error && searchResults.length === 0;
+
+  const sectionTitle = isNoResults
+    ? `Sorry, there are no results for "${query}"`
+    : loading
+    ? `Search results for "${query}"`
+    : `Search results for "${query}" (${totalResults})`;
+
   return (
     <Section
-      title={
-        loading
-          ? `Search results for "${query}"`
-          : `Search results for "${query}" (${totalResults})`
-      }
+      title={sectionTitle}
       content={
         loading ? (
           <Loading />
         ) : error ? (
-          <p>Error: {error}</p>
+          <Error />
+        ) : isNoResults ? (
+          <NoResults />
         ) : (
           <>
             <PeopleGrid>
