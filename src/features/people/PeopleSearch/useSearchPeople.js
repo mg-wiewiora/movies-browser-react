@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { tmdbApi } from "../api";
+import { tmdbApi } from "../../api";
 import { ITEMS_PER_PAGE } from "../peopleConstants";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { tmdbApi } from "../api";
+import { tmdbApi } from "../../api";
 import { ITEMS_PER_PAGE } from "../moviesConstants";
 
 export const useSearchMovies = (query) => {
