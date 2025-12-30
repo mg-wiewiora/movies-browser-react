@@ -2,6 +2,7 @@ import Section from "../../../common/Section";
 import MoviesTile from "../MoviesTile";
 import { Loading } from "../../../common/Loading/styled";
 import { NoResults } from "../../../common/NoResults/styled";
+import Error from "../../../common/Error";
 import { MoviesGrid } from "../MoviesPage/styled";
 import { Pagination } from "../../../common/Pagination";
 import { useSearchMovies } from "./useSearchMovies";
@@ -38,7 +39,7 @@ const MoviesSearch = ({ query }) => {
         loading ? (
           <Loading />
         ) : error ? (
-          <p>Error: {error}</p>
+          <Error />
         ) : isNoResults ? (
           <NoResults />
         ) : (
