@@ -26,15 +26,15 @@ const MoviesSearch = ({ query }) => {
   const isNoResults =
     !loading && !error && searchResults.length === 0;
 
+  const sectionTitle = query
+    ? loading || searchResults.length === 0
+      ? `Search results for "${query}"`
+      : `Search results for "${query}" (${totalResults})`
+    : "";
+
   return (
     <Section
-      title={
-        loading
-          ? `Search results for "${query}"`
-          : isNoResults
-          ? `Sorry, there are no results for "${query}"`
-          : `Search results for "${query}" (${totalResults})`
-      }
+      title={sectionTitle}
       content={
         loading ? (
           <Loading />
