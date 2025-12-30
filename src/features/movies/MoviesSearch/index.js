@@ -1,6 +1,7 @@
 import Section from "../../../common/Section";
 import MoviesTile from "../MoviesTile";
-import { Loading } from "../../../common/Loading/styled.js";
+import { Loading } from "../../../common/Loading/styled";
+import { NoResults } from "../../../common/NoResults/styled";
 import { MoviesGrid } from "../MoviesPage/styled";
 import { Pagination } from "../../../common/Pagination";
 import { useSearchMovies } from "./useSearchMovies";
@@ -21,11 +22,16 @@ const MoviesSearch = ({ query }) => {
 
   if (!query) return null;
 
+  const isNoResults =
+    !loading && !error && searchResults.length === 0;
+
   return (
     <Section
       title={
         loading
           ? `Search results for "${query}"`
+          : isNoResults
+          ? `Sorry, there are no results for "${query}"`
           : `Search results for "${query}" (${totalResults})`
       }
       content={
@@ -33,6 +39,8 @@ const MoviesSearch = ({ query }) => {
           <Loading />
         ) : error ? (
           <p>Error: {error}</p>
+        ) : isNoResults ? (
+          <NoResults />
         ) : (
           <>
             <MoviesGrid>
