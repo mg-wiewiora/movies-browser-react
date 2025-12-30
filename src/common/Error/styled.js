@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 export const ErrorWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin-top: 180px;
   gap: 24px;
@@ -29,15 +28,14 @@ export const ErrorMessage = styled.p`
 `;
 
 export const ErrorButton = styled(Link)`
+  padding: 16px 24px;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.color.blue};
   color: ${({ theme }) => theme.color.white};
-  text-decoration: none;
   font-weight: 700;
   font-size: 14px;
-  flex-direction: row;
-  padding: 16px 24px;
-  gap: 10px;
+  text-decoration: none;
+  display: inline-block;
 
   &:hover {
     background: hsla(220, 100%, 45%, 1);
