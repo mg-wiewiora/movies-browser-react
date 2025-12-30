@@ -14,7 +14,9 @@ export const useSearchMovies = (query) => {
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-        const response = await tmdbApi.get("/genre/movie/list", { params: { language: "en-US" } });
+        const response = await tmdbApi.get("/genre/movie/list", {
+          params: { language: "en-US" },
+        });
         const map = {};
         response.data.genres.forEach((g) => {
           map[g.id] = g.name;
@@ -43,7 +45,10 @@ export const useSearchMovies = (query) => {
       setError(null);
 
       try {
-        const response = await tmdbApi.get("/search/movie", { params: { query, page } });
+        const response = await tmdbApi.get("/search/movie", {
+          params: { query, page },
+        });
+
         const resultsWithGenres = response.data.results.map((movie) => ({
           ...movie,
           genre_names: movie.genre_ids?.map((id) => genresMap[id]) || [],
