@@ -6,8 +6,7 @@ export const ErrorWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 180px;
-  gap: 24px;
+  margin-top: 160px;
   text-align: center;
 `;
 
