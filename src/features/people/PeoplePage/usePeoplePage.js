@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPeopleStart } from "../peopleSlice";
 import { usePagination } from "../../../common/Pagination/usePagination";
-import { ITEMS_PER_PAGE, TOTAL_PAGES, TMDB_ITEMS_PER_PAGE } from "../peopleConstants";
+import { ITEMS_PER_PAGE, TOTAL_PAGES, TMDB_ITEMS_PER_PAGE } from "../../constants";
 import { getPageData } from "./peopleData";
 
 export const usePeoplePage = () => {

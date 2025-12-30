@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { tmdbApi } from "../../api";
-import { ITEMS_PER_PAGE } from "../moviesConstants";
+import { ITEMS_PER_PAGE } from "../../constants";
 
 export const useSearchMovies = (query) => {
   const [searchResults, setSearchResults] = useState([]);
