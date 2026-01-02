@@ -38,7 +38,6 @@ export const useHeader = () => {
       const currentLocation = `${location.pathname}${location.search}`;
 
       if (currentLocation !== newLocation) {
-        // Używamy replace, aby nie duplikować wpisów w historii przy każdej literce
         history.replace(newLocation);
       }
     }, 300);

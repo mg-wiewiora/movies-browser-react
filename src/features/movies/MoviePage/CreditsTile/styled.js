@@ -8,31 +8,27 @@ export const CreditsTileWrapper = styled(NavLink)`
   cursor: pointer;
   text-decoration: none;
   width: 208px;
-  height: 420px;
+  height: 100%;
   padding: 12px;
-  margin: 24px 0px;
+  margin: 0px;
   font-size: 25px;
 
   &:hover {
     transform: translateY(-7px);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    width: 165px;
-    height: 335px;
-    margin: 8px 0px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.beneathFullHD}px) {
+    width: 100%;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
     grid-template-columns: 2fr;
-    width: 136px;
-    height: 265px;
     justify-content: center;
   }
 `;
 
 export const CreditsTileImage = styled.div`
-  width: 176px;
+  width: 100%;
   display: block;
   aspect-ratio: 2 / 3;
   border-radius: 5px;
@@ -46,17 +42,6 @@ export const CreditsTileImage = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     aspect-ratio: 2 / 3;
     margin: 0;
-    width: 135px;
-  }
-
-  @media (max-width: 540px) {
-        width: 140px;
-        background-size: cover;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
-    width: 114px;
-    background-size: cover;
   }
 `;
 
@@ -72,6 +57,14 @@ export const CreditsTileName = styled.h2`
   line-height: 1.3;
   font-weight: 500;
   color: ${({ theme }) => theme.color.woodsmoke};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.beneathFullHD}px) {
+        font-size: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
+        font-size: 14px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 14px;
@@ -92,12 +85,20 @@ export const CreditsTileJob = styled.h2`
   line-height: 1.3;
   color: ${({ theme }) => theme.color.grey};
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.beneathFullHD}px) {
+        font-size: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
+        font-size: 14px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 14px;
         margin: 5px 0;
   }
 
-@media (max-width: 540px) {
+  @media (max-width: 540px) {
         font-size: 8px;
         margin: 5px 0;
-  }`;
+}`;
