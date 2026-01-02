@@ -81,7 +81,7 @@ const MoviePage = () => {
                       movie={movie} />
                   } />
                 <Section
-                  title="Cast"
+                  title={`Cast (${castList.length})`}
                   content={
                     <>
                       <CreditsGrid >
@@ -92,7 +92,7 @@ const MoviePage = () => {
                     </>
                   } />
                 <Section
-                  title="Crew"
+                  title={`Crew (${crewList.length})`}
                   content={
                     <>
                       <CreditsGrid >
