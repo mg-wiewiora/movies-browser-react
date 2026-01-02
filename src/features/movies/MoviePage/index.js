@@ -11,6 +11,7 @@ import { fetchCreditsStart } from "../creditsSlice";
 import { getPosterUrl } from "../moviesData.js";
 import { BackdropContainer, Backdrop, CreditsGrid } from "./styled.js";
 import { Loading } from "../../../common/Loading/styled.js";
+import Error from "../../../common/Error";
 import { useMoviesPage } from "../MoviesPage/useMoviesPage";
 import { useQueryParameter } from "../../queryParameters";
 import { Pagination } from "../../../common/Pagination";
@@ -60,58 +61,58 @@ const MoviePage = () => {
 
   return (
     <Container>
-        {movieLoading || creditsLoading ? (<Loading />) : (
-          <>
-            {movieError || creditsError ? (<p>Error: {movieError}</p>) : (
-              <>
-                {movie.backdrop_path !== null && (
-                  <BackdropContainer>
-                    <Backdrop $posterUrl={backdropUrl}>
-                      <BackdropTile
-                        key={movie.imdb_id}
-                        movie={movie}
-                      />
-                    </Backdrop>
-                  </BackdropContainer>)}
-                <Section
-                  content={
-                    <DetailsTile
-                      show={true}
-                      key={movie.id}
-                      movie={movie} />
-                  } />
-                <Section
-                  title={`Cast (${castList.length})`}
-                  content={
-                    <>
-                      <CreditsGrid >
-                        {castList.map((actor) => (
-                          <CreditsTile key={actor.cast_id} actor={actor} />
-                        ))}
-                      </CreditsGrid>
-                    </>
-                  } />
-                <Section
-                  title={`Crew (${crewList.length})`}
-                  content={
-                    <>
-                      <CreditsGrid >
-                        {crewList.map((crew) => (
-                          <CreditsTile key={crew.credit_id} crew={crew} />
-                        ))}
-                      </CreditsGrid>
-                      <Pagination
-                        page={page}
-                        totalPages={totalPages}
-                        onFirst={goToFirst}
-                        onPrev={goToPrev}
-                        onNext={goToNext}
-                        onLast={goToLast}
-                      />
-                    </>
-                  } />
-              </>)}
-          </>)}
+      {movieLoading || creditsLoading ? (<Loading />) : (
+        <>
+          {movieError || creditsError ? (<Error />) : (
+            <>
+              {movie.backdrop_path !== null && (
+                <BackdropContainer>
+                  <Backdrop $posterUrl={backdropUrl}>
+                    <BackdropTile
+                      key={movie.imdb_id}
+                      movie={movie}
+                    />
+                  </Backdrop>
+                </BackdropContainer>)}
+              <Section
+                content={
+                  <DetailsTile
+                    show={true}
+                    key={movie.id}
+                    movie={movie} />
+                } />
+              <Section
+                title={`Cast (${castList.length})`}
+                content={
+                  <>
+                    <CreditsGrid >
+                      {castList.map((actor) => (
+                        <CreditsTile key={actor.cast_id} actor={actor} />
+                      ))}
+                    </CreditsGrid>
+                  </>
+                } />
+              <Section
+                title={`Crew (${crewList.length})`}
+                content={
+                  <>
+                    <CreditsGrid >
+                      {crewList.map((crew) => (
+                        <CreditsTile key={crew.credit_id} crew={crew} />
+                      ))}
+                    </CreditsGrid>
+                    <Pagination
+                      page={page}
+                      totalPages={totalPages}
+                      onFirst={goToFirst}
+                      onPrev={goToPrev}
+                      onNext={goToNext}
+                      onLast={goToLast}
+                    />
+                  </>
+                } />
+            </>)}
+        </>)}
     </Container>
   );
 };

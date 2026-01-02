@@ -15,7 +15,7 @@ export const ErrorWrapper = styled.div`
 `;
 
 export const ErrorIcon = styled(ErrorIconSVG)`
-  width: 120px;
+  width: auto;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     margin-top: 24px;
