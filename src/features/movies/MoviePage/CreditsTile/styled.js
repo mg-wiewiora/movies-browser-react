@@ -24,6 +24,7 @@ export const CreditsTileWrapper = styled(NavLink)`
   @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
     grid-template-columns: 2fr;
     justify-content: center;
+    padding: 8px;
   }
 `;
 
