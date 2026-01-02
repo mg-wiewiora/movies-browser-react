@@ -34,12 +34,12 @@ export const useHeader = () => {
         location.pathname.startsWith("/person/");
       const targetPath = isPeoplePath ? toPeople() : toMovies();
       const newSearch = searchParams.toString();
+      const newLocation = `${targetPath}${newSearch ? `?${newSearch}` : ""}`;
+      const currentLocation = `${location.pathname}${location.search}`;
 
-      if (
-        location.search !== `?${newSearch}` ||
-        location.pathname !== targetPath
-      ) {
-        history.push({ pathname: targetPath, search: newSearch });
+      if (currentLocation !== newLocation) {
+        // Używamy replace, aby nie duplikować wpisów w historii przy każdej literce
+        history.replace(newLocation);
       }
     }, 300);
 
