@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, takeLatest, delay } from "redux-saga/effects";
 import { tmdbApi } from "../api";
 import {
   fetchPeopleStart,
@@ -14,6 +14,7 @@ function fetchPopularPeopleApi(page) {
 
 function* fetchPeopleSaga(action) {
   try {
+    yield delay(500);
     const page = action.payload?.page || 1;
 
     const peopleResponse = yield call(fetchPopularPeopleApi, page);

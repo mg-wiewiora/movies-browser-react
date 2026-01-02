@@ -56,7 +56,7 @@ const PersonPage = () => {
                     <>
                       <MoviesGrid>
                         {castList.map((movie) => (
-                          <MoviesTile key={movie.id} movie={movie} />
+                          <MoviesTile key={movie.id} movie={movie} person={true} />
                         ))}
                       </MoviesGrid>
                     </>
@@ -68,7 +68,7 @@ const PersonPage = () => {
                     <>
                       <MoviesGrid>
                         {crewList.map((movie) => (
-                          <MoviesTile key={movie.credit_id} movie={movie} />
+                          <MoviesTile key={movie.credit_id} movie={movie} person={true}/>
                         ))}
                       </MoviesGrid>
                     </>

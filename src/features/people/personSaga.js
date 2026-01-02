@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, takeLatest, delay } from "redux-saga/effects";
 import { tmdbApi } from "../api";
 import {
   fetchPersonStart,
@@ -12,6 +12,7 @@ function fetchPersonApi(personId) {
 
 function* fetchPersonSaga(action) {
   const personId = action.payload;
+  yield delay(500);
 
   if (!personId) {
     console.error("Missing person ID in action payload.");
