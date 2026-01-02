@@ -6,7 +6,7 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]); // Za każdym razem, gdy ścieżka się zmieni, przewiń do góry
+  }, [pathname]);
 
   return null;
 };
