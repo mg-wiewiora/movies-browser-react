@@ -40,6 +40,8 @@ export const useSearchMovies = (query) => {
       return;
     }
 
+    setLoading(true);
+
     const timeoutId = setTimeout(async () => {
       setLoading(true);
       setError(null);

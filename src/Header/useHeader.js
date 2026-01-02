@@ -41,7 +41,7 @@ export const useHeader = () => {
       ) {
         history.push({ pathname: targetPath, search: newSearch });
       }
-    }, 500);
+    }, 300);
 
     return () => clearTimeout(handler);
   }, [inputValue, query, replaceQuery, history, location]);
