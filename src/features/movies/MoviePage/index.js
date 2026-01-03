@@ -12,23 +12,12 @@ import { getPosterUrl } from "../moviesData.js";
 import { BackdropContainer, Backdrop, CreditsGrid } from "./styled.js";
 import { Loading } from "../../../common/Loading/styled.js";
 import Error from "../../../common/Error";
-import { useMoviesPage } from "../MoviesPage/useMoviesPage";
 import { useQueryParameter } from "../../queryParameters";
-import { Pagination } from "../../../common/Pagination";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min.js";
 
 const MoviePage = () => {
 
   const query = useQueryParameter("query") || "";
-
-  const {
-    page,
-    totalPages,
-    goToFirst,
-    goToPrev,
-    goToNext,
-    goToLast,
-  } = useMoviesPage();
 
   const { movie, movieLoading, movieError } = useSelector((state) => state.movie);
   const { credits, creditsLoading, creditsError } = useSelector((state) => state.credits);
@@ -101,14 +90,6 @@ const MoviePage = () => {
                         <CreditsTile key={crew.credit_id} crew={crew} />
                       ))}
                     </CreditsGrid>
-                    <Pagination
-                      page={page}
-                      totalPages={totalPages}
-                      onFirst={goToFirst}
-                      onPrev={goToPrev}
-                      onNext={goToNext}
-                      onLast={goToLast}
-                    />
                   </>
                 } />
             </>)}
