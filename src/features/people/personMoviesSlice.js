@@ -12,7 +12,7 @@ const personMoviesSlice = createSlice({
     reducers: {
         fetchPersonMoviesStart(state, action) {
             state.personMoviesLoading = true;
-            state.personMovies = action.payload;
+            state.personMoviesError = null;
         },
         fetchPersonMoviesSuccess(state, action) {
             state.personMoviesLoading = false;

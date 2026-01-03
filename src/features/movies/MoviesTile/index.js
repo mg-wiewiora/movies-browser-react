@@ -14,7 +14,7 @@ import {
 import noPoster from "../../../assets/no-poster.svg";
 import { getReleaseYear, getPosterUrl } from "../moviesData.js";
 
-const MoviesTile = ({ movie }) => {
+const MoviesTile = ({ movie, person }) => {
   const releaseYear = getReleaseYear(movie.release_date);
   const posterUrl = getPosterUrl(movie.poster_path);
 
@@ -23,7 +23,7 @@ const MoviesTile = ({ movie }) => {
       <MoviesTileImage $posterUrl={posterUrl} $noPosterUrl={noPoster} />
       <MoviesTileContainer>
         <MoviesTileTitle>{movie.title}</MoviesTileTitle>
-        <MoviesTileYear>{releaseYear}</MoviesTileYear>
+        <MoviesTileYear>{person === true ? (movie?.character) : (releaseYear)}</MoviesTileYear>
         <MoviesTileTags>
           {movie.genre_names?.map((g) => (
             <MoviesTileTag key={g}>{g}</MoviesTileTag>

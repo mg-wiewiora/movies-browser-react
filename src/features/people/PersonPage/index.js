@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { MoviesGrid } from "./styled";
 import { Container } from "../../../common/Container/styled";
 import { Loading } from "../../../common/Loading/styled.js";
+import Error from "../../../common/Error";
 import { fetchPersonStart } from "../personSlice";
 import { fetchPersonMoviesStart } from "../personMoviesSlice";
 import { clearPersonMovies } from "../personMoviesSlice";
@@ -40,7 +41,7 @@ const PersonPage = () => {
     <Container>
       {personLoading || personMoviesLoading ? (<Loading />) : (
         <>
-          {personError || personMoviesError ? (<p>Error: {personError}</p>) : (
+          {personError || personMoviesError ? (<Error />) : (
             <>
               <Section
                 content={
@@ -56,7 +57,7 @@ const PersonPage = () => {
                     <>
                       <MoviesGrid>
                         {castList.map((movie) => (
-                          <MoviesTile key={movie.id} movie={movie} />
+                          <MoviesTile key={movie.id} movie={movie} person={true} />
                         ))}
                       </MoviesGrid>
                     </>
@@ -68,7 +69,7 @@ const PersonPage = () => {
                     <>
                       <MoviesGrid>
                         {crewList.map((movie) => (
-                          <MoviesTile key={movie.credit_id} movie={movie} />
+                          <MoviesTile key={movie.credit_id} movie={movie} person={true} />
                         ))}
                       </MoviesGrid>
                     </>

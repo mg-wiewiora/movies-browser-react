@@ -34,14 +34,13 @@ export const useHeader = () => {
         location.pathname.startsWith("/person/");
       const targetPath = isPeoplePath ? toPeople() : toMovies();
       const newSearch = searchParams.toString();
+      const newLocation = `${targetPath}${newSearch ? `?${newSearch}` : ""}`;
+      const currentLocation = `${location.pathname}${location.search}`;
 
-      if (
-        location.search !== `?${newSearch}` ||
-        location.pathname !== targetPath
-      ) {
-        history.push({ pathname: targetPath, search: newSearch });
+      if (currentLocation !== newLocation) {
+        history.replace(newLocation);
       }
-    }, 500);
+    }, 300);
 
     return () => clearTimeout(handler);
   }, [inputValue, query, replaceQuery, history, location]);

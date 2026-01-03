@@ -1,7 +1,7 @@
 import { Container } from "../../../common/Container/styled";
 import Section from "../../../common/Section";
-import Tile from "./Tile";
-import { PeopleGrid } from "./styled";
+import CreditsTile from "../../movies/MoviePage/CreditsTile/index";
+import { CreditsGrid } from "../../movies/MoviePage/styled";
 import { Pagination } from "../../../common/Pagination";
 import { usePeoplePage } from "./usePeoplePage";
 import { useQueryParameter } from "../../queryParameters";
@@ -39,11 +39,11 @@ const PeoplePage = () => {
               title="Popular people"
               content={
                 <>
-                  <PeopleGrid>
+                  <CreditsGrid>
                     {peopleToShow.map((person) => (
-                      <Tile key={person.id} person={person} />
+                      <CreditsTile key={person.id} person={person} />
                     ))}
-                  </PeopleGrid>
+                  </CreditsGrid>
                   <Pagination
                     page={page}
                     totalPages={totalPages}

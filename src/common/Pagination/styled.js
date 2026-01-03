@@ -34,6 +34,10 @@ export const PaginationButton = styled.button`
   border: none;
   cursor: pointer;
 
+  &:hover {
+    background-color: ${({ theme }) => theme.color.chetwodeBlue};
+  }
+
   &:disabled {
     background-color: ${({ theme }) => theme.color.mystic};
     cursor: not-allowed;

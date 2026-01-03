@@ -61,20 +61,19 @@ export const CreditsGrid = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.beneathFullHD}px) {
     grid-template-columns: repeat(5, 1fr);
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.desktopStandard}px) {
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 0px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 0px;
+    grid-gap: 12px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 8px;
+  }
+
+  @media (max-width: 340px) {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 0px;
   }
 `;

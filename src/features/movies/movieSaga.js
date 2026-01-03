@@ -1,4 +1,4 @@
-import { call, put, takeLatest, all } from "redux-saga/effects";
+import { call, put, takeLatest, all, delay } from "redux-saga/effects";
 import { tmdbApi } from "../api";
 import {
   fetchMovieStart,
@@ -16,6 +16,7 @@ function fetchGenreApi() {
 
 function* fetchMovieSaga(action) {
   const movieId = action.payload;
+  yield delay(500);
 
   if (!movieId) {
     console.error("Missing movie ID in action payload.");

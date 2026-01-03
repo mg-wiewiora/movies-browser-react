@@ -5,7 +5,6 @@ import {
   ErrorMessage,
   ErrorButton,
 } from "./styled";
-import { toMovies } from "../../routes";
 
 const Error = () => (
   <ErrorWrapper>
@@ -16,7 +15,7 @@ const Error = () => (
       <br />
       and try again
     </ErrorMessage>
-    <ErrorButton to={toMovies()}>
+    <ErrorButton to="/">
       Back to home page
     </ErrorButton>
   </ErrorWrapper>

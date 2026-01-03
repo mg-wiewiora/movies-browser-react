@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <HeaderLeft>
-        <HeaderMainLink to={toMovies()} onClick={resetSearch}>
+        <HeaderMainLink to="/" onClick={resetSearch}>
           <HeaderLogo />
           <HeaderTitle>Movies Browser</HeaderTitle>
         </HeaderMainLink>

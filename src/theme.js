@@ -9,6 +9,7 @@ export const theme = {
     woodsmoke: "#18181B",
     black: "#000000",
     sky: "#D6E4FF",
+    chetwodeBlue: "#8ba6dbff",
     blue: "#0044CCFF",
   },
   breakpoint: {
