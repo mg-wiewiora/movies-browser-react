@@ -18,15 +18,14 @@ export const useSearchPeople = (query) => {
     if (!query) {
       setSearchResults([]);
       setTotalResults(0);
+      setLoading(false);
       return;
     }
 
-    setLoading(true)
+    setLoading(true);
+    setError(null);
 
     const timeoutId = setTimeout(async () => {
-      setLoading(true);
-      setError(null);
-
       try {
         const response = await tmdbApi.get("/search/person", {
           params: { query, page },
