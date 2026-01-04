@@ -1,4 +1,4 @@
-import { call, put, takeLatest, all } from "redux-saga/effects";
+import { call, put, takeLatest, all, delay } from "redux-saga/effects";
 import { tmdbApi } from "../api";
 import {
   fetchMoviesStart,
@@ -16,6 +16,8 @@ function fetchGenresApi() {
 
 function* fetchMoviesSaga(action) {
   try {
+    yield delay(500);
+
     const page = action.payload?.page || 1;
 
     const [moviesResponse, genresResponse] = yield all([

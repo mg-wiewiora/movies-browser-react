@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const BackdropContainer = styled.div`
-    
     height: 770px;
     display: flex;
     justify-content: center;
@@ -18,11 +17,11 @@ export const BackdropContainer = styled.div`
   }
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    height: 280px;
+    height: 360px;
     }
   
   @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
-    max-height: 148px;
+    max-height: 228px;
   }`
 
 export const Backdrop = styled.div`
@@ -42,12 +41,11 @@ export const Backdrop = styled.div`
     height: 100%;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
-    height: 400px;
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    max-height: 100%;
   }
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    height: 300px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
     max-height: 100%;
     box-shadow: inset 0px 0px 30px 20px ${({ theme }) => theme.color.black};
   }
@@ -61,20 +59,19 @@ export const CreditsGrid = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.beneathFullHD}px) {
     grid-template-columns: repeat(5, 1fr);
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.desktopStandard}px) {
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 0px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.tabletLandscape}px) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 0px;
+    grid-gap: 12px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.horizontalMobile}px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 8px;
+  }
+
+  @media (max-width: 340px) {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 0px;
   }
 `;

@@ -38,16 +38,20 @@ function* fetchPersonMoviesSaga(action) {
 
     const personMovieData = personMoviesResponse.data;
 
-    const movieWithGenres = {
-      ...personMovieData,
-      genre_names: personMovieData.genres
-        ? personMovieData.genres.map((g) => g.name)
-        : personMovieData.genre_ids
-        ? personMovieData.genre_ids.map((id) => genreMap[id] || "Unknown")
+    const injectGenreNames = (movie) => ({
+      ...movie,
+      genre_names: movie.genre_ids
+        ? movie.genre_ids.map((id) => genreMap[id] || "Unknown")
         : [],
+    });
+
+    const enrichedData = {
+      ...personMovieData,
+      cast: personMovieData.cast ? personMovieData.cast.map(injectGenreNames) : [],
+      crew: personMovieData.crew ? personMovieData.crew.map(injectGenreNames) : [],
     };
 
-    yield put(fetchPersonMoviesSuccess(movieWithGenres));
+    yield put(fetchPersonMoviesSuccess(enrichedData));
   } catch (error) {
     yield put(fetchPersonMoviesFailure(error.message));
   }

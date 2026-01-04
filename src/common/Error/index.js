@@ -5,7 +5,7 @@ import {
   ErrorMessage,
   ErrorButton,
 } from "./styled";
-import { toMovies } from "../../routes";
+import {toMovies} from "../../routes";
 
 const Error = () => (
   <ErrorWrapper>

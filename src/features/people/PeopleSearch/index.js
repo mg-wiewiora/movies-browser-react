@@ -1,9 +1,9 @@
 import Section from "../../../common/Section";
-import Tile from "../PeoplePage/Tile";
+import CreditsTile from "../../movies/MoviePage/CreditsTile/index";
 import { Loading } from "../../../common/Loading/styled";
 import { NoResults } from "../../../common/NoResults/styled";
 import Error from "../../../common/Error";
-import { PeopleGrid } from "../PeoplePage/styled";
+import { CreditsGrid } from "../../movies/MoviePage/styled";
 import { Pagination } from "../../../common/Pagination";
 import { useSearchPeople } from "./useSearchPeople";
 
@@ -43,11 +43,11 @@ const PeopleSearch = ({ query }) => {
           <NoResults />
         ) : (
           <>
-            <PeopleGrid>
+            <CreditsGrid>
               {searchResults.map((person) => (
-                <Tile key={person.id} person={person} />
+                <CreditsTile key={person.id} person={person} />
               ))}
-            </PeopleGrid>
+            </CreditsGrid>
             <Pagination
               page={page}
               totalPages={totalPages}

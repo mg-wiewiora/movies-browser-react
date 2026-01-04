@@ -23,7 +23,7 @@ const MoviesSearch = ({ query }) => {
 
   if (!query) return null;
 
-  const isNoResults = !loading && !error && searchResults.length === 0;
+  const isNoResults = !loading && !error && searchResults?.length === 0;
 
   const sectionTitle = isNoResults
     ? `Sorry, there are no results for "${query}"`
