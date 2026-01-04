@@ -16,7 +16,7 @@ const Error = () => (
       <br />
       and try again
     </ErrorMessage>
-    <ErrorButton to={toMovies}>
+    <ErrorButton to={toMovies()}>
       Back to home page
     </ErrorButton>
   </ErrorWrapper>
