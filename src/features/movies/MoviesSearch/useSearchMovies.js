@@ -39,7 +39,6 @@ export const useSearchMovies = (query) => {
       return;
     }
 
-    // ✅ KLUCZOWA LINIJKA
     setLoading(true);
 
     const timeoutId = setTimeout(async () => {
