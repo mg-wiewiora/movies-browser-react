@@ -63,7 +63,6 @@ export const HeaderTitle = styled.h1`
   letter-spacing: -1.5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    font-size: 13px;
     font-weight: 500;
     font-size: 13px;
     letter-spacing: -0.5px;
