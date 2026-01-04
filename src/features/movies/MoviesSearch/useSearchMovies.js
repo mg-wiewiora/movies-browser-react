@@ -35,13 +35,13 @@ export const useSearchMovies = (query) => {
 
   useEffect(() => {
     if (!query || Object.keys(genresMap).length === 0) {
-      setSearchResults([]);
-      setTotalResults(0);
+      setLoading(false);
       return;
     }
 
+    setLoading(true);
+
     const timeoutId = setTimeout(async () => {
-      setLoading(true);
       setError(null);
 
       try {
