@@ -1,21 +1,19 @@
-# Movies Browser - Work in progress ⚒️ 🧐
+# Movies Browser - Final version 🎯🎉
 
 Fully interactive version → React, Redux Toolkit, React Router & Styled Components
 
-
-> This project was created as part of mastering Front-end fundamentals.
->
 > **language of the page: English**
 
 <img width="200" alt="Movies Browser icon" src="https://github.com/user-attachments/assets/645ae2ea-e8fe-4a1a-8066-4b40296373c7" />
 
 ---
 
-
 ## Demo
 
 **Check the website:**  
 https://mg-wiewiora.github.io/movies-browser-react/
+
+![animation](src/assets/Animation.gif)
 
 ---
 
@@ -26,6 +24,27 @@ https://mg-wiewiora.github.io/movies-browser-react/
 **Izabela Janusz** - [GitHub profile](https://github.com/Izka25)
 
 **Michał Kowalczyk** - [GitHub profile](https://github.com/Hirazuku)
+
+---
+
+## Description
+
+**How does it work 💻**
+>
+> This application allows you to monitor current information about films, actors, and other people involved in their creation. All data comes from TMDB. The main page contains popular films with pagination, allowing you to navigate between pages. Clicking on a film's tile will allow you to access its details. Using the search engine on the main page and on the subpage containing details, you can search for the film you're interested in. The next tab is "Popular People," which works almost identically to the main page – you can also access details, this time about a specific person. The search engine will guide you to the people you're interested in.
+
+**Methods and aims 🧐**
+>
+> This app was created as part of a group project aimed at learning how to work in a team according to Scrum, using pull requests and reviews on GitHub. We worked in a team of three, each creating a branch, which we then merged with main only after the other two people agreed.
+>
+**How it's built ⚒️**
+>
+> Pages:
+> - Movies Page, a page contains information about popular films, their ratings, genres, and release year. Includes pagination to navigate to the next page and a search engine that allows you to find a movie by name.
+> - Movie Page, a subpage of Movies Page, contains backdrop, details with a description of the film, cast and crew. Includes a search engine that allows you to find a movie by name.
+> - People Page, a page contains pictures and names of currently most popular people. Includes pagination to navigate to the next page and a search engine that allows you to find a person by name.
+> - Person Page, a subpage of Movies Page, contains details with a biography of the person, films in which he or she acted and in which she participated as a crew member. Includes a search engine that allows you to find a person by name.
+>
 
 ---
 
